@@ -20,6 +20,7 @@ get a slot before their third heading, and content pages get one at the end.
 Slots are empty and hidden until ads are switched on (add ?ads=1 to any URL to
 preview where they sit).
 """
+import hashlib
 import html
 import re
 from pathlib import Path
@@ -63,7 +64,7 @@ TEMPLATE = """<!doctype html>
   <meta name="description" content="{description}">
   <link rel="canonical" href="{canonical}">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="{style}">
 </head>
 <body>
   <header class="site">
@@ -83,10 +84,16 @@ TEMPLATE = """<!doctype html>
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
   </footer>
-  <script src="/js/site.js"></script>
+  <script src="{site_js}"></script>
 {scripts}</body>
 </html>
 """
+
+
+def asset(url):
+    """Add a content hash to a local asset URL so browsers fetch new versions."""
+    digest = hashlib.sha256((ROOT / url.lstrip("/")).read_bytes()).hexdigest()[:8]
+    return f"{url}?v={digest}"
 
 
 def load(path):
@@ -160,6 +167,8 @@ def render(page, pages):
         head_title=html.escape(head_title),
         description=html.escape(meta["description"], quote=True),
         canonical=SITE + page["url"],
+        style=asset("/style.css"),
+        site_js=asset("/js/site.js"),
         nav=nav,
         crumbs=crumbs,
         body=body,
