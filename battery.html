@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fire alarm battery calculator | Spark &amp; Duct</title>
+  <meta name="description" content="Fire alarm battery calculator: add devices with standby and alarm current, set standby hours and alarm minutes, and get required amp-hours with safety margin.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="index.html">Spark <span>&amp;</span> Duct</a>
+      <nav>
+        <a href="voltage-drop.html">Voltage drop</a>
+        <a href="battery.html" aria-current="page">Battery</a>
+        <a href="conduit-fill.html">Conduit fill</a>
+        <a href="airflow.html">Airflow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Fire alarm battery calculator</h1>
+    <p class="lede">Standby and alarm load to required amp-hours.</p>
+
+    <section class="card" id="calc">
+      <h2>Devices</h2>
+      <div class="table-wrap">
+        <table class="rows">
+          <thead>
+            <tr><th>Device</th><th>Qty</th><th>Standby mA each</th><th>Alarm mA each</th><th></th></tr>
+          </thead>
+          <tbody id="deviceRows"></tbody>
+        </table>
+      </div>
+      <button type="button" id="addRow">Add device</button>
+      <p class="note">The starting rows are examples. Replace the currents with the values from each data sheet.</p>
+
+      <div class="grid">
+        <label>Standby time (hours)
+          <input id="hours" type="number" min="0" step="any" value="24" inputmode="decimal">
+        </label>
+        <label>Alarm time (minutes)
+          <input id="minutes" type="number" min="0" step="any" value="5" inputmode="decimal">
+        </label>
+        <label>Safety factor
+          <input id="factor" type="number" min="1" step="any" value="1.2" inputmode="decimal">
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Standby load</dt><dd id="outStandby"></dd></div>
+        <div><dt>Alarm load</dt><dd id="outAlarm"></dd></div>
+        <div><dt>Before margin</dt><dd id="outRaw"></dd></div>
+        <div><dt>Required capacity</dt><dd id="outRequired"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p><code>Ah = (standby amps &times; standby hours + alarm amps &times; alarm hours) &times; safety factor</code></p>
+      <p>NFPA 72 calls for 24 hours of standby followed by 5 minutes of alarm for most systems, and 15 minutes of alarm for voice evacuation. The 1.2 factor is the 20 % margin the standard requires. Some panels and jurisdictions ask for more, so check the panel manual and the local authority.</p>
+      <p>A 24 V panel uses two 12 V batteries in series. The amp-hour rating of the pair is the rating of one battery.</p>
+    </section>
+  </main>
+
+  <footer class="site">
+    For estimating only. Check results against the current code, the manufacturer's data and the authority having jurisdiction before you build.
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/battery.js"></script>
+</body>
+</html>

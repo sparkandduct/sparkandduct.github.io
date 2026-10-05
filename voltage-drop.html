@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voltage drop calculator with fire alarm NAC preset | Spark &amp; Duct</title>
+  <meta name="description" content="Voltage drop calculator for DC, single-phase and three-phase circuits, 24 AWG to 4/0. Includes a fire alarm NAC preset, maximum run length and the smallest wire that passes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="index.html">Spark <span>&amp;</span> Duct</a>
+      <nav>
+        <a href="voltage-drop.html" aria-current="page">Voltage drop</a>
+        <a href="battery.html">Battery</a>
+        <a href="conduit-fill.html">Conduit fill</a>
+        <a href="airflow.html">Airflow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Voltage drop calculator</h1>
+    <p class="lede">Drop, voltage at the load and the longest run the wire can carry.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Preset
+          <select id="preset">
+            <option value="general">General, 120 V at 3 %</option>
+            <option value="nac">Fire alarm NAC, 20.4 V to 16 V</option>
+            <option value="dc12">12 V DC at 10 %</option>
+          </select>
+        </label>
+        <label>Circuit
+          <select id="phase">
+            <option value="2">DC or single-phase</option>
+            <option value="1.732">Three-phase</option>
+          </select>
+        </label>
+        <label>Conductor
+          <select id="material">
+            <option value="cu">Copper</option>
+            <option value="al">Aluminum</option>
+          </select>
+        </label>
+        <label>Wire size
+          <select id="size"></select>
+        </label>
+        <label>One-way length (ft)
+          <input id="feet" type="number" min="0" step="any" value="100" inputmode="decimal">
+        </label>
+        <label>Load current (A)
+          <input id="amps" type="number" min="0" step="any" value="2" inputmode="decimal">
+        </label>
+        <label>Source voltage (V)
+          <input id="volts" type="number" min="0" step="any" inputmode="decimal">
+        </label>
+        <label>Limit by
+          <select id="limitType">
+            <option value="pct">Percent drop</option>
+            <option value="min">Minimum voltage at load</option>
+          </select>
+        </label>
+        <label><span id="limitLabel">Maximum drop (%)</span>
+          <input id="limit" type="number" min="0" step="any" inputmode="decimal">
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Voltage drop</dt><dd id="outDrop"></dd></div>
+        <div><dt>Percent drop</dt><dd id="outPct"></dd></div>
+        <div><dt>Voltage at load</dt><dd id="outLoad"></dd></div>
+        <div><dt>Max one-way length</dt><dd id="outMaxLen"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p><code>drop = 2 &times; K &times; amps &times; feet &divide; circular mils</code>, with 1.732 in place of 2 for three-phase. K is 12.9 for copper and 21.2 for aluminum.</p>
+      <p>The whole load is treated as sitting at the far end of the run, which is the cautious assumption for a notification circuit with devices spread along it. Reactance is ignored, so for large AC conductors use the NEC Chapter 9 Table 9 method instead.</p>
+      <p>The NAC preset starts at 20.4 V (85 % of 24 V, the usual worst-case battery voltage) and requires 16 V at the last device. Use the figures from your panel and device data sheets if they differ.</p>
+    </section>
+  </main>
+
+  <footer class="site">
+    For estimating only. Check results against the current code, the manufacturer's data and the authority having jurisdiction before you build.
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/voltage-drop.js"></script>
+</body>
+</html>

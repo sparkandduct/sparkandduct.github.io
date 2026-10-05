@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMT conduit fill calculator for THHN and low voltage cable | Spark &amp; Duct</title>
+  <meta name="description" content="Conduit fill calculator for EMT. Mix THHN conductors and low voltage cables by outside diameter, and see the fill percentage and the smallest conduit that passes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="index.html">Spark <span>&amp;</span> Duct</a>
+      <nav>
+        <a href="voltage-drop.html">Voltage drop</a>
+        <a href="battery.html">Battery</a>
+        <a href="conduit-fill.html" aria-current="page">Conduit fill</a>
+        <a href="airflow.html">Airflow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Conduit fill calculator</h1>
+    <p class="lede">EMT fill for THHN conductors and for cables by outside diameter.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>EMT trade size
+          <select id="conduit"></select>
+        </label>
+      </div>
+
+      <h2 style="margin-top:18px">Conductors and cables</h2>
+      <div class="table-wrap">
+        <table class="rows">
+          <thead>
+            <tr><th>Type</th><th>Cable OD (in)</th><th>Qty</th><th></th></tr>
+          </thead>
+          <tbody id="wireRows"></tbody>
+        </table>
+      </div>
+      <button type="button" id="addRow">Add row</button>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Total wire area</dt><dd id="outArea"></dd></div>
+        <div><dt>Fill</dt><dd id="outFill"></dd></div>
+        <div><dt>Allowed</dt><dd id="outAllowed"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p>Allowed fill follows NEC Chapter 9 Table 1: 53 % for one conductor, 31 % for two and 40 % for three or more. Conduit areas come from Table 4 and THHN areas from Table 5.</p>
+      <p>A multiconductor cable counts as one conductor. Enter its outside diameter from the cable data sheet; for a flat or oval cable use the larger dimension.</p>
+      <p>The 60 % allowance for nipples of 24 inches or less is not applied here.</p>
+    </section>
+  </main>
+
+  <footer class="site">
+    For estimating only. Check results against the current code, the manufacturer's data and the authority having jurisdiction before you build.
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/conduit-fill.js"></script>
+</body>
+</html>
