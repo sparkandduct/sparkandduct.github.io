@@ -7,6 +7,7 @@ Every page lives in src/ as a content fragment with a front-matter comment:
     description: Meta description
     section: calculators | guides | fault-codes | reference | quizzes | site
     summary: One line shown in listings (omit to keep the page out of listings)
+    sitemap: optional, "no" keeps the page out of sitemap.xml
     group: optional sub-group within a section
     order: optional sort key, lower first
     scripts: optional space-separated script URLs
@@ -64,6 +65,12 @@ TEMPLATE = """<!doctype html>
   <meta name="description" content="{description}">
   <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
   <link rel="canonical" href="{canonical}">
+  <meta property="og:title" content="{head_title}">
+  <meta property="og:description" content="{description}">
+  <meta property="og:url" content="{canonical}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#d9480f">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="{style}">
 </head>
@@ -84,6 +91,7 @@ TEMPLATE = """<!doctype html>
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Spark &amp; Duct</p>
   </footer>
   <script src="{site_js}"></script>
 {scripts}</body>
@@ -184,7 +192,9 @@ def main():
         out = ROOT / page["rel"]
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(render(page, pages), encoding="utf-8", newline="\n")
-    urls = "".join(f"  <url><loc>{SITE}{p['url']}</loc></url>\n" for p in pages)
+    urls = "".join(
+        f"  <url><loc>{SITE}{p['url']}</loc></url>\n" for p in pages if p["meta"].get("sitemap") != "no"
+    )
     (ROOT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

@@ -48,7 +48,7 @@ function calculate() {
   const dropAt = (area) => (m * k * amps * feet) / area;
   const drop = dropAt(cm);
   $('outDrop').textContent = fmt(drop) + ' V';
-  $('outPct').textContent = fmt((drop / volts) * 100, 1) + ' %';
+  $('outPct').textContent = fmt((drop / volts) * 100, 1) + '%';
   $('outLoad').textContent = fmt(volts - drop) + ' V';
 
   const allowed = $('limitType').value === 'pct' ? (volts * limit) / 100 : volts - limit;

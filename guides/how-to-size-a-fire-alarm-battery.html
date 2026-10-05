@@ -7,8 +7,14 @@
   <meta name="description" content="Step-by-step fire alarm battery calculation with a worked example: standby load, alarm load, the 20 percent margin and picking a battery size.">
   <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
   <link rel="canonical" href="https://sparkandduct.github.io/guides/how-to-size-a-fire-alarm-battery.html">
+  <meta property="og:title" content="How to size a fire alarm battery | Spark &amp; Duct">
+  <meta property="og:description" content="Step-by-step fire alarm battery calculation with a worked example: standby load, alarm load, the 20 percent margin and picking a battery size.">
+  <meta property="og:url" content="https://sparkandduct.github.io/guides/how-to-size-a-fire-alarm-battery.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#d9480f">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/style.css?v=ef1b09eb">
+  <link rel="stylesheet" href="/style.css?v=531a8cfa">
 </head>
 <body>
   <header class="site">
@@ -60,12 +66,13 @@
       <p>Five minutes is 5 &divide; 60 = 0.083 hours.</p>
 
       <h2>Step 4: Add the margin</h2>
-      <p>Multiply by 1.2. NFPA 72 requires the calculated capacity to include a 20 % safety margin, which covers battery aging.</p>
+      <p>Multiply by 1.2. NFPA 72 requires the calculated capacity to include a 20% safety margin, which covers battery aging.</p>
 
       <h2>Step 5: Pick the next size up</h2>
       <p>Choose the next standard battery at or above the result, then confirm that the panel's charger is listed to charge a battery that large and that it fits in the cabinet.</p>
 
       <h2>Worked example</h2>
+      <div class="table-wrap">
       <table class="data">
         <thead><tr><th>Device</th><th>Qty</th><th>Standby mA</th><th>Alarm mA</th></tr></thead>
         <tbody>
@@ -75,6 +82,7 @@
           <tr><td>Total</td><td></td><td>126 mA</td><td>1,240 mA</td></tr>
         </tbody>
       </table>
+      </div>
       <ul>
         <li>Standby: 0.126 A &times; 24 h = 3.02 Ah</li>
         <li>Alarm: 1.24 A &times; 0.083 h = 0.10 Ah</li>
@@ -104,6 +112,7 @@
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Spark &amp; Duct</p>
   </footer>
   <script src="/js/site.js?v=32873530"></script>
 </body>

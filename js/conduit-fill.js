@@ -66,15 +66,15 @@ function calculate() {
   const limit = allowedPct(count);
   const fill = (area / conduitArea) * 100;
   $('outArea').textContent = fmt(area, 4) + ' in²';
-  $('outFill').textContent = fmt(fill, 1) + ' %';
-  $('outAllowed').textContent = limit + ' %';
+  $('outFill').textContent = fmt(fill, 1) + '%';
+  $('outAllowed').textContent = limit + '%';
 
   const smallest = EMT.find((c) => (area / c[1]) * 100 <= limit);
   if (fill <= limit) {
-    setStatus(status, true, `Passes: ${fmt(fill, 1)} % fill against ${limit} % allowed.` +
+    setStatus(status, true, `Passes: ${fmt(fill, 1)}% fill against ${limit}% allowed.` +
       (smallest && smallest[0] !== $('conduit').value ? ` Smallest EMT that passes: ${smallest[0]}.` : ''));
   } else {
-    setStatus(status, false, `Fails: ${fmt(fill, 1)} % fill exceeds ${limit} % allowed. ` +
+    setStatus(status, false, `Fails: ${fmt(fill, 1)}% fill exceeds ${limit}% allowed. ` +
       (smallest ? `Smallest EMT that passes: ${smallest[0]}.` : 'No single EMT up to 4" passes; split the run.'));
   }
 }

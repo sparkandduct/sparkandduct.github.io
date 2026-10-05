@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /src/
+Disallow: /build.py
+Disallow: /README.md
+Disallow: /UNVERIFIED.md
+Disallow: /OVERNIGHT-LOG.md
 
 Sitemap: https://sparkandduct.github.io/sitemap.xml

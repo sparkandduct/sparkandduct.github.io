@@ -7,8 +7,14 @@
   <meta name="description" content="Voltage drop calculator for DC, single-phase and three-phase circuits, 24 AWG to 4/0. Includes a fire alarm NAC preset, maximum run length and the smallest wire that passes.">
   <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
   <link rel="canonical" href="https://sparkandduct.github.io/voltage-drop.html">
+  <meta property="og:title" content="Voltage drop calculator with fire alarm NAC preset | Spark &amp; Duct">
+  <meta property="og:description" content="Voltage drop calculator for DC, single-phase and three-phase circuits, 24 AWG to 4/0. Includes a fire alarm NAC preset, maximum run length and the smallest wire that passes.">
+  <meta property="og:url" content="https://sparkandduct.github.io/voltage-drop.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#d9480f">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/style.css?v=ef1b09eb">
+  <link rel="stylesheet" href="/style.css?v=531a8cfa">
 </head>
 <body>
   <header class="site">
@@ -33,9 +39,9 @@
       <div class="grid">
         <label>Preset
           <select id="preset">
-            <option value="general">General, 120 V at 3 %</option>
+            <option value="general">General, 120 V at 3%</option>
             <option value="nac">Fire alarm NAC, 20.4 V to 16 V</option>
-            <option value="dc12">12 V DC at 10 %</option>
+            <option value="dc12">12 V DC at 10%</option>
           </select>
         </label>
         <label>Circuit
@@ -91,7 +97,7 @@
       <h2>How it is worked out</h2>
       <p><code>drop = 2 &times; K &times; amps &times; feet &divide; circular mils</code>, with 1.732 in place of 2 for three-phase. K is 12.9 for copper and 21.2 for aluminum.</p>
       <p>The whole load is treated as sitting at the far end of the run, which is the cautious assumption for a notification circuit with devices spread along it. Reactance is ignored, so for large AC conductors use the NEC Chapter 9 Table 9 method instead.</p>
-      <p>The NAC preset starts at 20.4 V (85 % of 24 V, the usual worst-case battery voltage) and requires 16 V at the last device. Use the figures from your panel and device data sheets if they differ.</p>
+      <p>The NAC preset starts at 20.4 V (85% of 24 V, the usual worst-case battery voltage) and requires 16 V at the last device. Use the figures from your panel and device data sheets if they differ.</p>
     </section>
     <h2 class="section">More calculators</h2>
     <ul class="tools">
@@ -105,6 +111,7 @@
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Spark &amp; Duct</p>
   </footer>
   <script src="/js/site.js?v=32873530"></script>
   <script src="/js/common.js"></script>

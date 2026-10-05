@@ -36,7 +36,7 @@ function mark() {
   setStatus(
     $('status'),
     pct >= 70,
-    `Score: ${score} of ${questions.length} (${pct} %).` + (skipped ? ` ${skipped} not answered.` : '')
+    `Score: ${score} of ${questions.length} (${pct}%).` + (skipped ? ` ${skipped} not answered.` : '')
   );
   $('status').scrollIntoView({ block: 'nearest' });
 }
