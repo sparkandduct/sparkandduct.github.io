@@ -14,9 +14,11 @@
   <meta property="og:site_name" content="Spark &amp; Duct">
   <meta name="theme-color" content="#d9480f">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/style.css?v=531a8cfa">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Voltage drop calculator", "item": "https://sparkandduct.github.io/voltage-drop.html"}]}]}</script>
+  <link rel="stylesheet" href="/style.css?v=3323ba0a">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site">
     <div class="inner">
       <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
@@ -30,7 +32,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <p class="crumbs"><a href="/">&larr; All tools</a></p>
     <h1>Voltage drop calculator</h1>
     <p class="lede">Drop, voltage at the load and the longest run the wire can carry.</p>
@@ -95,6 +97,7 @@
 
     <section class="card note">
       <h2>How it is worked out</h2>
+      <p>For a worked example, see <a href="/guides/nac-voltage-drop.html">how to calculate voltage drop on a NAC circuit</a>.</p>
       <p><code>drop = 2 &times; K &times; amps &times; feet &divide; circular mils</code>, with 1.732 in place of 2 for three-phase. K is 12.9 for copper and 21.2 for aluminum.</p>
       <p>The whole load is treated as sitting at the far end of the run, which is the cautious assumption for a notification circuit with devices spread along it. Reactance is ignored, so for large AC conductors use the NEC Chapter 9 Table 9 method instead.</p>
       <p>The NAC preset starts at 20.4 V (85% of 24 V, the usual worst-case battery voltage) and requires 16 V at the last device. Use the figures from your panel and device data sheets if they differ.</p>
@@ -104,6 +107,7 @@
   <li><a href="/battery.html"><strong>Fire alarm battery calculator</strong><span>Standby and alarm load to amp-hours, with the safety margin and next battery size.</span></a></li>
   <li><a href="/conduit-fill.html"><strong>Conduit fill calculator</strong><span>EMT fill for THHN conductors and low voltage cables by outside diameter.</span></a></li>
   <li><a href="/airflow.html"><strong>HVAC airflow calculators</strong><span>CFM from heat output and temperature rise, cooling airflow and duct velocity.</span></a></li>
+  <li><a href="/ohms-law.html"><strong>Ohm&#x27;s law and power calculator</strong><span>Enter any two of volts, amps, ohms and watts to get the other two.</span></a></li>
 </ul>
     <div class="ad-slot" data-slot="end of page"></div>
   </main>
@@ -113,7 +117,7 @@
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
     <p>&copy; 2026 Spark &amp; Duct</p>
   </footer>
-  <script src="/js/site.js?v=32873530"></script>
+  <script src="/js/site.js?v=615090e5"></script>
   <script src="/js/common.js"></script>
   <script src="/js/voltage-drop.js"></script>
 </body>

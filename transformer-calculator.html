@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transformer full-load current calculator, VA and kVA | Spark &amp; Duct</title>
+  <meta name="description" content="Transformer calculator for single-phase and three-phase units. Enter VA or kVA and the primary and secondary voltages to get full-load amps on each side.">
+  <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
+  <link rel="canonical" href="https://sparkandduct.github.io/transformer-calculator.html">
+  <meta property="og:title" content="Transformer full-load current calculator, VA and kVA | Spark &amp; Duct">
+  <meta property="og:description" content="Transformer calculator for single-phase and three-phase units. Enter VA or kVA and the primary and secondary voltages to get full-load amps on each side.">
+  <meta property="og:url" content="https://sparkandduct.github.io/transformer-calculator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#d9480f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Transformer current calculator", "item": "https://sparkandduct.github.io/transformer-calculator.html"}]}]}</script>
+  <link rel="stylesheet" href="/style.css?v=3323ba0a">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
+      <nav>
+        <a href="/" aria-current="page">Tools</a>
+        <a href="/guides/">Guides</a>
+        <a href="/fault-codes/">Codes</a>
+        <a href="/reference/">Reference</a>
+        <a href="/quizzes/">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <p class="crumbs"><a href="/">&larr; All tools</a></p>
+    <h1>Transformer current calculator</h1>
+    <p class="lede">Full-load amps on the primary and secondary, from a 40 VA control transformer to a building transformer.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Rating
+          <input id="rating" type="number" min="0" step="any" value="40" inputmode="decimal">
+        </label>
+        <label>Unit
+          <select id="ratingUnit">
+            <option value="va">VA</option>
+            <option value="kva">kVA</option>
+          </select>
+        </label>
+        <label>Phase
+          <select id="phase">
+            <option value="1">Single-phase</option>
+            <option value="3">Three-phase</option>
+          </select>
+        </label>
+        <label>Primary voltage (V)
+          <input id="primary" type="number" min="0" step="any" value="120" inputmode="decimal">
+        </label>
+        <label>Secondary voltage (V)
+          <input id="secondary" type="number" min="0" step="any" value="24" inputmode="decimal">
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Primary full-load current</dt><dd id="outPrimary"></dd></div>
+        <div><dt>Secondary full-load current</dt><dd id="outSecondary"></dd></div>
+        <div><dt>Voltage ratio</dt><dd id="outRatio"></dd></div>
+      </dl>
+    </section>
+
+    <div class="ad-slot" data-slot="in content"></div>
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p>Single-phase: <code>amps = VA &divide; volts</code></p>
+      <p>Three-phase: <code>amps = VA &divide; (1.732 &times; line-to-line volts)</code></p>
+      <p>A 40 VA, 24 V control transformer can supply 40 &divide; 24 = 1.67 A. Add up the VA of every relay, contactor coil, thermostat and accessory on it; if the total is over the rating, the transformer runs hot and the voltage sags.</p>
+      <p>A 75 kVA three-phase transformer at 480 V to 208 V carries 90.2 A on the primary and 208.2 A on the secondary at full load.</p>
+      <p>These are full-load currents only. Overcurrent protection and conductor sizes for transformers are set by the electrical code, which allows percentages above full-load current that depend on the transformer and where the protection is placed.</p>
+    </section>
+    <h2 class="section">More calculators</h2>
+    <ul class="tools">
+  <li><a href="/voltage-drop.html"><strong>Voltage drop calculator</strong><span>Drop, voltage at the load and maximum run length, with a fire alarm NAC preset.</span></a></li>
+  <li><a href="/battery.html"><strong>Fire alarm battery calculator</strong><span>Standby and alarm load to amp-hours, with the safety margin and next battery size.</span></a></li>
+  <li><a href="/conduit-fill.html"><strong>Conduit fill calculator</strong><span>EMT fill for THHN conductors and low voltage cables by outside diameter.</span></a></li>
+  <li><a href="/airflow.html"><strong>HVAC airflow calculators</strong><span>CFM from heat output and temperature rise, cooling airflow and duct velocity.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
+  </main>
+
+  <footer class="site">
+    <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+    <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Spark &amp; Duct</p>
+  </footer>
+  <script src="/js/site.js?v=615090e5"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/transformer.js"></script>
+</body>
+</html>

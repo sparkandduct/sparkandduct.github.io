@@ -34,6 +34,10 @@
     });
   }
 
+  document.querySelectorAll('[data-print]').forEach((button) => {
+    button.addEventListener('click', () => window.print());
+  });
+
   document.querySelectorAll('[data-filter-table]').forEach((input) => {
     const rows = document.querySelectorAll(input.dataset.filterTable + ' tbody tr');
     input.addEventListener('input', () => {

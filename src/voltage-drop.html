@@ -70,6 +70,7 @@ scripts: /js/common.js /js/voltage-drop.js
 
     <section class="card note">
       <h2>How it is worked out</h2>
+      <p>For a worked example, see <a href="/guides/nac-voltage-drop.html">how to calculate voltage drop on a NAC circuit</a>.</p>
       <p><code>drop = 2 &times; K &times; amps &times; feet &divide; circular mils</code>, with 1.732 in place of 2 for three-phase. K is 12.9 for copper and 21.2 for aluminum.</p>
       <p>The whole load is treated as sitting at the far end of the run, which is the cautious assumption for a notification circuit with devices spread along it. Reactance is ignored, so for large AC conductors use the NEC Chapter 9 Table 9 method instead.</p>
       <p>The NAC preset starts at 20.4 V (85% of 24 V, the usual worst-case battery voltage) and requires 16 V at the last device. Use the figures from your panel and device data sheets if they differ.</p>

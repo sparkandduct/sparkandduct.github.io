@@ -1,0 +1,50 @@
+<!--
+title: HVAC unit converter
+head_title: HVAC unit converter: BTU, tons, kW, inches of water column, CFM | Spark & Duct
+description: Convert HVAC units: BTU per hour, tons and kW; inches of water column, psi and pascals; CFM, liters per second and cubic meters per hour; Fahrenheit and Celsius.
+section: calculators
+summary: BTU/h, tons and kW; inches of water column and psi; CFM and L/s; degrees F and C.
+order: 7
+scripts: /js/common.js /js/unit-converter.js
+-->
+    <h1>HVAC unit converter</h1>
+    <p class="lede">The conversions that come up on equipment labels, gauges and airflow reports.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Convert
+          <select id="group">
+            <option value="capacity">Heating and cooling capacity</option>
+            <option value="pressure">Pressure</option>
+            <option value="airflow">Airflow</option>
+            <option value="temperature">Temperature</option>
+          </select>
+        </label>
+        <label>Value
+          <input id="value" type="number" step="any" value="3" inputmode="decimal">
+        </label>
+        <label>From
+          <select id="from"></select>
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results" id="results"></dl>
+    </section>
+
+    {{ad}}
+
+    <section class="card note">
+      <h2>The factors used</h2>
+      <ul>
+        <li>1 ton of cooling = 12,000 BTU/h</li>
+        <li>1 kW = 3,412 BTU/h</li>
+        <li>1 psi = 27.68 inches of water column = 6.895 kPa</li>
+        <li>1 inch of water column = 249.1 Pa</li>
+        <li>1 CFM = 0.472 L/s = 1.699 m&sup3;/h</li>
+        <li>&deg;C = (&deg;F &minus; 32) &times; 5 &divide; 9</li>
+      </ul>
+      <p>Gas pressures on furnace nameplates are given in inches of water column: typically about 3.5 for natural gas and 10 for propane at the manifold. Always use the figure on the nameplate.</p>
+    </section>

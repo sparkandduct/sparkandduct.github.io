@@ -1,0 +1,53 @@
+<!--
+title: Ohm's law and power calculator
+head_title: Ohm's law calculator: volts, amps, ohms and watts | Spark & Duct
+description: Ohm's law and power calculator. Enter any two of volts, amps, ohms and watts and get the other two, with the formulas shown.
+section: calculators
+summary: Enter any two of volts, amps, ohms and watts to get the other two.
+order: 5
+scripts: /js/common.js /js/ohms-law.js
+-->
+    <h1>Ohm's law and power calculator</h1>
+    <p class="lede">Fill in any two boxes to get the other two.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Voltage (V)
+          <input id="volts" type="number" min="0" step="any" inputmode="decimal">
+        </label>
+        <label>Current (A)
+          <input id="amps" type="number" min="0" step="any" inputmode="decimal">
+        </label>
+        <label>Resistance (&Omega;)
+          <input id="ohms" type="number" min="0" step="any" inputmode="decimal">
+        </label>
+        <label>Power (W)
+          <input id="watts" type="number" min="0" step="any" inputmode="decimal">
+        </label>
+      </div>
+      <p style="margin:14px 0 0"><button type="button" id="clear" class="plain">Clear</button></p>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Voltage</dt><dd id="outVolts"></dd></div>
+        <div><dt>Current</dt><dd id="outAmps"></dd></div>
+        <div><dt>Resistance</dt><dd id="outOhms"></dd></div>
+        <div><dt>Power</dt><dd id="outWatts"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+    </section>
+
+    {{ad}}
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p><code>V = I &times; R</code> and <code>P = V &times; I</code>. Every other form comes from rearranging those two:</p>
+      <ul>
+        <li><code>I = V &divide; R</code>, <code>R = V &divide; I</code></li>
+        <li><code>P = I&sup2; &times; R</code>, <code>P = V&sup2; &divide; R</code></li>
+      </ul>
+      <p>These hold for DC circuits and for AC circuits with a purely resistive load, such as heating elements. Motors and other inductive loads also have a power factor, so their real power is lower than volts times amps.</p>
+      <p>A quick field use: a 24 V relay coil that measures 120 &Omega; should draw 0.2 A and dissipate 4.8 W.</p>
+    </section>

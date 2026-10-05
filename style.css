@@ -303,3 +303,17 @@ html { -webkit-text-size-adjust: 100%; }
   body { background: #fff; color: #000; }
   .card, figure.diagram { border-color: #999; break-inside: avoid; }
 }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 10px 14px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border-radius: 0 0 8px 0;
+  z-index: 10;
+}
+.skip:focus { left: 0; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 0; }

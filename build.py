@@ -23,6 +23,7 @@ preview where they sit).
 """
 import hashlib
 import html
+import json
 import re
 from pathlib import Path
 
@@ -72,9 +73,11 @@ TEMPLATE = """<!doctype html>
   <meta property="og:site_name" content="Spark &amp; Duct">
   <meta name="theme-color" content="#d9480f">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{schema}</script>
   <link rel="stylesheet" href="{style}">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site">
     <div class="inner">
       <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
@@ -84,7 +87,7 @@ TEMPLATE = """<!doctype html>
     </div>
   </header>
 
-  <main>
+  <main id="main">
 {crumbs}{body}
 {more}  </main>
 
@@ -142,6 +145,38 @@ def listing(pages, section, group=None, exclude=None, limit=None):
     return f'<ul class="tools">\n{rows}</ul>'
 
 
+def schema(page):
+    """JSON-LD describing the page: the site on the home page, otherwise a breadcrumb trail
+    plus an Article for written pages."""
+    meta = page["meta"]
+    url = SITE + page["url"]
+    if page["url"] == "/":
+        graph = [{"@type": "WebSite", "name": BRAND, "url": url, "description": meta["description"]}]
+    else:
+        label, href, _ = SECTIONS[meta["section"]]
+        trail = [("Home", SITE + "/")]
+        if href != "/" and not page["rel"].endswith("index.html"):
+            trail.append((label, SITE + href))
+        trail.append((meta["title"], url))
+        graph = [{
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": i, "name": name, "item": item}
+                for i, (name, item) in enumerate(trail, 1)
+            ],
+        }]
+        if "summary" in meta and meta["section"] in ("guides", "fault-codes", "reference"):
+            graph.append({
+                "@type": "Article",
+                "headline": meta["title"],
+                "description": meta["description"],
+                "mainEntityOfPage": url,
+                "publisher": {"@type": "Organization", "name": BRAND, "url": SITE + "/"},
+            })
+    data = {"@context": "https://schema.org", "@graph": graph}
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
 def render(page, pages):
     meta = page["meta"]
     nav = "\n".join(
@@ -176,6 +211,7 @@ def render(page, pages):
         head_title=html.escape(head_title),
         description=html.escape(meta["description"], quote=True),
         canonical=SITE + page["url"],
+        schema=schema(page),
         style=asset("/style.css"),
         site_js=asset("/js/site.js"),
         nav=nav,
