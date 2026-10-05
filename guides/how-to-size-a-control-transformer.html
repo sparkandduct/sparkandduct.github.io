@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to size a 24 V control transformer | Spark &amp; Duct</title>
+  <meta name="description" content="How to size a 24 V control transformer: add up the VA of every load, convert between amps and VA, allow a margin, and check the result with a clamp meter.">
+  <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
+  <link rel="canonical" href="https://sparkandduct.github.io/guides/how-to-size-a-control-transformer.html">
+  <meta property="og:title" content="How to size a 24 V control transformer | Spark &amp; Duct">
+  <meta property="og:description" content="How to size a 24 V control transformer: add up the VA of every load, convert between amps and VA, allow a margin, and check the result with a clamp meter.">
+  <meta property="og:url" content="https://sparkandduct.github.io/guides/how-to-size-a-control-transformer.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#d9480f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sparkandduct.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to size a 24 V control transformer", "item": "https://sparkandduct.github.io/guides/how-to-size-a-control-transformer.html"}]}, {"@type": "Article", "headline": "How to size a 24 V control transformer", "description": "How to size a 24 V control transformer: add up the VA of every load, convert between amps and VA, allow a margin, and check the result with a clamp meter.", "mainEntityOfPage": "https://sparkandduct.github.io/guides/how-to-size-a-control-transformer.html", "publisher": {"@type": "Organization", "name": "Spark & Duct", "url": "https://sparkandduct.github.io/"}}]}</script>
+  <link rel="stylesheet" href="/style.css?v=3323ba0a">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
+      <nav>
+        <a href="/">Tools</a>
+        <a href="/guides/" aria-current="page">Guides</a>
+        <a href="/fault-codes/">Codes</a>
+        <a href="/reference/">Reference</a>
+        <a href="/quizzes/">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <p class="crumbs"><a href="/guides/">&larr; Guides</a></p>
+    <article class="prose">
+      <h1>How to size a 24 V control transformer</h1>
+      <p class="lede">Add up what the transformer has to feed, then compare the total with its VA rating.</p>
+
+      <div class="callout"><p>The <a href="/transformer-calculator.html">transformer current calculator</a> turns a VA rating into full-load amps on each side.</p></div>
+
+      <h2>What the VA rating means</h2>
+      <p>A control transformer is rated in volt-amperes (VA): the secondary voltage multiplied by the most current it can supply continuously. A 40 VA transformer with a 24 V secondary can supply 40 &divide; 24 = 1.67 A. Ask it for more and the secondary voltage sags, the windings run hot, and relays and contactors start to chatter or drop out.</p>
+      <p>Sizing one is a matter of listing every load on the 24 V circuit that can be energized at the same time and adding up their VA.</p>
+
+      <h2>Step by step</h2>
+      <ol>
+        <li>List every 24 V load: contactor and relay coils, gas valve, control board, thermostat, zone dampers, humidifier solenoid and any other accessory.</li>
+        <li>Find the VA of each one on its label or data sheet. For coils, use the sealed (holding) VA.</li>
+        <li>If a part gives amps instead of VA, convert it: <code>VA = volts &times; amps</code>.</li>
+        <li>Add up the loads that can be on together. Heating and cooling loads that never run at the same time do not both count; use whichever mode gives the larger total.</li>
+        <li>Allow a margin, then pick a transformer rated at or above the result.</li>
+      </ol>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 170" role="img" aria-label="A 40 VA transformer feeding three loads of 8 VA, 12 VA and 3 VA. The loads total 23 VA, which is under the 40 VA rating.">
+          <rect class="d-box" x="14" y="50" width="104" height="60" rx="4"/>
+          <text class="d-text d-strong" x="66" y="76" text-anchor="middle">Transformer</text>
+          <text class="d-text" x="66" y="96" text-anchor="middle">24 V, 40 VA</text>
+          <path class="d-line" d="M118 80H160M160 28V132M160 28H200M160 80H200M160 132H200"/>
+          <rect class="d-box" x="200" y="12" width="146" height="32" rx="4"/>
+          <rect class="d-box" x="200" y="64" width="146" height="32" rx="4"/>
+          <rect class="d-box" x="200" y="116" width="146" height="32" rx="4"/>
+          <text class="d-text" x="212" y="33">Contactor coil</text>
+          <text class="d-text d-strong" x="336" y="33" text-anchor="end">8 VA</text>
+          <text class="d-text" x="212" y="85">Gas valve</text>
+          <text class="d-text d-strong" x="336" y="85" text-anchor="end">12 VA</text>
+          <text class="d-text" x="212" y="137">Thermostat</text>
+          <text class="d-text d-strong" x="336" y="137" text-anchor="end">3 VA</text>
+          <text class="d-small" x="66" y="132" text-anchor="middle">Loads: 23 VA</text>
+          <text class="d-small" x="66" y="148" text-anchor="middle">Spare: 17 VA</text>
+        </svg>
+        <figcaption>Example figures only. Read the real VA from each part.</figcaption>
+      </figure>
+
+      <div class="ad-slot" data-slot="in content"></div>
+
+      <h2>Converting between amps and VA</h2>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>You have</th><th>You want</th><th>Formula</th></tr></thead>
+        <tbody>
+          <tr><td>Amps at 24 V</td><td>VA</td><td><code>VA = 24 &times; amps</code></td></tr>
+          <tr><td>VA</td><td>Amps at 24 V</td><td><code>amps = VA &divide; 24</code></td></tr>
+        </tbody>
+      </table></div>
+      <p>A coil marked 0.5 A at 24 V is 24 &times; 0.5 = 12 VA. A 75 VA transformer can supply 75 &divide; 24 = 3.13 A.</p>
+
+      <h2>Worked example</h2>
+      <p>A gas furnace with central air and a 40 VA transformer. The figures below are examples; the real ones come from each part's label.</p>
+      <div class="table-wrap"><table class="data">
+        <thead><tr><th>Load</th><th>VA</th><th>Cooling</th><th>Heating</th></tr></thead>
+        <tbody>
+          <tr><td>Control board</td><td>6</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Thermostat</td><td>3</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Contactor coil</td><td>8</td><td>Yes</td><td>No</td></tr>
+          <tr><td>Gas valve</td><td>12</td><td>No</td><td>Yes</td></tr>
+          <tr><td>Humidifier</td><td>10</td><td>No</td><td>Yes</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>Cooling: 6 + 3 + 8 = 17 VA.</li>
+        <li>Heating: 6 + 3 + 12 + 10 = 31 VA. This is the larger total, so it is the one to size for.</li>
+        <li>With a 20% margin: 31 &times; 1.2 = 37.2 VA, which a 40 VA transformer covers.</li>
+        <li>Current at that load: 31 &divide; 24 = 1.29 A, against 1.67 A available.</li>
+      </ul>
+      <p>Now add a zone panel with two dampers at 6 VA each. Heating becomes 43 VA, which is over the rating before any margin. The options are a larger transformer, if the equipment maker allows one, or a separate transformer for the accessories.</p>
+
+      <h2>How much margin</h2>
+      <p>A margin of about 20% over the added-up load is a common rule of thumb, not a code requirement. It covers parts that draw a little more than their label says, voltage that runs low on a hot day, and the accessory somebody adds next year.</p>
+
+      <h2>Inrush</h2>
+      <p>A coil draws several times its sealed VA for the instant it pulls in. On a small residential system with one or two coils the sealed total plus a margin is normally enough. In a control panel with large contactors or several coils pulling in together, inrush decides the size: transformer makers publish selection charts that take the sealed VA of everything already on plus the inrush VA of what pulls in last. Use the maker's chart for that kind of panel.</p>
+
+      <h2>Checking an existing system</h2>
+      <ol>
+        <li>Read the VA rating on the transformer and divide by 24 to get the most current it should supply.</li>
+        <li>Clamp an ammeter around the wire leaving the transformer's 24 V terminal, before it splits to any loads.</li>
+        <li>Run the system in the mode with the most loads on and read the current.</li>
+        <li>Multiply the reading by the measured secondary voltage to get the VA in use.</li>
+      </ol>
+      <p>Control currents are small for most clamp meters. Looping the wire through the jaw ten times and dividing the reading by ten gives a steadier number.</p>
+      <p>While it is running, measure the secondary voltage as well. A reading that falls well below 24 V under load points to an overloaded transformer or low primary voltage.</p>
+
+      <h2>Signs of an undersized transformer</h2>
+      <ul>
+        <li>Contactors or relays that buzz, chatter or drop out when another load switches on.</li>
+        <li>A thermostat that reboots or goes blank when the system starts.</li>
+        <li>A transformer that is too hot to keep a hand on.</li>
+        <li>Repeated transformer failures with no short found in the wiring.</li>
+      </ul>
+      <p>A blown low-voltage fuse usually points to a short or a failed coil instead, so look for that before blaming the transformer's size.</p>
+
+      <h2>Before fitting a larger one</h2>
+      <ul>
+        <li>Match the primary voltage and the secondary voltage of the original.</li>
+        <li>Check the equipment's installation instructions for the largest transformer allowed and for the low-voltage fuse size.</li>
+        <li>Keep the same circuit class. Thermostat cable is normally installed as a Class 2 circuit, which depends on a Class 2 transformer; check the label and the electrical code before going above the original rating.</li>
+        <li>Turn off power to the equipment before working on the transformer. The primary side is line voltage.</li>
+      </ul>
+    </article>
+    <h2 class="section">More guides</h2>
+    <ul class="tools">
+  <li><a href="/guides/how-to-size-a-fire-alarm-battery.html"><strong>How to size a fire alarm battery</strong><span>The standby and alarm calculation, step by step, with a worked example.</span></a></li>
+  <li><a href="/guides/nac-voltage-drop.html"><strong>How to calculate voltage drop on a NAC circuit</strong><span>Why NAC circuits start at 20.4 V, the lump-sum method and a worked example.</span></a></li>
+  <li><a href="/guides/conduit-fill-explained.html"><strong>Conduit fill explained</strong><span>The 53, 31 and 40 percent rules, hand calculation and how cables are counted.</span></a></li>
+  <li><a href="/guides/furnace-temperature-rise.html"><strong>How to measure furnace temperature rise</strong><span>Measuring rise, reading the nameplate range and turning it into CFM.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
+  </main>
+
+  <footer class="site">
+    <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+    <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Spark &amp; Duct</p>
+  </footer>
+  <script src="/js/site.js?v=615090e5"></script>
+</body>
+</html>

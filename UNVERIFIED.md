@@ -11,3 +11,4 @@ These were entered from memory of the tables named. Check each against the curre
 - `src/quizzes/epa-608-core-practice.html`: questions and answers are original and written from memory of the Section 608 Core material.
 - `src/guides/ac-running-but-not-cooling.html`: the "about 6 % below rating" capacitor replacement point is a common field rule of thumb, not a standard.
 - `src/reference/*.html`: wire colors are conventions as described on the pages.
+- `src/guides/how-to-size-a-control-transformer.html`: the VA figures for individual loads are made-up examples and are labeled as such. The 20% margin is a rule of thumb. The inrush method (sealed VA plus the largest inrush) was read from two secondary web sources, not a transformer maker's selection guide. The Class 2 note is from memory and worded as something to check against the label and the code.
