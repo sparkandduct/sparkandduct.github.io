@@ -1,0 +1,49 @@
+<!--
+title: Goodman furnace fault codes
+description: Goodman and Amana furnace LED flash codes explained, from 1 flash to 9 flashes, with what each one means and what to check first.
+section: fault-codes
+order: 2
+summary: LED flash counts for Goodman and Amana gas furnaces.
+-->
+    <article class="prose">
+      <h1>Goodman furnace fault codes</h1>
+      <p class="lede">LED flash counts used on Goodman and Amana gas furnaces with a single diagnostic light.</p>
+
+      <div class="callout"><p>Code lists differ between control boards, and newer Goodman furnaces with a two-character display use different codes entirely. The chart inside the furnace's access panel is the one that applies to that furnace.</p></div>
+
+      <h2>How to read the code</h2>
+      <p>Look at the LED on the control board through the sight glass in the lower door. Count the flashes in a group; the group repeats after a pause. Read it before switching power off, since that can clear the code.</p>
+
+      <h2>Code chart</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>LED</th><th>Meaning</th><th>Check first</th></tr></thead>
+        <tbody>
+          <tr><td>Off</td><td>No power to the board</td><td>Breaker, furnace switch, door switch, board fuse.</td></tr>
+          <tr><td>On steady</td><td>Normal operation</td><td>Nothing; the control has power and no fault.</td></tr>
+          <tr><td>Rapid flash</td><td>Reversed polarity or poor ground</td><td>Hot and neutral swapped at the furnace, or a missing ground.</td></tr>
+          <tr><td>1 flash</td><td>Ignition failure lockout</td><td>Burners did not light or flame was not proven after the retries. Flame sensor, igniter, gas supply. Resets after about an hour or on a power cycle.</td></tr>
+          <tr><td>2 flashes</td><td>Pressure switch stuck closed</td><td>Switch is closed with the inducer off. Stuck switch or a shorted wire.</td></tr>
+          <tr><td>3 flashes</td><td>Pressure switch stuck open</td><td>Switch did not close with the inducer running. Blocked vent, cracked or wet tubing, blocked condensate drain, weak inducer.</td></tr>
+          <tr><td>4 flashes</td><td>Open high limit</td><td>Furnace is overheating. Dirty filter, closed registers, blower fault.</td></tr>
+          <tr><td>5 flashes</td><td>Flame sensed with gas valve off</td><td>Gas valve leaking or slow to close. Shut the gas off and call for service.</td></tr>
+          <tr><td>6 flashes</td><td>Open rollout switch</td><td>Flame has rolled out of the burner box. Blocked heat exchanger or vent. Needs a technician; do not just reset it.</td></tr>
+          <tr><td>7 flashes</td><td>Low flame signal</td><td>Flame is being sensed, but weakly. Clean the flame sensor before it becomes a lockout.</td></tr>
+          <tr><td>8 flashes</td><td>Igniter circuit fault</td><td>Igniter is open or its wiring is faulty. Check igniter resistance and the connector.</td></tr>
+          <tr><td>9 flashes</td><td>High-stage pressure switch fault</td><td>Two-stage models only. Same checks as 3 flashes.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>The three you will see most</h2>
+      <h3>1 flash: ignition lockout</h3>
+      <p>Watch a start-up. If the igniter glows, the burners light and then go out within a few seconds, the flame sensor is not proving flame; cleaning it usually cures that. If the igniter never glows, check the igniter. If it glows but nothing lights, check the gas supply and valve.</p>
+
+      <h3>3 flashes: pressure switch open</h3>
+      <p>The control is not seeing proof that the vent is drawing. On condensing furnaces, water trapped in the pressure tubing or a blocked drain trap is the common cause. Check the vent termination outside for ice, snow or nests.</p>
+
+      <h3>4 flashes: high limit open</h3>
+      <p>Start with the filter. If it is clean, confirm the blower runs and measure the <a href="/guides/furnace-temperature-rise.html">temperature rise</a> against the nameplate range.</p>
+
+      <div class="callout"><p>If you smell gas, leave the building and call the gas utility. A furnace that keeps tripping a safety switch has a fault that needs finding, not resetting.</p></div>
+    </article>

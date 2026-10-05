@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sparkandduct.github.io/</loc></url>
-  <url><loc>https://sparkandduct.github.io/voltage-drop.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/about.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/airflow.html</loc></url>
   <url><loc>https://sparkandduct.github.io/battery.html</loc></url>
   <url><loc>https://sparkandduct.github.io/conduit-fill.html</loc></url>
-  <url><loc>https://sparkandduct.github.io/airflow.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/contact.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/fault-codes/carrier-furnace-codes.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/fault-codes/goodman-furnace-codes.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/fault-codes/</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/ac-running-but-not-cooling.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/conduit-fill-explained.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/fire-alarm-ground-fault.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/furnace-temperature-rise.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/how-to-size-a-fire-alarm-battery.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/multimeter-buying-guide.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/nac-voltage-drop.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/guides/north-carolina-electrical-hvac-license.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/</loc></url>
+  <url><loc>https://sparkandduct.github.io/privacy.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/quizzes/epa-608-core-practice.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/quizzes/</loc></url>
+  <url><loc>https://sparkandduct.github.io/reference/electrical-wire-colors.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/reference/glossary.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/reference/</loc></url>
+  <url><loc>https://sparkandduct.github.io/reference/thermostat-wire-colors.html</loc></url>
+  <url><loc>https://sparkandduct.github.io/voltage-drop.html</loc></url>
 </urlset>

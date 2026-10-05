@@ -1,0 +1,48 @@
+<!--
+title: How to calculate voltage drop on a NAC circuit
+description: Fire alarm notification appliance circuit voltage drop explained: the 20.4 V starting point, the 16 V minimum, the lump-sum method and a worked example.
+section: guides
+group: how-to
+order: 2
+summary: Why NAC circuits start at 20.4 V, the lump-sum method and a worked example.
+-->
+    <article class="prose">
+      <h1>How to calculate voltage drop on a NAC circuit</h1>
+      <p class="lede">Making sure the last horn strobe on the run still gets enough voltage.</p>
+
+      <div class="callout"><p>The <a href="/voltage-drop.html">voltage drop calculator</a> has a fire alarm NAC preset that sets these numbers up for you.</p></div>
+
+      <h2>Why it matters</h2>
+      <p>Notification appliances are listed to work across a voltage range, commonly 16 to 33 V for 24 V devices. If wire resistance pulls the voltage at the far end below the bottom of that range, strobes can fall out of sync or fail to flash at the rated intensity. Inspectors ask for the calculation for that reason.</p>
+
+      <h2>The two numbers that set the budget</h2>
+      <ul>
+        <li><strong>Starting voltage: 20.4 V.</strong> The calculation assumes the worst case, which is the system running on batteries near the end of their discharge. That is taken as 85 % of 24 V.</li>
+        <li><strong>Minimum at the device: 16 V.</strong> This is the bottom of the listed range for most 24 V appliances. Check the data sheet.</li>
+      </ul>
+      <p>That leaves 20.4 &minus; 16 = 4.4 V that the wire is allowed to drop.</p>
+
+      <h2>The lump-sum method</h2>
+      <p>The simplest method treats every appliance as if it sat at the very end of the circuit. It overstates the drop, so a circuit that passes this way will pass in reality.</p>
+      <p><code>drop = 2 &times; K &times; amps &times; one-way feet &divide; circular mils</code></p>
+      <p>K is 12.9 for copper. The 2 accounts for the current going out and coming back.</p>
+
+      <h2>Worked example</h2>
+      <p>A circuit has horn strobes drawing 2.0 A in total, on 14 AWG copper (4,110 circular mils), with the last device 100 ft from the panel.</p>
+      <ul>
+        <li>Drop: 2 &times; 12.9 &times; 2.0 &times; 100 &divide; 4,110 = 1.26 V</li>
+        <li>Voltage at the last device: 20.4 &minus; 1.26 = 19.14 V, which passes.</li>
+        <li>Longest run this load allows on 14 AWG: 4.4 &times; 4,110 &divide; (2 &times; 12.9 &times; 2.0) = 350 ft.</li>
+      </ul>
+
+      <h2>If it fails</h2>
+      <ul>
+        <li><strong>Go up a wire size.</strong> 12 AWG has about 60 % more copper than 14 AWG.</li>
+        <li><strong>Split the circuit.</strong> Halving the current halves the drop.</li>
+        <li><strong>Move the power closer.</strong> A remote NAC power supply near the load shortens the run.</li>
+        <li><strong>Use the point-to-point method.</strong> Calculating the drop segment by segment, with the current falling after each device, gives a lower and more accurate figure. Many panel manufacturers publish a spreadsheet for it.</li>
+      </ul>
+
+      <h2>Use the real currents</h2>
+      <p>Take each appliance's current at the candela setting you will use, and at the voltage the data sheet specifies for calculations. Some manufacturers require their own starting voltage or method; where they do, theirs is the one the inspector will expect.</p>
+    </article>

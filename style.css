@@ -196,3 +196,53 @@ footer.site {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* Articles, guides and reference pages */
+.prose h2 { font-size: 1.25rem; margin: 28px 0 8px; }
+.prose h3 { font-size: 1.05rem; margin: 20px 0 6px; }
+.prose p, .prose ul, .prose ol { margin: 0 0 14px; }
+.prose ul, .prose ol { padding-left: 22px; }
+.prose li { margin-bottom: 6px; }
+.prose code { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; font-size: 0.92em; }
+.prose .callout {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 0 0 16px;
+}
+.prose .callout p:last-child { margin-bottom: 0; }
+
+h2.section { font-size: 1.15rem; margin: 28px 0 10px; }
+
+table.data { width: 100%; border-collapse: collapse; background: var(--surface); margin: 0 0 16px; }
+table.data th, table.data td { text-align: left; padding: 8px 10px; border: 1px solid var(--border); vertical-align: top; }
+table.data th { font-size: 0.85rem; color: var(--muted); }
+table.data td:first-child { font-weight: 600; white-space: nowrap; }
+
+dl.glossary dt { font-weight: 700; margin-top: 14px; }
+dl.glossary dd { margin: 2px 0 0; }
+
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  vertical-align: -2px;
+  margin-right: 6px;
+}
+
+/* Quizzes */
+.question { margin-bottom: 14px; }
+.question legend { font-weight: 600; padding: 0; margin-bottom: 8px; }
+.question fieldset { border: 0; padding: 0; margin: 0; }
+.question label { display: flex; gap: 8px; align-items: flex-start; color: var(--text); font-size: 1rem; padding: 6px 8px; border-radius: 6px; }
+.question input { width: auto; margin: 4px 0 0; }
+.question label.right { background: var(--ok-bg); color: var(--ok); }
+.question label.wrong { background: var(--bad-bg); color: var(--bad); }
+.question .explain { margin: 8px 0 0; color: var(--muted); font-size: 0.92rem; }
+
+footer.site p { margin: 0 0 6px; }
+footer.site a { color: var(--muted); }

@@ -1,28 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Voltage drop calculator with fire alarm NAC preset | Spark &amp; Duct</title>
-  <meta name="description" content="Voltage drop calculator for DC, single-phase and three-phase circuits, 24 AWG to 4/0. Includes a fire alarm NAC preset, maximum run length and the smallest wire that passes.">
-  <link rel="canonical" href="https://sparkandduct.github.io/voltage-drop.html">
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-  <header class="site">
-    <div class="inner">
-      <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
-      <nav>
-        <a href="/" aria-current="page">Calculators</a>
-        <a href="/guides/">Guides</a>
-        <a href="/fault-codes/">Fault codes</a>
-        <a href="/reference/">Reference</a>
-        <a href="/quizzes/">Quizzes</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
+<!--
+title: Voltage drop calculator
+head_title: Voltage drop calculator with fire alarm NAC preset | Spark & Duct
+description: Voltage drop calculator for DC, single-phase and three-phase circuits, 24 AWG to 4/0. Includes a fire alarm NAC preset, maximum run length and the smallest wire that passes.
+section: calculators
+summary: Drop, voltage at the load and maximum run length, with a fire alarm NAC preset.
+order: 1
+scripts: /js/common.js /js/voltage-drop.js
+-->
     <h1>Voltage drop calculator</h1>
     <p class="lede">Drop, voltage at the load and the longest run the wire can carry.</p>
 
@@ -88,13 +72,3 @@
       <p>The whole load is treated as sitting at the far end of the run, which is the cautious assumption for a notification circuit with devices spread along it. Reactance is ignored, so for large AC conductors use the NEC Chapter 9 Table 9 method instead.</p>
       <p>The NAC preset starts at 20.4 V (85 % of 24 V, the usual worst-case battery voltage) and requires 16 V at the last device. Use the figures from your panel and device data sheets if they differ.</p>
     </section>
-  </main>
-
-  <footer class="site">
-    <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
-    <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
-  </footer>
-  <script src="/js/common.js"></script>
-  <script src="/js/voltage-drop.js"></script>
-</body>
-</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EPA 608 Core practice quiz | Spark &amp; Duct</title>
+  <meta name="description" content="Free EPA Section 608 Core practice quiz: 16 original questions on ozone depletion, regulations, recovery, cylinders and safety, each with an explanation.">
+  <link rel="canonical" href="https://sparkandduct.github.io/quizzes/epa-608-core-practice.html">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
+      <nav>
+        <a href="/">Calculators</a>
+        <a href="/guides/">Guides</a>
+        <a href="/fault-codes/">Fault codes</a>
+        <a href="/reference/">Reference</a>
+        <a href="/quizzes/" aria-current="page">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>EPA 608 Core practice quiz</h1>
+    <p class="lede">Sixteen original questions on the Core section, which every candidate has to pass. Answer them all, then check.</p>
+
+    <div id="quiz"></div>
+
+    <section class="card">
+      <button type="button" id="check">Check answers</button>
+      <button type="button" id="reset" class="plain">Start over</button>
+      <p id="status" class="status" aria-live="polite"></p>
+      <p class="note">The real exam's Core section has 25 questions and needs 70 % to pass. These are practice questions written for this site, not questions from the exam.</p>
+    </section>
+
+    <script type="application/json" id="quizData">
+[
+  {"q": "Which element in CFC and HCFC refrigerants destroys ozone in the stratosphere?",
+   "options": ["Fluorine", "Chlorine", "Hydrogen", "Carbon"], "answer": 1,
+   "why": "Ultraviolet light breaks chlorine free from the refrigerant molecule, and a single chlorine atom can destroy many ozone molecules."},
+  {"q": "Which of these refrigerants has the highest ozone depletion potential?",
+   "options": ["R-410A", "R-134a", "R-22", "R-12"], "answer": 3,
+   "why": "R-12 is a CFC, the class with the highest ozone depletion potential. R-22 is an HCFC with a much lower value, and R-134a and R-410A are HFCs with none."},
+  {"q": "R-410A is best described as:",
+   "options": ["A CFC with high ozone depletion potential", "An HCFC being phased out for ozone depletion", "An HFC blend with no ozone depletion potential but with global warming potential", "A natural refrigerant with no environmental effect"], "answer": 2,
+   "why": "HFCs contain no chlorine, so they do not deplete ozone, but they are greenhouse gases."},
+  {"q": "Which international agreement phases out the production of ozone-depleting substances?",
+   "options": ["Kyoto Protocol", "Montreal Protocol", "Paris Agreement", "Geneva Convention"], "answer": 1,
+   "why": "The Montreal Protocol, signed in 1987, controls substances that deplete the ozone layer. The Clean Air Act carries it out in the United States."},
+  {"q": "Knowingly releasing HFC refrigerant to the atmosphere while servicing equipment is:",
+   "options": ["Allowed, because HFCs do not deplete ozone", "Allowed in quantities under one pound", "Prohibited", "Allowed outdoors only"], "answer": 2,
+   "why": "The venting prohibition covers substitute refrigerants such as HFCs as well as CFCs and HCFCs. Only small, unavoidable de minimis releases during proper procedures are excused."},
+  {"q": "\"Recovery\" means:",
+   "options": ["Removing refrigerant in any condition from a system and storing it in an external container", "Cleaning refrigerant with filter driers for reuse", "Processing refrigerant to the purity of new product", "Adding refrigerant to bring a system up to full charge"], "answer": 0,
+   "why": "Recovery is removal and storage only, with no testing or processing implied."},
+  {"q": "\"Reclaiming\" refrigerant means:",
+   "options": ["Recovering it into a cylinder on site", "Passing it through a filter drier and returning it to the same system", "Processing it to new-product specifications, verified by chemical analysis", "Mixing it with new refrigerant"], "answer": 2,
+   "why": "Reclaimed refrigerant must meet the AHRI 700 purity standard, which takes laboratory analysis. That is why reclaiming is done by certified reclaimers, not in the field."},
+  {"q": "A refillable recovery cylinder is identified by:",
+   "options": ["A gray body with a yellow top", "A solid green body", "A white body with a red top", "A solid orange body"], "answer": 0,
+   "why": "Gray with a yellow top is the standard marking for recovery cylinders."},
+  {"q": "A recovery cylinder should be filled to no more than:",
+   "options": ["60 % of its capacity", "80 % of its capacity", "95 % of its capacity", "100 % of its capacity"], "answer": 1,
+   "why": "Liquid refrigerant expands as it warms. Leaving 20 % of the cylinder as vapor space keeps a warm cylinder from becoming liquid-full and rupturing."},
+  {"q": "Disposable refrigerant cylinders:",
+   "options": ["May be refilled once if hydrostatically tested", "May be used for recovery if labeled", "Must never be refilled", "May be refilled with the same refrigerant only"], "answer": 2,
+   "why": "Disposable cylinders are not built for reuse. Refilling them is illegal and dangerous. Empty ones should be recovered to a vacuum and recycled as scrap."},
+  {"q": "The main reason for pulling a deep vacuum on a system before charging is to:",
+   "options": ["Remove moisture and air", "Remove oil from the compressor", "Test the compressor valves", "Cool the evaporator"], "answer": 0,
+   "why": "Evacuation dehydrates the system and removes air and other non-condensable gases."},
+  {"q": "Moisture left in a refrigeration system combines with refrigerant and oil to form:",
+   "options": ["Wax", "Acids", "Nitrogen", "Carbon dioxide"], "answer": 1,
+   "why": "The acids attack motor windings and metal parts and are a leading cause of compressor burnout."},
+  {"q": "In a normally operating system, refrigerant leaving the compressor is a:",
+   "options": ["Low-pressure liquid", "High-pressure liquid", "Low-pressure vapor", "High-pressure superheated vapor"], "answer": 3,
+   "why": "The compressor takes in low-pressure vapor and discharges high-pressure, superheated vapor to the condenser."},
+  {"q": "When pressure-testing a system for leaks with nitrogen, you should:",
+   "options": ["Use oxygen instead if nitrogen is not available", "Use compressed shop air", "Use a pressure regulator and a relief valve on the nitrogen cylinder", "Connect the cylinder directly to the system"], "answer": 2,
+   "why": "A nitrogen cylinder holds over 2,000 psi. Oxygen and compressed air must never be used, because they can explode when mixed with refrigerant oil under pressure."},
+  {"q": "Pressure relief valves must never be:",
+   "options": ["Installed on a receiver", "Installed in series", "Vented outdoors", "Sized by the manufacturer"], "answer": 1,
+   "why": "Two relief devices in series can trap pressure between them and keep either from opening at its set point."},
+  {"q": "A large amount of refrigerant is released in an enclosed room and you have no self-contained breathing apparatus. You should:",
+   "options": ["Stay low, since refrigerant rises", "Open the cylinder valves to equalize pressure", "Leave the area and ventilate it", "Continue working with a dust mask"], "answer": 2,
+   "why": "Refrigerant vapor is heavier than air and displaces oxygen, so it can suffocate you without warning. Leave, then ventilate."}
+]
+    </script>
+  </main>
+
+  <footer class="site">
+    <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+    <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
+  </footer>
+  <script src="/js/common.js"></script>
+  <script src="/js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thermostat wire colors | Spark &amp; Duct</title>
+  <meta name="description" content="Thermostat wire color chart: what the R, C, Y, G, W and O/B terminals do and the wire color normally used for each, with heat pump differences.">
+  <link rel="canonical" href="https://sparkandduct.github.io/reference/thermostat-wire-colors.html">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
+      <nav>
+        <a href="/">Calculators</a>
+        <a href="/guides/">Guides</a>
+        <a href="/fault-codes/">Fault codes</a>
+        <a href="/reference/" aria-current="page">Reference</a>
+        <a href="/quizzes/">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="prose">
+      <h1>Thermostat wire colors</h1>
+      <p class="lede">The usual color for each terminal, and what the terminal does.</p>
+
+      <div class="callout"><p>Color is a convention, not a rule. Installers run out of colors and substitute. Always confirm by looking at which terminal each wire lands on at the furnace or air handler board.</p></div>
+
+      <h2>Conventional systems</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Terminal</th><th>Usual color</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>R</td><td><span class="swatch" style="background:#d32f2f"></span>Red</td><td>24 V power from the transformer.</td></tr>
+          <tr><td>Rc / Rh</td><td><span class="swatch" style="background:#d32f2f"></span>Red</td><td>Separate 24 V feeds for cooling and heating when there are two transformers. With one transformer they are jumpered together.</td></tr>
+          <tr><td>C</td><td><span class="swatch" style="background:#1565c0"></span>Blue or <span class="swatch" style="background:#222"></span>black</td><td>Common: the other side of the transformer. Needed by most smart thermostats.</td></tr>
+          <tr><td>G</td><td><span class="swatch" style="background:#2e7d32"></span>Green</td><td>Indoor blower fan.</td></tr>
+          <tr><td>Y</td><td><span class="swatch" style="background:#fbc02d"></span>Yellow</td><td>Cooling: energizes the outdoor unit's contactor.</td></tr>
+          <tr><td>Y2</td><td><span class="swatch" style="background:#90caf9"></span>Light blue or pink</td><td>Second stage cooling.</td></tr>
+          <tr><td>W</td><td><span class="swatch" style="background:#fff"></span>White</td><td>Heat.</td></tr>
+          <tr><td>W2</td><td><span class="swatch" style="background:#6d4c41"></span>Brown</td><td>Second stage heat.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>Heat pumps</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Terminal</th><th>Usual color</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Y</td><td><span class="swatch" style="background:#fbc02d"></span>Yellow</td><td>Compressor, in both heating and cooling.</td></tr>
+          <tr><td>O/B</td><td><span class="swatch" style="background:#ef6c00"></span>Orange (O) or <span class="swatch" style="background:#0d47a1"></span>dark blue (B)</td><td>Reversing valve. O energizes it in cooling, which most brands use. B energizes it in heating.</td></tr>
+          <tr><td>W2 / Aux</td><td><span class="swatch" style="background:#fff"></span>White</td><td>Auxiliary heat: the electric strips or furnace that help the heat pump.</td></tr>
+          <tr><td>E</td><td>Varies</td><td>Emergency heat: runs the backup heat alone, with the compressor locked out.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>On a heat pump, blue is often used for common as well, so a system with a B terminal needs extra care. Check the board, not the color.</p>
+
+      <h2>Other terminals you may see</h2>
+      <ul>
+        <li><strong>S1 / S2:</strong> outdoor or remote temperature sensor.</li>
+        <li><strong>L:</strong> fault indicator from a heat pump.</li>
+        <li><strong>DH or DEHUM:</strong> dehumidification signal to a variable speed blower.</li>
+        <li><strong>1, 2, A, B, D:</strong> communicating systems that send data instead of switching 24 V. These do not follow the chart above and cannot be mixed with a standard thermostat.</li>
+      </ul>
+
+      <h2>Before you disconnect anything</h2>
+      <ul>
+        <li>Turn the power off at the furnace or air handler. Shorting R to C blows the low-voltage fuse on the board.</li>
+        <li>Photograph the old thermostat's wiring with the terminal letters visible.</li>
+        <li>Thick wires on wire nuts mean a line-voltage thermostat (120 or 240 V) for electric baseboard heat. None of this page applies to those.</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site">
+    <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+    <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
+  </footer>
+</body>
+</html>

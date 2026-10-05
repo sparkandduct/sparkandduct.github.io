@@ -1,0 +1,59 @@
+<!--
+title: Conduit fill explained
+description: How conduit fill works: the 53, 31 and 40 percent limits, how to work it out by hand, and how to handle low voltage cables.
+section: guides
+group: how-to
+order: 3
+summary: The 53, 31 and 40 percent rules, hand calculation and how cables are counted.
+-->
+    <article class="prose">
+      <h1>Conduit fill explained</h1>
+      <p class="lede">How many wires fit, and why the limit changes with the count.</p>
+
+      <div class="callout"><p>The <a href="/conduit-fill.html">conduit fill calculator</a> does this for EMT with THHN conductors and cables.</p></div>
+
+      <h2>The rule</h2>
+      <p>The NEC limits how much of a conduit's cross-section the conductors may occupy, so wire can be pulled without damage and heat can escape. The limits are in Chapter 9, Table 1:</p>
+      <table class="data">
+        <thead><tr><th>Conductors</th><th>Maximum fill</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>53 %</td></tr>
+          <tr><td>2</td><td>31 %</td></tr>
+          <tr><td>3 or more</td><td>40 %</td></tr>
+        </tbody>
+      </table>
+      <p>Two conductors get the lowest limit because two round wires side by side tend to jam across the conduit's diameter during a pull.</p>
+
+      <h2>Working it out by hand</h2>
+      <ol>
+        <li>Find the conduit's total internal area in Chapter 9, Table 4, for the conduit type and trade size.</li>
+        <li>Find each conductor's area in Table 5, for its insulation type and size.</li>
+        <li>Add the conductor areas together.</li>
+        <li>Divide by the conduit area and compare with the limit for that number of conductors.</li>
+      </ol>
+
+      <h2>Worked example: THHN</h2>
+      <p>Three 12 AWG THHN conductors in 1/2" EMT:</p>
+      <ul>
+        <li>Each conductor: 0.0133 in&sup2;, so three are 0.0399 in&sup2;.</li>
+        <li>1/2" EMT: 0.304 in&sup2;.</li>
+        <li>Fill: 0.0399 &divide; 0.304 = 13.1 %, well under 40 %.</li>
+      </ul>
+
+      <h2>Worked example: low voltage cables</h2>
+      <p>Cables are not in Table 5, so work from the outside diameter on the cable's data sheet: <code>area = &pi; &times; diameter&sup2; &divide; 4</code>.</p>
+      <p>Four cables of 0.25" outside diameter in 3/4" EMT:</p>
+      <ul>
+        <li>Each cable: 3.1416 &times; 0.25&sup2; &divide; 4 = 0.0491 in&sup2;, so four are 0.196 in&sup2;.</li>
+        <li>3/4" EMT: 0.533 in&sup2;.</li>
+        <li>Fill: 0.196 &divide; 0.533 = 36.8 %, which passes at 40 %.</li>
+      </ul>
+      <p>A multiconductor cable counts as one conductor for the percentage. For a flat or oval cable, use the larger dimension as the diameter.</p>
+
+      <h2>Things fill does not cover</h2>
+      <ul>
+        <li><strong>Ampacity adjustment.</strong> More than three current-carrying conductors in a raceway means derating their ampacity. That is a separate rule and often the tighter one.</li>
+        <li><strong>Pulling difficulty.</strong> A legal fill can still be a miserable pull on a long run with several bends. Going up a size is cheap.</li>
+        <li><strong>Short nipples.</strong> Nipples 24 inches or shorter are allowed 60 % fill.</li>
+      </ul>
+    </article>

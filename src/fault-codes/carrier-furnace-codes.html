@@ -1,0 +1,58 @@
+<!--
+title: Carrier furnace fault codes
+description: Carrier and Bryant furnace status codes explained: how to read the two-digit LED flash code, what codes 13, 14, 31, 33 and 34 mean, and what to check first.
+section: fault-codes
+order: 1
+summary: Two-digit LED status codes for Carrier, Bryant and Payne gas furnaces.
+-->
+    <article class="prose">
+      <h1>Carrier furnace fault codes</h1>
+      <p class="lede">Two-digit status codes used on Carrier, Bryant and Payne gas furnaces.</p>
+
+      <div class="callout"><p>Code lists differ between control boards. The chart on the inside of the furnace's blower door is the one that applies to that furnace; use this page as a guide to what the codes mean.</p></div>
+
+      <h2>How to read the code</h2>
+      <p>Look at the LED on the control board through the sight glass in the lower door. The code is two digits: the first digit is the number of short flashes, the second is the number of long flashes. Two short and four long is code 24. Read the code before removing the door or switching power off, because on many boards cutting power erases it.</p>
+      <ul>
+        <li><strong>LED on steady:</strong> the control has power and is working normally.</li>
+        <li><strong>LED off:</strong> no power to the board. Check the breaker, the switch at the furnace and the door switch.</li>
+        <li><strong>LED flashing rapidly:</strong> line voltage polarity is reversed, or the furnace is not grounded.</li>
+      </ul>
+
+      <h2>Code chart</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Code</th><th>Meaning</th><th>Check first</th></tr></thead>
+        <tbody>
+          <tr><td>11</td><td>No previous code stored</td><td>Nothing in the fault history.</td></tr>
+          <tr><td>12</td><td>Blower on after power-up</td><td>Normal after power is restored during a call for heat; the blower runs briefly, then the furnace restarts.</td></tr>
+          <tr><td>13</td><td>Limit circuit lockout</td><td>The limit or rollout switch has opened repeatedly. Dirty filter, closed registers, failing blower. Resets after about three hours or on a power cycle.</td></tr>
+          <tr><td>14</td><td>Ignition lockout</td><td>The furnace tried to light several times and failed. Flame sensor, igniter, gas supply. Resets after about three hours.</td></tr>
+          <tr><td>21</td><td>Gas heating lockout</td><td>The control will not attempt heating. Gas valve wiring or a control fault; cycle power and watch the next start.</td></tr>
+          <tr><td>22</td><td>Abnormal flame-proving signal</td><td>Flame is sensed when the gas valve should be off. Leaking or stuck-open gas valve; shut the gas off and call for service.</td></tr>
+          <tr><td>23</td><td>Pressure switch did not open</td><td>Switch is closed before the inducer starts. Stuck switch or blocked tubing.</td></tr>
+          <tr><td>24</td><td>Secondary voltage fuse open</td><td>The low-voltage fuse on the board has blown. Look for a short in the thermostat wiring, often where it rubs on the cabinet or at the outdoor unit.</td></tr>
+          <tr><td>31</td><td>Pressure switch did not close or reopened</td><td>Blocked vent or intake, cracked or wet pressure tubing, blocked condensate drain, weak inducer.</td></tr>
+          <tr><td>32</td><td>Low-heat pressure switch fault</td><td>Two-stage models. Same checks as code 31.</td></tr>
+          <tr><td>33</td><td>Limit circuit fault</td><td>Limit or flame rollout switch is open. Dirty filter, blocked airflow, blower not running. A tripped rollout switch needs a technician.</td></tr>
+          <tr><td>34</td><td>Ignition proving failure</td><td>Flame was not sensed after the gas valve opened. Clean the flame sensor; check the igniter, ground wire and gas pressure.</td></tr>
+          <tr><td>41</td><td>Blower motor fault</td><td>Variable speed models. Blower is not reaching the commanded speed.</td></tr>
+          <tr><td>42</td><td>Inducer motor fault</td><td>Variable speed models. Inducer is not reaching the commanded speed.</td></tr>
+          <tr><td>43</td><td>Pressure switch sequence fault</td><td>Two-stage models. Low-heat switch open while the high-heat switch is closed. Tubing, drain or switch.</td></tr>
+          <tr><td>45</td><td>Control circuitry lockout</td><td>The board found an internal fault. Cycle power once; if it returns, the board needs replacing.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>The three you will see most</h2>
+      <h3>Code 31: pressure switch</h3>
+      <p>The inducer has to prove that the vent is drawing before the furnace is allowed to light. On condensing furnaces the usual causes are water in the pressure tubing, a blocked condensate trap, or ice, snow or a nest at the vent termination.</p>
+
+      <h3>Code 33: limit circuit</h3>
+      <p>The furnace is overheating or a safety switch is open. Start with the filter. If the filter is clean, check that the blower is running at the right speed and measure the <a href="/guides/furnace-temperature-rise.html">temperature rise</a>.</p>
+
+      <h3>Code 34: ignition proving</h3>
+      <p>If the burners light and then drop out after a few seconds, the flame sensor is not proving flame. A sensor coated with oxide is the usual cause and cleans up with a light abrasive pad. If the burners never light, look at the igniter and the gas supply.</p>
+
+      <div class="callout"><p>If you smell gas, leave the building and call the gas utility. Repeatedly resetting a furnace that locks out on a safety is not a repair.</p></div>
+    </article>

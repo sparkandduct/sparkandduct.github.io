@@ -1,0 +1,59 @@
+<!--
+title: How to size a fire alarm battery
+description: Step-by-step fire alarm battery calculation with a worked example: standby load, alarm load, the 20 percent margin and picking a battery size.
+section: guides
+group: how-to
+order: 1
+summary: The standby and alarm calculation, step by step, with a worked example.
+-->
+    <article class="prose">
+      <h1>How to size a fire alarm battery</h1>
+      <p class="lede">The calculation every fire alarm submittal needs, worked through by hand.</p>
+
+      <div class="callout"><p>Want the answer without the arithmetic? Use the <a href="/battery.html">fire alarm battery calculator</a>.</p></div>
+
+      <h2>What the battery has to do</h2>
+      <p>When primary power fails, the batteries must carry the system in standby for a set time and then still have enough left to sound the alarm. NFPA 72 sets the common case at 24 hours of standby followed by 5 minutes of alarm. Voice evacuation systems need 15 minutes of alarm.</p>
+
+      <h2>Step 1: List every device and its current</h2>
+      <p>For each item the panel powers, find two numbers on the data sheet: standby current and alarm current, both in milliamps. Include the panel itself, annunciators, modules, detectors and notification appliances. Multiply each by its quantity.</p>
+
+      <h2>Step 2: Total the standby and alarm loads</h2>
+      <p>Add up the standby column and the alarm column separately, then convert to amps by dividing by 1,000.</p>
+
+      <h2>Step 3: Convert to amp-hours</h2>
+      <p><code>Ah = standby amps &times; standby hours + alarm amps &times; alarm hours</code></p>
+      <p>Five minutes is 5 &divide; 60 = 0.083 hours.</p>
+
+      <h2>Step 4: Add the margin</h2>
+      <p>Multiply by 1.2. NFPA 72 requires the calculated capacity to include a 20 % safety margin, which covers battery aging.</p>
+
+      <h2>Step 5: Pick the next size up</h2>
+      <p>Choose the next standard battery at or above the result, then confirm that the panel's charger is listed to charge a battery that large and that it fits in the cabinet.</p>
+
+      <h2>Worked example</h2>
+      <table class="data">
+        <thead><tr><th>Device</th><th>Qty</th><th>Standby mA</th><th>Alarm mA</th></tr></thead>
+        <tbody>
+          <tr><td>Control panel</td><td>1</td><td>120</td><td>250</td></tr>
+          <tr><td>Smoke detector</td><td>20</td><td>0.3 each = 6</td><td>2 each = 40</td></tr>
+          <tr><td>Horn strobe</td><td>10</td><td>0</td><td>95 each = 950</td></tr>
+          <tr><td>Total</td><td></td><td>126 mA</td><td>1,240 mA</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>Standby: 0.126 A &times; 24 h = 3.02 Ah</li>
+        <li>Alarm: 1.24 A &times; 0.083 h = 0.10 Ah</li>
+        <li>Total: 3.13 Ah</li>
+        <li>With margin: 3.13 &times; 1.2 = 3.75 Ah</li>
+      </ul>
+      <p>The next standard size is 4.5 Ah, although most installers would fit the common 7 Ah pair. The currents here are examples; use the data sheet values for the equipment you are installing.</p>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li><strong>Using the strobe's nominal current.</strong> Strobe current depends on the candela setting. Use the figure for the setting you will install.</li>
+        <li><strong>Leaving out auxiliary loads.</strong> Door holders, relays and remote annunciators fed from the panel all count.</li>
+        <li><strong>Doubling the amp-hours for two batteries.</strong> Two 12 V batteries in series make 24 V at the amp-hour rating of one.</li>
+        <li><strong>Ignoring the local requirement.</strong> Some jurisdictions and some system types need more standby time. Ask before you submit.</li>
+      </ul>
+    </article>

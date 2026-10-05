@@ -1,0 +1,55 @@
+<!--
+title: How to measure furnace temperature rise
+description: How to measure a furnace's temperature rise, compare it with the nameplate range, and use it to work out airflow in CFM.
+section: guides
+group: how-to
+order: 4
+summary: Measuring rise, reading the nameplate range and turning it into CFM.
+-->
+    <article class="prose">
+      <h1>How to measure furnace temperature rise</h1>
+      <p class="lede">One of the quickest checks of whether a furnace is moving enough air.</p>
+
+      <div class="callout"><p>The <a href="/airflow.html">airflow calculator</a> turns heat output and temperature rise into CFM.</p></div>
+
+      <h2>What it tells you</h2>
+      <p>Temperature rise is the difference between the air entering the furnace and the air leaving it. Every furnace nameplate gives an acceptable range, for example 35 to 65 &deg;F. A rise above the range means too little airflow, which overheats the heat exchanger and trips the limit switch. A rise below the range means too much airflow or too little heat, which can cause condensation in a furnace that is not built for it.</p>
+
+      <h2>How to measure it</h2>
+      <ol>
+        <li>Set the thermostat to call for heat and let the furnace run for at least ten minutes so temperatures settle.</li>
+        <li>Measure return air temperature in the return duct close to the furnace.</li>
+        <li>Measure supply air temperature in the supply plenum, far enough downstream that the probe cannot "see" the heat exchanger. Radiant heat from the exchanger gives a false high reading.</li>
+        <li>Subtract return from supply.</li>
+      </ol>
+      <p>Take both readings with the same thermometer where you can, and make sure the filter is clean and the registers are open before you start.</p>
+
+      <h2>Turning rise into airflow</h2>
+      <p><code>CFM = output BTU/h &divide; (1.08 &times; rise)</code></p>
+      <p>Use output, which is the input rating multiplied by the efficiency.</p>
+
+      <h2>Worked example</h2>
+      <p>An 80,000 BTU/h input furnace at 95 % efficiency has an output of 76,000 BTU/h. Measured rise is 55 &deg;F.</p>
+      <ul>
+        <li>CFM = 76,000 &divide; (1.08 &times; 55) = 76,000 &divide; 59.4 = about 1,280 CFM.</li>
+      </ul>
+      <p>For electric heat, convert kilowatts to BTU/h by multiplying by 3,412 first.</p>
+
+      <h2>If the rise is too high</h2>
+      <ul>
+        <li>Dirty filter or a filter that is too restrictive for the system.</li>
+        <li>Blower speed set too low for heating.</li>
+        <li>Dirty blower wheel or a dirty evaporator coil above the furnace.</li>
+        <li>Closed or blocked registers, or ductwork that is too small.</li>
+        <li>Furnace over-fired: check gas pressure and orifice size.</li>
+      </ul>
+
+      <h2>If the rise is too low</h2>
+      <ul>
+        <li>Blower speed set too high.</li>
+        <li>Furnace under-fired: low gas pressure or wrong orifices.</li>
+        <li>On a two-stage furnace, the reading was taken on low fire and compared with the high-fire range.</li>
+      </ul>
+
+      <p class="note">The 1.08 factor is for standard air at sea level and falls with altitude. Gas pressure and combustion work should be done by a qualified technician.</p>
+    </article>
