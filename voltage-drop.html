@@ -6,6 +6,7 @@
   <title>Voltage drop calculator with fire alarm NAC preset | Spark &amp; Duct</title>
   <meta name="description" content="Voltage drop calculator for DC, single-phase and three-phase circuits, 24 AWG to 4/0. Includes a fire alarm NAC preset, maximum run length and the smallest wire that passes.">
   <link rel="canonical" href="https://sparkandduct.github.io/voltage-drop.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,9 +14,9 @@
     <div class="inner">
       <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
       <nav>
-        <a href="/" aria-current="page">Calculators</a>
+        <a href="/" aria-current="page">Tools</a>
         <a href="/guides/">Guides</a>
-        <a href="/fault-codes/">Fault codes</a>
+        <a href="/fault-codes/">Codes</a>
         <a href="/reference/">Reference</a>
         <a href="/quizzes/">Quizzes</a>
       </nav>
@@ -23,6 +24,7 @@
   </header>
 
   <main>
+    <p class="crumbs"><a href="/">&larr; All tools</a></p>
     <h1>Voltage drop calculator</h1>
     <p class="lede">Drop, voltage at the load and the longest run the wire can carry.</p>
 
@@ -82,18 +84,28 @@
       <p id="status" class="status"></p>
     </section>
 
+    <div class="ad-slot" data-slot="in content"></div>
+
     <section class="card note">
       <h2>How it is worked out</h2>
       <p><code>drop = 2 &times; K &times; amps &times; feet &divide; circular mils</code>, with 1.732 in place of 2 for three-phase. K is 12.9 for copper and 21.2 for aluminum.</p>
       <p>The whole load is treated as sitting at the far end of the run, which is the cautious assumption for a notification circuit with devices spread along it. Reactance is ignored, so for large AC conductors use the NEC Chapter 9 Table 9 method instead.</p>
       <p>The NAC preset starts at 20.4 V (85 % of 24 V, the usual worst-case battery voltage) and requires 16 V at the last device. Use the figures from your panel and device data sheets if they differ.</p>
     </section>
+    <h2 class="section">More calculators</h2>
+    <ul class="tools">
+  <li><a href="/battery.html"><strong>Fire alarm battery calculator</strong><span>Standby and alarm load to amp-hours, with the safety margin and next battery size.</span></a></li>
+  <li><a href="/conduit-fill.html"><strong>Conduit fill calculator</strong><span>EMT fill for THHN conductors and low voltage cables by outside diameter.</span></a></li>
+  <li><a href="/airflow.html"><strong>HVAC airflow calculators</strong><span>CFM from heat output and temperature rise, cooling airflow and duct velocity.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
   </main>
 
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
   </footer>
+  <script src="/js/site.js"></script>
   <script src="/js/common.js"></script>
   <script src="/js/voltage-drop.js"></script>
 </body>

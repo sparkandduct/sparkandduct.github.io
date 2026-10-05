@@ -15,8 +15,11 @@ summary: LED flash counts for Goodman and Amana gas furnaces.
       <p>Look at the LED on the control board through the sight glass in the lower door. Count the flashes in a group; the group repeats after a pause. Read it before switching power off, since that can clear the code.</p>
 
       <h2>Code chart</h2>
+      <p class="search">
+        <input type="search" data-filter-table="#codes" placeholder="Type a code or a symptom" aria-label="Filter the code chart">
+      </p>
       <div class="table-wrap">
-      <table class="data">
+      <table class="data" id="codes">
         <thead><tr><th>LED</th><th>Meaning</th><th>Check first</th></tr></thead>
         <tbody>
           <tr><td>Off</td><td>No power to the board</td><td>Breaker, furnace switch, door switch, board fuse.</td></tr>

@@ -6,6 +6,7 @@
   <title>How to calculate voltage drop on a NAC circuit | Spark &amp; Duct</title>
   <meta name="description" content="Fire alarm notification appliance circuit voltage drop explained: the 20.4 V starting point, the 16 V minimum, the lump-sum method and a worked example.">
   <link rel="canonical" href="https://sparkandduct.github.io/guides/nac-voltage-drop.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,9 +14,9 @@
     <div class="inner">
       <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
       <nav>
-        <a href="/">Calculators</a>
+        <a href="/">Tools</a>
         <a href="/guides/" aria-current="page">Guides</a>
-        <a href="/fault-codes/">Fault codes</a>
+        <a href="/fault-codes/">Codes</a>
         <a href="/reference/">Reference</a>
         <a href="/quizzes/">Quizzes</a>
       </nav>
@@ -23,6 +24,7 @@
   </header>
 
   <main>
+    <p class="crumbs"><a href="/guides/">&larr; Guides</a></p>
     <article class="prose">
       <h1>How to calculate voltage drop on a NAC circuit</h1>
       <p class="lede">Making sure the last horn strobe on the run still gets enough voltage.</p>
@@ -38,6 +40,25 @@
         <li><strong>Minimum at the device: 16 V.</strong> This is the bottom of the listed range for most 24 V appliances. Check the data sheet.</li>
       </ul>
       <p>That leaves 20.4 &minus; 16 = 4.4 V that the wire is allowed to drop.</p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 360 140" role="img" aria-label="A panel supplying 20.4 volts feeds three appliances along a pair of wires; the last appliance must still receive at least 16 volts.">
+          <path class="d-thin" d="M82 26H298M82 20v12M298 20v12"/>
+          <text class="d-small" x="190" y="16" text-anchor="middle">wire may drop up to 4.4 V</text>
+          <path class="d-line" d="M80 60H322M80 84H322"/>
+          <rect class="d-box" x="10" y="42" width="70" height="60" rx="5"/>
+          <text class="d-text d-strong" x="45" y="68" text-anchor="middle">Panel</text>
+          <text class="d-text" x="45" y="86" text-anchor="middle">20.4 V</text>
+          <rect class="d-box" x="138" y="52" width="24" height="40" rx="3"/>
+          <rect class="d-box" x="218" y="52" width="24" height="40" rx="3"/>
+          <rect class="d-accent" x="298" y="52" width="24" height="40" rx="3"/>
+          <text class="d-text d-strong" x="310" y="112" text-anchor="middle">Last device</text>
+          <text class="d-text" x="310" y="129" text-anchor="middle">16 V minimum</text>
+        </svg>
+        <figcaption>The voltage budget on a 24 V notification circuit.</figcaption>
+      </figure>
+
+      <div class="ad-slot" data-slot="in content"></div>
 
       <h2>The lump-sum method</h2>
       <p>The simplest method treats every appliance as if it sat at the very end of the circuit. It overstates the drop, so a circuit that passes this way will pass in reality.</p>
@@ -63,11 +84,20 @@
       <h2>Use the real currents</h2>
       <p>Take each appliance's current at the candela setting you will use, and at the voltage the data sheet specifies for calculations. Some manufacturers require their own starting voltage or method; where they do, theirs is the one the inspector will expect.</p>
     </article>
+    <h2 class="section">More guides</h2>
+    <ul class="tools">
+  <li><a href="/guides/how-to-size-a-fire-alarm-battery.html"><strong>How to size a fire alarm battery</strong><span>The standby and alarm calculation, step by step, with a worked example.</span></a></li>
+  <li><a href="/guides/conduit-fill-explained.html"><strong>Conduit fill explained</strong><span>The 53, 31 and 40 percent rules, hand calculation and how cables are counted.</span></a></li>
+  <li><a href="/guides/furnace-temperature-rise.html"><strong>How to measure furnace temperature rise</strong><span>Measuring rise, reading the nameplate range and turning it into CFM.</span></a></li>
+  <li><a href="/guides/ac-running-but-not-cooling.html"><strong>AC running but not cooling: what to check</strong><span>Step-by-step checks from the thermostat to the outdoor unit.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
   </main>
 
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
   </footer>
+  <script src="/js/site.js"></script>
 </body>
 </html>

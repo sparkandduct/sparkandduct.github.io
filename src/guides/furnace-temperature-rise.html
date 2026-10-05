@@ -22,6 +22,25 @@ summary: Measuring rise, reading the nameplate range and turning it into CFM.
         <li>Measure supply air temperature in the supply plenum, far enough downstream that the probe cannot "see" the heat exchanger. Radiant heat from the exchanger gives a false high reading.</li>
         <li>Subtract return from supply.</li>
       </ol>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 150" role="img" aria-label="A furnace with return air entering from the left, measured at T1, and supply air leaving to the right, measured at T2. Rise equals T2 minus T1.">
+          <rect class="d-box" x="20" y="92" width="122" height="30"/>
+          <rect class="d-box" x="218" y="34" width="122" height="30"/>
+          <rect class="d-box" x="140" y="26" width="80" height="104" rx="4"/>
+          <text class="d-text d-strong" x="180" y="82" text-anchor="middle">Furnace</text>
+          <path class="d-line" d="M32 107H56M50 101l7 6-7 6"/>
+          <path class="d-line" d="M300 49H324M318 43l7 6-7 6"/>
+          <circle class="d-accent" cx="96" cy="107" r="6"/>
+          <circle class="d-accent" cx="268" cy="49" r="6"/>
+          <text class="d-text d-strong" x="96" y="84" text-anchor="middle">T1</text>
+          <text class="d-small" x="80" y="140" text-anchor="middle">Return air</text>
+          <text class="d-text d-strong" x="268" y="26" text-anchor="middle">T2</text>
+          <text class="d-small" x="280" y="82" text-anchor="middle">Supply air</text>
+          <text class="d-text" x="290" y="122" text-anchor="middle">Rise = T2 &#8722; T1</text>
+        </svg>
+        <figcaption>Where to take the two readings.</figcaption>
+      </figure>
+
       <p>Take both readings with the same thermometer where you can, and make sure the filter is clean and the registers are open before you start.</p>
 
       <h2>Turning rise into airflow</h2>

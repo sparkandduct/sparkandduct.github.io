@@ -6,6 +6,7 @@
   <title>Conduit fill explained | Spark &amp; Duct</title>
   <meta name="description" content="How conduit fill works: the 53, 31 and 40 percent limits, how to work it out by hand, and how to handle low voltage cables.">
   <link rel="canonical" href="https://sparkandduct.github.io/guides/conduit-fill-explained.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,9 +14,9 @@
     <div class="inner">
       <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
       <nav>
-        <a href="/">Calculators</a>
+        <a href="/">Tools</a>
         <a href="/guides/" aria-current="page">Guides</a>
-        <a href="/fault-codes/">Fault codes</a>
+        <a href="/fault-codes/">Codes</a>
         <a href="/reference/">Reference</a>
         <a href="/quizzes/">Quizzes</a>
       </nav>
@@ -23,6 +24,7 @@
   </header>
 
   <main>
+    <p class="crumbs"><a href="/guides/">&larr; Guides</a></p>
     <article class="prose">
       <h1>Conduit fill explained</h1>
       <p class="lede">How many wires fit, and why the limit changes with the count.</p>
@@ -39,6 +41,27 @@
           <tr><td>3 or more</td><td>40 %</td></tr>
         </tbody>
       </table>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 140" role="img" aria-label="Three conduit cross-sections drawn to scale: one conductor filling 53 percent, two conductors filling 31 percent, and three conductors filling 40 percent.">
+          <circle class="d-box" cx="60" cy="52" r="38"/>
+          <circle class="d-accent" cx="60" cy="52" r="26.7"/>
+          <circle class="d-box" cx="180" cy="52" r="38"/>
+          <circle class="d-accent" cx="164" cy="52" r="14"/>
+          <circle class="d-accent" cx="196" cy="52" r="14"/>
+          <circle class="d-box" cx="300" cy="52" r="38"/>
+          <circle class="d-accent" cx="300" cy="38" r="12.9"/>
+          <circle class="d-accent" cx="285" cy="64" r="12.9"/>
+          <circle class="d-accent" cx="315" cy="64" r="12.9"/>
+          <text class="d-text d-strong" x="60" y="112" text-anchor="middle">1 conductor</text>
+          <text class="d-text" x="60" y="130" text-anchor="middle">53 %</text>
+          <text class="d-text d-strong" x="180" y="112" text-anchor="middle">2 conductors</text>
+          <text class="d-text" x="180" y="130" text-anchor="middle">31 %</text>
+          <text class="d-text d-strong" x="300" y="112" text-anchor="middle">3 or more</text>
+          <text class="d-text" x="300" y="130" text-anchor="middle">40 %</text>
+        </svg>
+        <figcaption>Maximum fill, drawn to scale.</figcaption>
+      </figure>
+
       <p>Two conductors get the lowest limit because two round wires side by side tend to jam across the conduit's diameter during a pull.</p>
 
       <h2>Working it out by hand</h2>
@@ -48,6 +71,8 @@
         <li>Add the conductor areas together.</li>
         <li>Divide by the conduit area and compare with the limit for that number of conductors.</li>
       </ol>
+
+      <div class="ad-slot" data-slot="in content"></div>
 
       <h2>Worked example: THHN</h2>
       <p>Three 12 AWG THHN conductors in 1/2" EMT:</p>
@@ -74,11 +99,20 @@
         <li><strong>Short nipples.</strong> Nipples 24 inches or shorter are allowed 60 % fill.</li>
       </ul>
     </article>
+    <h2 class="section">More guides</h2>
+    <ul class="tools">
+  <li><a href="/guides/how-to-size-a-fire-alarm-battery.html"><strong>How to size a fire alarm battery</strong><span>The standby and alarm calculation, step by step, with a worked example.</span></a></li>
+  <li><a href="/guides/nac-voltage-drop.html"><strong>How to calculate voltage drop on a NAC circuit</strong><span>Why NAC circuits start at 20.4 V, the lump-sum method and a worked example.</span></a></li>
+  <li><a href="/guides/furnace-temperature-rise.html"><strong>How to measure furnace temperature rise</strong><span>Measuring rise, reading the nameplate range and turning it into CFM.</span></a></li>
+  <li><a href="/guides/ac-running-but-not-cooling.html"><strong>AC running but not cooling: what to check</strong><span>Step-by-step checks from the thermostat to the outdoor unit.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
   </main>
 
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
   </footer>
+  <script src="/js/site.js"></script>
 </body>
 </html>

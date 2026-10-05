@@ -15,6 +15,18 @@ summary: The standby and alarm calculation, step by step, with a worked example.
       <h2>What the battery has to do</h2>
       <p>When primary power fails, the batteries must carry the system in standby for a set time and then still have enough left to sound the alarm. NFPA 72 sets the common case at 24 hours of standby followed by 5 minutes of alarm. Voice evacuation systems need 15 minutes of alarm.</p>
 
+      <figure class="diagram">
+        <svg viewBox="0 0 360 96" role="img" aria-label="A timeline: when power fails, the batteries carry 24 hours of standby and then 5 minutes of alarm.">
+          <rect class="d-box" x="10" y="30" width="296" height="32" rx="4"/>
+          <rect class="d-accent" x="306" y="30" width="44" height="32" rx="4"/>
+          <text class="d-text d-strong" x="158" y="51" text-anchor="middle">24 hours standby</text>
+          <text class="d-text d-strong" x="350" y="20" text-anchor="end">5 min alarm</text>
+          <path class="d-thin" d="M10 66v12"/>
+          <text class="d-small" x="10" y="91">Power fails</text>
+        </svg>
+        <figcaption>What the batteries have to cover, not to scale.</figcaption>
+      </figure>
+
       <h2>Step 1: List every device and its current</h2>
       <p>For each item the panel powers, find two numbers on the data sheet: standby current and alarm current, both in milliamps. Include the panel itself, annunciators, modules, detectors and notification appliances. Multiply each by its quantity.</p>
 

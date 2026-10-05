@@ -6,6 +6,7 @@
   <title>EMT conduit fill calculator for THHN and low voltage cable | Spark &amp; Duct</title>
   <meta name="description" content="Conduit fill calculator for EMT. Mix THHN conductors and low voltage cables by outside diameter, and see the fill percentage and the smallest conduit that passes.">
   <link rel="canonical" href="https://sparkandduct.github.io/conduit-fill.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,9 +14,9 @@
     <div class="inner">
       <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
       <nav>
-        <a href="/" aria-current="page">Calculators</a>
+        <a href="/" aria-current="page">Tools</a>
         <a href="/guides/">Guides</a>
-        <a href="/fault-codes/">Fault codes</a>
+        <a href="/fault-codes/">Codes</a>
         <a href="/reference/">Reference</a>
         <a href="/quizzes/">Quizzes</a>
       </nav>
@@ -23,6 +24,7 @@
   </header>
 
   <main>
+    <p class="crumbs"><a href="/">&larr; All tools</a></p>
     <h1>Conduit fill calculator</h1>
     <p class="lede">EMT fill for THHN conductors and for cables by outside diameter.</p>
 
@@ -55,18 +57,28 @@
       <p id="status" class="status"></p>
     </section>
 
+    <div class="ad-slot" data-slot="in content"></div>
+
     <section class="card note">
       <h2>How it is worked out</h2>
       <p>Allowed fill follows NEC Chapter 9 Table 1: 53 % for one conductor, 31 % for two and 40 % for three or more. Conduit areas come from Table 4 and THHN areas from Table 5.</p>
       <p>A multiconductor cable counts as one conductor. Enter its outside diameter from the cable data sheet; for a flat or oval cable use the larger dimension.</p>
       <p>The 60 % allowance for nipples of 24 inches or less is not applied here.</p>
     </section>
+    <h2 class="section">More calculators</h2>
+    <ul class="tools">
+  <li><a href="/voltage-drop.html"><strong>Voltage drop calculator</strong><span>Drop, voltage at the load and maximum run length, with a fire alarm NAC preset.</span></a></li>
+  <li><a href="/battery.html"><strong>Fire alarm battery calculator</strong><span>Standby and alarm load to amp-hours, with the safety margin and next battery size.</span></a></li>
+  <li><a href="/airflow.html"><strong>HVAC airflow calculators</strong><span>CFM from heat output and temperature rise, cooling airflow and duct velocity.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
   </main>
 
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
   </footer>
+  <script src="/js/site.js"></script>
   <script src="/js/common.js"></script>
   <script src="/js/conduit-fill.js"></script>
 </body>

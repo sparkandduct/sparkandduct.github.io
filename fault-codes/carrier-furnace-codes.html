@@ -6,6 +6,7 @@
   <title>Carrier furnace fault codes | Spark &amp; Duct</title>
   <meta name="description" content="Carrier and Bryant furnace status codes explained: how to read the two-digit LED flash code, what codes 13, 14, 31, 33 and 34 mean, and what to check first.">
   <link rel="canonical" href="https://sparkandduct.github.io/fault-codes/carrier-furnace-codes.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,9 +14,9 @@
     <div class="inner">
       <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
       <nav>
-        <a href="/">Calculators</a>
+        <a href="/">Tools</a>
         <a href="/guides/">Guides</a>
-        <a href="/fault-codes/" aria-current="page">Fault codes</a>
+        <a href="/fault-codes/" aria-current="page">Codes</a>
         <a href="/reference/">Reference</a>
         <a href="/quizzes/">Quizzes</a>
       </nav>
@@ -23,6 +24,7 @@
   </header>
 
   <main>
+    <p class="crumbs"><a href="/fault-codes/">&larr; Fault codes</a></p>
     <article class="prose">
       <h1>Carrier furnace fault codes</h1>
       <p class="lede">Two-digit status codes used on Carrier, Bryant and Payne gas furnaces.</p>
@@ -31,6 +33,19 @@
 
       <h2>How to read the code</h2>
       <p>Look at the LED on the control board through the sight glass in the lower door. The code is two digits: the first digit is the number of short flashes, the second is the number of long flashes. Two short and four long is code 24. Read the code before removing the door or switching power off, because on many boards cutting power erases it.</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 84" role="img" aria-label="Code 31 shown as three short flashes followed by one long flash.">
+          <text class="d-text d-strong" x="14" y="38">Code 31</text>
+          <rect class="d-accent" x="110" y="22" width="12" height="24" rx="3"/>
+          <rect class="d-accent" x="136" y="22" width="12" height="24" rx="3"/>
+          <rect class="d-accent" x="162" y="22" width="12" height="24" rx="3"/>
+          <rect class="d-accent" x="214" y="22" width="56" height="24" rx="3"/>
+          <text class="d-small" x="142" y="68" text-anchor="middle">3 short</text>
+          <text class="d-small" x="242" y="68" text-anchor="middle">1 long</text>
+        </svg>
+        <figcaption>Short flashes give the first digit, long flashes the second.</figcaption>
+      </figure>
+
       <ul>
         <li><strong>LED on steady:</strong> the control has power and is working normally.</li>
         <li><strong>LED off:</strong> no power to the board. Check the breaker, the switch at the furnace and the door switch.</li>
@@ -38,8 +53,11 @@
       </ul>
 
       <h2>Code chart</h2>
+      <p class="search">
+        <input type="search" data-filter-table="#codes" placeholder="Type a code or a symptom" aria-label="Filter the code chart">
+      </p>
       <div class="table-wrap">
-      <table class="data">
+      <table class="data" id="codes">
         <thead><tr><th>Code</th><th>Meaning</th><th>Check first</th></tr></thead>
         <tbody>
           <tr><td>11</td><td>No previous code stored</td><td>Nothing in the fault history.</td></tr>
@@ -62,6 +80,8 @@
       </table>
       </div>
 
+      <div class="ad-slot" data-slot="in content"></div>
+
       <h2>The three you will see most</h2>
       <h3>Code 31: pressure switch</h3>
       <p>The inducer has to prove that the vent is drawing before the furnace is allowed to light. On condensing furnaces the usual causes are water in the pressure tubing, a blocked condensate trap, or ice, snow or a nest at the vent termination.</p>
@@ -74,11 +94,17 @@
 
       <div class="callout"><p>If you smell gas, leave the building and call the gas utility. Repeatedly resetting a furnace that locks out on a safety is not a repair.</p></div>
     </article>
+    <h2 class="section">More fault codes</h2>
+    <ul class="tools">
+  <li><a href="/fault-codes/goodman-furnace-codes.html"><strong>Goodman furnace fault codes</strong><span>LED flash counts for Goodman and Amana gas furnaces.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
   </main>
 
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
   </footer>
+  <script src="/js/site.js"></script>
 </body>
 </html>

@@ -15,7 +15,10 @@ Every page lives in src/ as a content fragment with a front-matter comment:
 Run `python build.py` to wrap each fragment in the shared template, write it to
 the repo root at the same relative path, and regenerate sitemap.xml.
 `{{list:section}}` or `{{list:section:group}}` in a fragment becomes a card
-list of the matching pages.
+list of the matching pages. `{{ad}}` marks an ad slot; articles without one
+get a slot before their third heading, and content pages get one at the end.
+Slots are empty and hidden until ads are switched on (add ?ads=1 to any URL to
+preview where they sit).
 """
 import html
 import re
@@ -26,13 +29,27 @@ SRC = ROOT / "src"
 SITE = "https://sparkandduct.github.io"
 BRAND = "Spark & Duct"
 
+# Short labels so the whole menu fits on one line on a phone.
 NAV = [
-    ("calculators", "Calculators", "/"),
+    ("calculators", "Tools", "/"),
     ("guides", "Guides", "/guides/"),
-    ("fault-codes", "Fault codes", "/fault-codes/"),
+    ("fault-codes", "Codes", "/fault-codes/"),
     ("reference", "Reference", "/reference/"),
     ("quizzes", "Quizzes", "/quizzes/"),
 ]
+
+# section: (back-link label, back-link target, name used in "More ...")
+SECTIONS = {
+    "calculators": ("All tools", "/", "calculators"),
+    "guides": ("Guides", "/guides/", "guides"),
+    "fault-codes": ("Fault codes", "/fault-codes/", "fault codes"),
+    "reference": ("Reference", "/reference/", "reference pages"),
+    "quizzes": ("Quizzes", "/quizzes/", "quizzes"),
+    "site": ("Home", "/", ""),
+}
+
+AD_SLOT = '<div class="ad-slot" data-slot="{}"></div>'
+MORE_LIMIT = 4
 
 FRONT = re.compile(r"\A<!--\n(.*?)\n-->\n", re.S)
 LIST = re.compile(r"\{\{list:([a-z-]+)(?::([a-z-]+))?\}\}")
@@ -45,6 +62,7 @@ TEMPLATE = """<!doctype html>
   <title>{head_title}</title>
   <meta name="description" content="{description}">
   <link rel="canonical" href="{canonical}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -58,13 +76,14 @@ TEMPLATE = """<!doctype html>
   </header>
 
   <main>
-{body}
-  </main>
+{crumbs}{body}
+{more}  </main>
 
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
   </footer>
+  <script src="/js/site.js"></script>
 {scripts}</body>
 </html>
 """
@@ -84,14 +103,21 @@ def load(path):
     return {"meta": meta, "body": text[match.end():].rstrip("\n"), "rel": rel, "url": url}
 
 
-def listing(pages, section, group):
+def listing(pages, section, group=None, exclude=None, limit=None):
     items = [
         p for p in pages
         if p["meta"]["section"] == section
         and "summary" in p["meta"]
         and (group is None or p["meta"].get("group") == group)
+        and p is not exclude
     ]
     items.sort(key=lambda p: (int(p["meta"].get("order", 100)), p["meta"]["title"]))
+    if exclude is not None and exclude.get("meta", {}).get("group"):
+        # Same-group pages first when suggesting further reading.
+        items.sort(key=lambda p: p["meta"].get("group") != exclude["meta"]["group"])
+    items = items[:limit]
+    if not items:
+        return ""
     rows = "".join(
         f'  <li><a href="{p["url"]}"><strong>{html.escape(p["meta"]["title"])}</strong>'
         f'<span>{html.escape(p["meta"]["summary"])}</span></a></li>\n'
@@ -108,13 +134,36 @@ def render(page, pages):
     )
     scripts = "".join(f'  <script src="{s}"></script>\n' for s in meta.get("scripts", "").split())
     body = LIST.sub(lambda m: listing(pages, m.group(1), m.group(2)), page["body"])
+
+    is_content = "summary" in meta
+    if "{{ad}}" in body:
+        body = body.replace("{{ad}}", AD_SLOT.format("in content"))
+    elif is_content and 'class="prose"' in body:
+        headings = [m.start() for m in re.finditer(r"[ \t]*<h2", body)]
+        if len(headings) >= 3:
+            at = headings[2]
+            body = body[:at] + "      " + AD_SLOT.format("in content") + "\n\n" + body[at:]
+
+    label, href, more_name = SECTIONS[meta["section"]]
+    crumbs = ""
+    if not page["rel"].endswith("index.html"):
+        crumbs = f'    <p class="crumbs"><a href="{href}">&larr; {label}</a></p>\n'
+
+    more = ""
+    if is_content:
+        others = listing(pages, meta["section"], exclude=page, limit=MORE_LIMIT)
+        if others:
+            more = f'    <h2 class="section">More {more_name}</h2>\n    {others}\n'
+        more += "    " + AD_SLOT.format("end of page") + "\n"
     head_title = meta.get("head_title") or f'{meta["title"]} | {BRAND}'
     return TEMPLATE.format(
         head_title=html.escape(head_title),
         description=html.escape(meta["description"], quote=True),
         canonical=SITE + page["url"],
         nav=nav,
+        crumbs=crumbs,
         body=body,
+        more=more,
         scripts=scripts,
     )
 

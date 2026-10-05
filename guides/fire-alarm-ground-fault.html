@@ -6,6 +6,7 @@
   <title>How to find a ground fault on a fire alarm panel | Spark &amp; Duct</title>
   <meta name="description" content="A method for tracking down a ground fault on a fire alarm system: confirming it at the panel, isolating the circuit, then halving the run until the fault is found.">
   <link rel="canonical" href="https://sparkandduct.github.io/guides/fire-alarm-ground-fault.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -13,9 +14,9 @@
     <div class="inner">
       <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
       <nav>
-        <a href="/">Calculators</a>
+        <a href="/">Tools</a>
         <a href="/guides/" aria-current="page">Guides</a>
-        <a href="/fault-codes/">Fault codes</a>
+        <a href="/fault-codes/">Codes</a>
         <a href="/reference/">Reference</a>
         <a href="/quizzes/">Quizzes</a>
       </nav>
@@ -23,6 +24,7 @@
   </header>
 
   <main>
+    <p class="crumbs"><a href="/guides/">&larr; Guides</a></p>
     <article class="prose">
       <h1>How to find a ground fault on a fire alarm panel</h1>
       <p class="lede">A patient, divide-and-conquer job. Here is the order that wastes the least time.</p>
@@ -34,6 +36,8 @@
 
       <h2>Step 1: Confirm it is real and steady</h2>
       <p>Check the panel's event history. A fault that comes and goes with rain, humidity or a particular time of day points to water or to equipment that only runs sometimes. Note whether the panel says positive or negative ground fault, if it tells you.</p>
+
+      <div class="ad-slot" data-slot="in content"></div>
 
       <h2>Step 2: Find which circuit</h2>
       <ol>
@@ -52,6 +56,27 @@
         <li>Measure each half to ground. The fault is in the half that still reads low.</li>
         <li>Go to the middle of that half and repeat.</li>
       </ol>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 112" role="img" aria-label="A circuit of eight devices split at its midpoint. The half nearest the panel tests clear; the far half tests low, so the fault is in that half.">
+          <path class="d-line" d="M48 50H336"/>
+          <rect class="d-box" x="6" y="34" width="42" height="32" rx="4"/>
+          <text class="d-small" x="27" y="54" text-anchor="middle">Panel</text>
+          <rect class="d-box" x="67" y="42" width="16" height="16"/>
+          <rect class="d-box" x="103" y="42" width="16" height="16"/>
+          <rect class="d-box" x="139" y="42" width="16" height="16"/>
+          <rect class="d-box" x="175" y="42" width="16" height="16"/>
+          <rect class="d-box" x="211" y="42" width="16" height="16"/>
+          <rect class="d-box" x="247" y="42" width="16" height="16"/>
+          <rect class="d-accent" x="283" y="42" width="16" height="16"/>
+          <rect class="d-box" x="319" y="42" width="16" height="16"/>
+          <path class="d-dash" d="M201 14V82"/>
+          <text class="d-text" x="129" y="24" text-anchor="middle">Tests clear</text>
+          <text class="d-text d-strong" x="275" y="24" text-anchor="middle">Tests low</text>
+          <text class="d-text d-strong" x="201" y="100" text-anchor="middle">Split here first</text>
+        </svg>
+        <figcaption>Split the run, test each half, then split the bad half again.</figcaption>
+      </figure>
+
       <p>Each split halves what is left, so a 40-device circuit takes about five or six stops.</p>
 
       <h2>Where faults usually are</h2>
@@ -67,11 +92,20 @@
       <h2>Finish properly</h2>
       <p>Repair the damage instead of just moving the wire, reconnect every circuit, confirm the panel is clear of troubles, test the devices on the circuit you opened, and take the system off test.</p>
     </article>
+    <h2 class="section">More guides</h2>
+    <ul class="tools">
+  <li><a href="/guides/ac-running-but-not-cooling.html"><strong>AC running but not cooling: what to check</strong><span>Step-by-step checks from the thermostat to the outdoor unit.</span></a></li>
+  <li><a href="/guides/north-carolina-electrical-hvac-license.html"><strong>Electrical and HVAC licensing in North Carolina</strong><span>The boards, the license classes and the experience each one needs.</span></a></li>
+  <li><a href="/guides/how-to-size-a-fire-alarm-battery.html"><strong>How to size a fire alarm battery</strong><span>The standby and alarm calculation, step by step, with a worked example.</span></a></li>
+  <li><a href="/guides/multimeter-buying-guide.html"><strong>What to look for in a multimeter</strong><span>Safety ratings first, then the features each trade actually uses.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
   </main>
 
   <footer class="site">
     <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
     <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
   </footer>
+  <script src="/js/site.js"></script>
 </body>
 </html>

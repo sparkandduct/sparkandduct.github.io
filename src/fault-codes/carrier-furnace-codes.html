@@ -13,6 +13,19 @@ summary: Two-digit LED status codes for Carrier, Bryant and Payne gas furnaces.
 
       <h2>How to read the code</h2>
       <p>Look at the LED on the control board through the sight glass in the lower door. The code is two digits: the first digit is the number of short flashes, the second is the number of long flashes. Two short and four long is code 24. Read the code before removing the door or switching power off, because on many boards cutting power erases it.</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 84" role="img" aria-label="Code 31 shown as three short flashes followed by one long flash.">
+          <text class="d-text d-strong" x="14" y="38">Code 31</text>
+          <rect class="d-accent" x="110" y="22" width="12" height="24" rx="3"/>
+          <rect class="d-accent" x="136" y="22" width="12" height="24" rx="3"/>
+          <rect class="d-accent" x="162" y="22" width="12" height="24" rx="3"/>
+          <rect class="d-accent" x="214" y="22" width="56" height="24" rx="3"/>
+          <text class="d-small" x="142" y="68" text-anchor="middle">3 short</text>
+          <text class="d-small" x="242" y="68" text-anchor="middle">1 long</text>
+        </svg>
+        <figcaption>Short flashes give the first digit, long flashes the second.</figcaption>
+      </figure>
+
       <ul>
         <li><strong>LED on steady:</strong> the control has power and is working normally.</li>
         <li><strong>LED off:</strong> no power to the board. Check the breaker, the switch at the furnace and the door switch.</li>
@@ -20,8 +33,11 @@ summary: Two-digit LED status codes for Carrier, Bryant and Payne gas furnaces.
       </ul>
 
       <h2>Code chart</h2>
+      <p class="search">
+        <input type="search" data-filter-table="#codes" placeholder="Type a code or a symptom" aria-label="Filter the code chart">
+      </p>
       <div class="table-wrap">
-      <table class="data">
+      <table class="data" id="codes">
         <thead><tr><th>Code</th><th>Meaning</th><th>Check first</th></tr></thead>
         <tbody>
           <tr><td>11</td><td>No previous code stored</td><td>Nothing in the fault history.</td></tr>

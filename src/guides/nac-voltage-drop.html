@@ -22,6 +22,23 @@ summary: Why NAC circuits start at 20.4 V, the lump-sum method and a worked exam
       </ul>
       <p>That leaves 20.4 &minus; 16 = 4.4 V that the wire is allowed to drop.</p>
 
+      <figure class="diagram">
+        <svg viewBox="0 0 360 140" role="img" aria-label="A panel supplying 20.4 volts feeds three appliances along a pair of wires; the last appliance must still receive at least 16 volts.">
+          <path class="d-thin" d="M82 26H298M82 20v12M298 20v12"/>
+          <text class="d-small" x="190" y="16" text-anchor="middle">wire may drop up to 4.4 V</text>
+          <path class="d-line" d="M80 60H322M80 84H322"/>
+          <rect class="d-box" x="10" y="42" width="70" height="60" rx="5"/>
+          <text class="d-text d-strong" x="45" y="68" text-anchor="middle">Panel</text>
+          <text class="d-text" x="45" y="86" text-anchor="middle">20.4 V</text>
+          <rect class="d-box" x="138" y="52" width="24" height="40" rx="3"/>
+          <rect class="d-box" x="218" y="52" width="24" height="40" rx="3"/>
+          <rect class="d-accent" x="298" y="52" width="24" height="40" rx="3"/>
+          <text class="d-text d-strong" x="310" y="112" text-anchor="middle">Last device</text>
+          <text class="d-text" x="310" y="129" text-anchor="middle">16 V minimum</text>
+        </svg>
+        <figcaption>The voltage budget on a 24 V notification circuit.</figcaption>
+      </figure>
+
       <h2>The lump-sum method</h2>
       <p>The simplest method treats every appliance as if it sat at the very end of the circuit. It overstates the drop, so a circuit that passes this way will pass in reality.</p>
       <p><code>drop = 2 &times; K &times; amps &times; one-way feet &divide; circular mils</code></p>
