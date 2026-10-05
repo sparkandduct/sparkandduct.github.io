@@ -271,7 +271,7 @@ footer.site a { color: var(--muted); }
 }
 .ad-preview .ad-slot::before { content: "Ad space: " attr(data-slot); }
 
-/* Diagrams: inline SVG drawn for this site, coloured from the theme. */
+/* Diagrams: inline SVG drawn for this site, colored from the theme. */
 figure.diagram {
   margin: 0 0 18px;
   padding: 14px;

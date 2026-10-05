@@ -9,4 +9,4 @@ These were entered from memory of the tables named. Check each against the curre
 - `src/guides/north-carolina-electrical-hvac-license.html`: experience years, the 70 pass mark and the $90 fee were read from the electrical board's rules page, and the 4,000 / 2,000 hour figures from the heating board's applicant page (October 2026). The Heating Group 1, 2 and 3 definitions and the 15 ton threshold are from memory.
 - `src/quizzes/epa-608-core-practice.html`: questions and answers are original and written from memory of the Section 608 Core material.
 - `src/guides/ac-running-but-not-cooling.html`: the "about 6 % below rating" capacitor replacement point is a common field rule of thumb, not a standard.
-- `src/reference/*.html`: wire colours are conventions as described on the pages.
+- `src/reference/*.html`: wire colors are conventions as described on the pages.

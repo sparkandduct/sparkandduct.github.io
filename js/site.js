@@ -1,4 +1,4 @@
-// Site-wide behaviour: card and table filters, and the ad-slot preview switch.
+// Site-wide behavior: card and table filters, and the ad-slot preview switch.
 (() => {
   // ?ads=1 shows where ad slots sit; ?ads=0 hides them again. Kept for the browser session.
   const ads = new URLSearchParams(location.search).get('ads');
