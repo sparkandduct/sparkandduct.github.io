@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conduit offset calculator: multiplier, shrink and bend marks | Spark &amp; Duct</title>
+  <meta name="description" content="Conduit offset bending calculator. Enter the offset depth and bend angle to get the distance between bends, the shrink and where to put both marks.">
+  <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
+  <link rel="canonical" href="https://sparkandduct.github.io/conduit-offset.html">
+  <meta property="og:title" content="Conduit offset calculator: multiplier, shrink and bend marks | Spark &amp; Duct">
+  <meta property="og:description" content="Conduit offset bending calculator. Enter the offset depth and bend angle to get the distance between bends, the shrink and where to put both marks.">
+  <meta property="og:url" content="https://sparkandduct.github.io/conduit-offset.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#d9480f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Conduit offset bending calculator", "item": "https://sparkandduct.github.io/conduit-offset.html"}]}]}</script>
+  <link rel="stylesheet" href="/style.css?v=3323ba0a">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
+      <nav>
+        <a href="/" aria-current="page">Tools</a>
+        <a href="/guides/">Guides</a>
+        <a href="/fault-codes/">Codes</a>
+        <a href="/reference/">Reference</a>
+        <a href="/quizzes/">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <p class="crumbs"><a href="/">&larr; All tools</a></p>
+    <h1>Conduit offset bending calculator</h1>
+    <p class="lede">Distance between bends, shrink and both pencil marks for an offset at the five angles marked on a hand bender.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Offset depth (in.)
+          <input id="depth" type="number" min="0" step="any" value="6" inputmode="decimal">
+        </label>
+        <label>Bend angle
+          <select id="angle">
+            <option value="10">10&deg;</option>
+            <option value="22.5">22.5&deg;</option>
+            <option value="30" selected>30&deg;</option>
+            <option value="45">45&deg;</option>
+            <option value="60">60&deg;</option>
+          </select>
+        </label>
+        <label>Distance to the obstruction (in., optional)
+          <input id="distance" type="number" min="0" step="any" inputmode="decimal">
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Distance between bends</dt><dd id="outBetween"></dd></div>
+        <div><dt>Shrink</dt><dd id="outShrink"></dd></div>
+        <div><dt>First mark, from the end</dt><dd id="outFirst"></dd></div>
+        <div><dt>Second mark, from the end</dt><dd id="outSecond"></dd></div>
+      </dl>
+      <p id="exact" class="note" style="margin:12px 0 0"></p>
+      <p id="status" class="status"></p>
+    </section>
+
+    <div class="ad-slot" data-slot="in content"></div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 360 160" role="img" aria-label="A conduit offset seen from the side. The conduit runs level, bends up at an angle, then bends back to level at a higher line. The distance between the two bends is measured along the sloped section, and the offset depth is the height between the two level sections.">
+        <path class="d-dash" d="M120 122H330"/>
+        <path class="d-line" d="M16 122H120L220 64H344"/>
+        <circle class="d-accent" cx="120" cy="122" r="4"/>
+        <circle class="d-accent" cx="220" cy="64" r="4"/>
+        <path class="d-thin" d="M300 68V118M295 74L300 66L305 74M295 112L300 120L305 112"/>
+        <text class="d-text" x="308" y="90">Offset</text>
+        <text class="d-text" x="308" y="106">depth</text>
+        <text class="d-text d-strong" x="150" y="50" text-anchor="middle">Distance</text>
+        <text class="d-text d-strong" x="150" y="66" text-anchor="middle">between bends</text>
+        <text class="d-small" x="168" y="116">Angle</text>
+        <text class="d-small" x="120" y="144" text-anchor="middle">Second mark</text>
+        <text class="d-small" x="236" y="50">First mark</text>
+        <text class="d-small" x="16" y="110">Measured end</text>
+      </svg>
+      <figcaption>The two bends are the same angle in opposite directions, so the conduit leaves parallel to where it started.</figcaption>
+    </figure>
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p><code>distance between bends = offset depth &times; multiplier</code></p>
+      <p><code>shrink = offset depth &times; shrink per inch</code></p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Angle</th><th>Multiplier</th><th>Shrink per inch of depth</th></tr></thead>
+          <tbody>
+            <tr><td>10&deg;</td><td>6.0</td><td>1/16 in.</td></tr>
+            <tr><td>22.5&deg;</td><td>2.6</td><td>3/16 in.</td></tr>
+            <tr><td>30&deg;</td><td>2.0</td><td>1/4 in.</td></tr>
+            <tr><td>45&deg;</td><td>1.4</td><td>3/8 in.</td></tr>
+            <tr><td>60&deg;</td><td>1.2</td><td>1/2 in.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>These are the rounded figures the trade uses. The multiplier is the cosecant of the bend angle, <code>1 &divide; sin(angle)</code>, and the shrink per inch is <code>tan(angle &divide; 2)</code>. The line under the result shows the unrounded trigonometry so you can see how far the rounding moves the answer; at 10&deg; the usual 6.0 multiplier is about 4% over the exact 5.76.</p>
+      <p>Shrink is how much the offset shortens the reach of the conduit. If the obstruction is 40 in. from the end and you bend a 6 in. offset at 30&deg;, the shrink is 6 &times; 1/4 = 1.5 in., so the first mark goes at 41.5 in. The second mark is 6 &times; 2.0 = 12 in. back toward the end you measured from, at 29.5 in. Leave the distance box empty if you only need the spacing.</p>
+      <p>Fractions are rounded to the nearest 1/16 in. Both bends must be made in the same plane or the offset comes out twisted (a dog leg). Shallower angles pull wire more easily and take more room; 30&deg; is the common middle ground because the multiplier is a round 2.</p>
+      <p>Check the marks on your own bender before cutting to length: makers differ on which mark lines up for an offset, and large conduit bent on a mechanical or hydraulic bender follows that bender's own chart. The total of all bends between pull points is limited by the electrical code, and an offset counts as two bends. For how many conductors the conduit can hold, use the <a href="/conduit-fill.html">conduit fill calculator</a> or read <a href="/guides/conduit-fill-explained.html">conduit fill explained</a>.</p>
+    </section>
+    <h2 class="section">More calculators</h2>
+    <ul class="tools">
+  <li><a href="/voltage-drop.html"><strong>Voltage drop calculator</strong><span>Drop, voltage at the load and maximum run length, with a fire alarm NAC preset.</span></a></li>
+  <li><a href="/battery.html"><strong>Fire alarm battery calculator</strong><span>Standby and alarm load to amp-hours, with the safety margin and next battery size.</span></a></li>
+  <li><a href="/conduit-fill.html"><strong>Conduit fill calculator</strong><span>EMT fill for THHN conductors and low voltage cables by outside diameter.</span></a></li>
+  <li><a href="/airflow.html"><strong>HVAC airflow calculators</strong><span>CFM from heat output and temperature rise, cooling airflow and duct velocity.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
+  </main>
+
+  <footer class="site">
+    <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+    <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Spark &amp; Duct</p>
+  </footer>
+  <script src="/js/site.js?v=615090e5"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/conduit-offset.js"></script>
+</body>
+</html>
