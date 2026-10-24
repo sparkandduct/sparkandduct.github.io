@@ -15,6 +15,7 @@ Times are set in UTC, so they shift by an hour when daylight saving time changes
 
 - `STATE.md`: the shared board. The build queue, the product list, and a log each worker appends to.
 - `reports/YYYY-MM-DD.md`: one weekly report from the Manager.
+- `routines/*.md`: each worker's instructions and schedule, as given to its routine. Change a worker by editing its routine at claude.ai/code/routines, then copy the change here.
 - `../OVERNIGHT-LOG.md`: the Builder's page log (older than the crew; kept going).
 - `../UNVERIFIED.md`: facts not yet checked against a primary source.
 
