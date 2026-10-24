@@ -1,0 +1,93 @@
+<!--
+title: Superheat and subcooling calculator
+head_title: Superheat and subcooling calculator for R-410A and R-22 | Spark & Duct
+description: Superheat and subcooling calculator. Enter gauge pressure and line temperature for R-410A or R-22 to get saturation temperature, superheat and subcooling, plus how to use them when charging.
+section: calculators
+summary: Superheat and subcooling from gauge pressure and line temperature, with notes on charging by each.
+order: 9
+scripts: /js/common.js /js/superheat.js
+-->
+    <h1>Superheat and subcooling calculator</h1>
+    <p class="lede">Enter the gauge pressure and the pipe temperature at the same point to get saturation temperature, superheat and subcooling for R-410A or R-22.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Refrigerant
+          <select id="fluid">
+            <option value="R-410A" selected>R-410A</option>
+            <option value="R-22">R-22</option>
+          </select>
+        </label>
+        <label>Suction (low side) pressure (psig)
+          <input id="suctionP" type="number" step="any" value="118" inputmode="decimal">
+        </label>
+        <label>Suction line temperature (&deg;F)
+          <input id="suctionT" type="number" step="any" value="52" inputmode="decimal">
+        </label>
+        <label>Liquid line pressure (psig)
+          <input id="liquidP" type="number" step="any" value="418" inputmode="decimal">
+        </label>
+        <label>Liquid line temperature (&deg;F)
+          <input id="liquidT" type="number" step="any" value="110" inputmode="decimal">
+        </label>
+        <label>Target superheat (&deg;F, optional)
+          <input id="targetSh" type="number" step="any" inputmode="decimal">
+        </label>
+        <label>Target subcooling (&deg;F, optional)
+          <input id="targetSc" type="number" step="any" inputmode="decimal">
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Low side saturation temperature</dt><dd id="outSatLow"></dd></div>
+        <div><dt>Superheat</dt><dd id="outSuper"></dd></div>
+        <div><dt>High side saturation temperature</dt><dd id="outSatHigh"></dd></div>
+        <div><dt>Subcooling</dt><dd id="outSub"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+    </section>
+
+    {{ad}}
+
+    <figure class="diagram">
+      <svg viewBox="0 0 360 170" role="img" aria-label="Temperature along the refrigerant path. In the evaporator the refrigerant boils at the saturation temperature, then the vapor warms above it; that rise is superheat. In the condenser the vapor condenses at the high side saturation temperature, then the liquid cools below it; that drop is subcooling.">
+        <path class="d-thin" d="M20 20V140H340"/>
+        <path class="d-dash" d="M30 110H150"/>
+        <path class="d-dash" d="M210 50H330"/>
+        <path class="d-line" d="M30 110H110L150 80H170"/>
+        <path class="d-line" d="M210 50H290L330 80"/>
+        <path class="d-thin" d="M150 110V84M146 90L150 82L154 90"/>
+        <path class="d-thin" d="M300 50V76M296 70L300 78L304 70"/>
+        <text class="d-text d-strong" x="156" y="102">Superheat</text>
+        <text class="d-text d-strong" x="236" y="40">Subcooling</text>
+        <text class="d-small" x="30" y="128">Boiling (low side saturation)</text>
+        <text class="d-small" x="190" y="68">Condensing (high side saturation)</text>
+        <text class="d-small" x="24" y="156">Evaporator</text>
+        <text class="d-small" x="200" y="156">Condenser</text>
+        <text class="d-small" x="22" y="14">Temperature</text>
+      </svg>
+      <figcaption>Superheat is how far vapor is above its boiling point. Subcooling is how far liquid is below its condensing point.</figcaption>
+    </figure>
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p><code>superheat = suction line temperature &minus; saturation temperature at suction pressure</code></p>
+      <p><code>subcooling = saturation temperature at liquid line pressure &minus; liquid line temperature</code></p>
+      <p>Saturation temperature is the boiling or condensing temperature that goes with a pressure for that refrigerant. The calculator looks it up in a built-in pressure and temperature table (gauge pressure at sea level, every 2&deg;F) and reads between rows. For example, R-410A at 118 psig saturates at about 40&deg;F, so a suction line at 52&deg;F is 12&deg;F superheat; at 418 psig it saturates at about 120&deg;F, so a liquid line at 110&deg;F is 10&deg;F subcooling.</p>
+      <p>R-410A boils and condenses over a temperature range of only a fraction of a degree, so one table serves both sides. The calculator does not cover blends with a large temperature glide, such as R-454B or R-407C; use the maker's bubble and dew point chart for those.</p>
+    </section>
+
+    <section class="card">
+      <h2>Using the numbers when charging</h2>
+      <ul>
+        <li><strong>Fixed metering device (piston or capillary tube):</strong> charge to a target superheat. The target comes from the manufacturer's chart on the unit or in its manual and depends on indoor wet-bulb and outdoor dry-bulb temperature. Take the suction pressure and temperature near the service valve, and the wet-bulb reading in the return air before the coil.</li>
+        <li><strong>Thermostatic expansion valve (TXV):</strong> charge to a target subcooling, taken at the liquid line near the outdoor unit. The value is on the data plate or in the installation manual and varies by model. Superheat on a TXV system is set by the valve, so use it to spot a problem rather than to add or remove charge.</li>
+        <li><strong>Reading the result:</strong> high superheat with low subcooling points to a low charge or a restriction ahead of the metering device. Low superheat with high subcooling points to overcharge or poor airflow over the coil. Check airflow, filter and coil condition before touching the charge.</li>
+        <li><strong>Measuring:</strong> put the thermometer clamp on bare, clean pipe and insulate over it, and let readings settle for several minutes after the system is running steadily. Recover and weigh refrigerant according to EPA Section 608 rules; never vent it.</li>
+      </ul>
+      <p>Pressure and temperature relationships shift with altitude because gauges read relative to local air pressure, and the table here assumes sea level. Pair this page with the <a href="/guides/ac-running-but-not-cooling.html">guide to an AC that runs but does not cool</a>, and use the <a href="/hvac-unit-converter.html">HVAC unit converter</a> if your gauges or thermometers read in other units.</p>
+      <p>Always check target values against the label and manual for the exact unit. The pressure table is a computed reference and has not been compared line by line with a manufacturer's chart; treat the results as a guide and verify against your own gauges and the maker's chart.</p>
+    </section>

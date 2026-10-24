@@ -6,16 +6,15 @@ Gumroad link: (none yet)
 
 The Analyst owns this list; the Builder takes the top item and deletes it. Keep about ten items, most valuable first. Alternate calculators with content pages where the value is close.
 
-1. Superheat and subcooling target calculator, with a guide on charging by superheat.
-2. Trane furnace fault codes.
-3. Box fill calculator (NEC 314.16 method, original wording only).
-4. Furnace will not ignite: troubleshooting walkthrough.
-5. Duct sizing by friction rate calculator.
-6. Lennox furnace fault codes.
-7. EPA 608 Type II practice quiz (copy the structure of src/quizzes/epa-608-core-practice.html).
-8. Motor full-load current reference (NEC Table 430.250 values, checked).
-9. Heat pump blowing cold air: troubleshooting walkthrough.
-10. Wire ampacity reference.
+1. Trane furnace fault codes.
+2. Box fill calculator (NEC 314.16 method, original wording only).
+3. Furnace will not ignite: troubleshooting walkthrough.
+4. Duct sizing by friction rate calculator.
+5. Lennox furnace fault codes.
+6. EPA 608 Type II practice quiz (copy the structure of src/quizzes/epa-608-core-practice.html).
+7. Motor full-load current reference (NEC Table 430.250 values, checked).
+8. Heat pump blowing cold air: troubleshooting walkthrough.
+9. Wire ampacity reference.
 
 ## Products
 
@@ -36,3 +35,4 @@ Made:
 Newest last. One line each: date, worker, what was done.
 
 - 2026-10-24, setup: crew created; the earlier laptop schedule "sparkandduct-daily-page" retired in favor of the cloud Builder.
+- 2026-10-24, builder: added the superheat and subcooling calculator (src/superheat-subcooling.html, js/superheat.js), linked from the AC-not-cooling guide. Gumroad link still absent, so no shop link. Verified with node, Playwright at 375 px and link crawl; pressure table is computed (CoolProp), see UNVERIFIED.md.
