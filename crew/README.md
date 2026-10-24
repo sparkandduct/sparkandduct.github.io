@@ -30,6 +30,26 @@ Times are set in UTC, so they shift by an hour when daylight saving time changes
 7. Never put Luke's name, personal details or other accounts anywhere in the repo. The site is Spark & Duct only.
 8. Append one line to the log in `STATE.md` saying what you did. Commit with a clear message ending with `Co-Authored-By: Claude <noreply@anthropic.com>`.
 9. Never ask questions; nobody is there to answer. Make the sensible choice and write it down.
+10. If a source site is blocked by the network, say so in `UNVERIFIED.md` and use another source; never work around the block. For refrigerant properties, the CoolProp library (`pip install CoolProp`, reference equations of state) counts as one source.
+
+## The quality bar
+
+Google ranks pages that help the person reading them and pushes down sites that mass-produce pages to catch searches ("scaled content abuse"), however the pages are made. Automation is allowed; thin pages are not. Every page and product must pass all of these before it is published:
+
+- **Answer first.** The first screen gives the answer, the tool or the steps. No warm-up paragraph. Write for a tech standing at the unit with a phone.
+- **Something you cannot get from the first search result:** a working calculator, a worked example with real numbers, a diagram, a decision table, or the field tip that the official document leaves out. A page that only restates other pages is not built.
+- **Not a near-copy.** Pages that differ only by brand, state or model number are doorway pages. A fault-code page for a new brand needs that brand's own codes, reset method and quirks; a state licensing page needs that state's own rules. If the specific content is not there, do not make the page.
+- **Sources on the page.** End every new page with a short "Sources" list linking the documents actually used (manufacturer manuals, code bodies, state boards, reference software), then a line "Last checked: Month YYYY". Readers and Google both look for this.
+- **No invented people or experience.** No author names, bios, testimonials, "we tested", or "in our experience". The site speaks as Spark & Duct.
+- **Plain voice.** Short sentences, US trade vocabulary, numbers with units. Never use: "delve", "dive into", "in today's", "it's important to note", "whether you're a", "comprehensive guide", "game-changer", "navigate the complexities", "look no further", "unlock", "elevate". No closing summary paragraph that repeats the page.
+- **Descriptive titles.** Title and description say exactly what the page does ("Superheat and subcooling calculator for R-410A and R-22"), with no hype.
+- **Editor pass.** Before committing, reread the finished page as a skeptical journeyman would: recheck every number against its source, click every link, cut every sentence that does not help, and confirm each rule above. Fix, then reread once more.
+
+## Growing it
+
+- **Depth over volume.** One good page a day is the pace; never raise it. A refreshed page that ranks beats three new ones that do not.
+- **Clusters.** Build pages around hubs (a calculator, its how-to guide, its troubleshooting page, its reference chart) and link each page to its hub and its siblings. Every new page links to at least two related pages and gets a link from at least one.
+- **One money lever at a time.** When a worker changes anything about earning (a Pro Pack link, a price, an ad slot), it records the change with its date under "Money changes" in `STATE.md`, and nobody changes a second lever for four weeks, so the effect of each change can be seen.
 
 ## The Pro Pack (how the money works)
 
@@ -38,6 +58,8 @@ Paid products are printable pages in `src/pro/` (field reference cards, checklis
 The repo is public, so the pages are hidden rather than locked. That is fine for printables at this price; do not put anything there that would matter if it leaked.
 
 The site links to the Pro Pack only after `STATE.md` has a Gumroad link in it. Until then products are made and kept, and nothing on the site mentions them.
+
+Pricing: printed EPA 608 study books sell for about $17 to $35, so the whole pack at $9 is an easy yes; raise it to $12 once it holds ten or more products (a money lever, so record it). Once the link exists, the Product maker also makes one free sample (a single pocket card) as a public page that shows the quality and links to the pack; the free sample is the main way people find the paid one.
 
 ### Luke's one-time setup (the only thing a person has to do)
 

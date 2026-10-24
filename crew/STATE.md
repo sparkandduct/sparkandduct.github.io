@@ -2,6 +2,12 @@
 
 Gumroad link: (none yet)
 
+## Money changes
+
+One lever at a time, four weeks apart (see the rules). Newest last.
+
+- (none yet)
+
 ## Build queue
 
 The Analyst owns this list; the Builder takes the top item and deletes it. Keep about ten items, most valuable first. Alternate calculators with content pages where the value is close.
