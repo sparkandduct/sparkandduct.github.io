@@ -4,7 +4,7 @@ Four scheduled Claude routines run Spark & Duct between them. They run in Anthro
 
 | Worker | When (US Eastern) | Job |
 | --- | --- | --- |
-| Builder | Thursdays, about noon | Adds one page to the site, taking the top item from the queue in `STATE.md`. |
+| Builder | Thursdays, about noon | Adds three pages to the site, taking the top items from the queue in `STATE.md`. |
 | Analyst | Mondays, about 9 AM | Decides what gets built next: researches what trade workers search for, rewrites the queue, and spends part of each run checking one item in `UNVERIFIED.md` against a primary source. |
 | Product maker | Wednesdays, about 2 PM | Adds one printable paid product to the Pro Pack (`src/pro/`). |
 | Manager | Sundays, about 10 AM | Writes the weekly report in `reports/`, checks the others did their jobs and fixes the rules here if something keeps going wrong. |
@@ -53,7 +53,7 @@ The site is laid out like a printed data sheet: ruled lines, square corners, one
 
 ## Growing it
 
-- **Depth over volume.** One good page a week is the pace (set by the owner on 2026-10-25 to save plan usage); never raise it. A refreshed page that ranks beats three new ones that do not.
+- **Depth over volume.** Three good pages a week, built in one Thursday run, is the pace (set by the owner on 2026-10-25); never raise it. A refreshed page that ranks beats three new ones that do not.
 - **Clusters.** Build pages around hubs (a calculator, its how-to guide, its troubleshooting page, its reference chart) and link each page to its hub and its siblings. Every new page links to at least two related pages and gets a link from at least one.
 - **One money lever at a time.** When a worker changes anything about earning (a Pro Pack link, a price, an ad slot), it records the change with its date under "Money changes" in `STATE.md`, and nobody changes a second lever for four weeks, so the effect of each change can be seen.
 
