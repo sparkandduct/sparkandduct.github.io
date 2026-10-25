@@ -1,0 +1,231 @@
+<style>
+.sw { display: flex; flex-direction: column; gap: var(--cds-gap-lg); font-family: var(--font-anthropic-sans); }
+.sw-head h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+.sw-take { color: var(--color-fg-muted); margin: var(--cds-gap-xs) 0 0; max-width: 62ch; }
+.sw-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: var(--cds-gap-md); }
+.sw-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+.sw-k { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.sw-v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.15; margin-top: var(--cds-gap-xs); font-variant-numeric: tabular-nums; }
+.sw-d { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-top: var(--cds-gap-xs); font-variant-numeric: tabular-nums; }
+.sw-d.up { color: var(--color-ok); }
+.sw-spark { height: 28px; margin-top: var(--cds-gap-sm); }
+.sw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--cds-gap-md); }
+.sw-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.sw-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: var(--cds-gap-xs) 0 var(--cds-gap-md); }
+.sw-chart { min-height: 180px; position: relative; }
+.sw-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+.sw-tip .t { color: var(--cds-text-secondary); }
+.sw-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-body); }
+.sw-table th { text-align: left; font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); padding: 0 var(--cds-pad-sm) var(--cds-pad-xs) 0; border-bottom: 1px solid var(--color-border-line); }
+.sw-table td { padding: var(--cds-pad-sm) var(--cds-pad-sm) var(--cds-pad-sm) 0; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+.sw-table tr:last-child td { border-bottom: 0; }
+.sw-table td.num { font-variant-numeric: tabular-nums; color: var(--color-fg-muted); white-space: nowrap; }
+.sw-table a { color: inherit; text-underline-offset: 2px; }
+.sw-on { border-left: 3px solid var(--cds-chart-reference); }
+.sw-on p { margin: var(--cds-gap-xs) 0 0; color: var(--color-fg-muted); }
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+.sw-fail { display: flex; align-items: center; justify-content: center; gap: var(--cds-gap-xs); min-height: 120px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.sw-fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+</style>
+
+<div class="sw">
+  <header class="sw-head" id="top">
+    <h1>Spark &amp; Duct weekly</h1>
+    <p class="sw-take dash-skeleton" id="take">—</p>
+  </header>
+
+  <section class="sw-tiles" aria-label="This week">
+    <div class="sw-card">
+      <div class="sw-k">Pages on the site</div>
+      <div class="sw-v dash-skeleton" data-source="thisweek" data-field="pages_total" data-row="0">—</div>
+      <div class="sw-d dash-skeleton" id="d-pages">—</div>
+      <div class="sw-spark" id="sp-pages" data-source="weekly"></div>
+    </div>
+    <div class="sw-card">
+      <div class="sw-k">Search impressions, last 7 days</div>
+      <div class="sw-v dash-skeleton" data-source="thisweek" data-field="impressions" data-row="0">—</div>
+      <div class="sw-d dash-skeleton" id="d-impr">—</div>
+      <div class="sw-spark" id="sp-impr" data-source="weekly"></div>
+    </div>
+    <div class="sw-card">
+      <div class="sw-k">Search clicks, last 7 days</div>
+      <div class="sw-v dash-skeleton" data-source="thisweek" data-field="clicks" data-row="0">—</div>
+      <div class="sw-d dash-skeleton" id="d-clicks">—</div>
+      <div class="sw-spark" id="sp-clicks" data-source="weekly"></div>
+    </div>
+    <div class="sw-card">
+      <div class="sw-k">Pro Pack products made</div>
+      <div class="sw-v dash-skeleton" data-source="thisweek" data-field="products_total" data-row="0">—</div>
+      <div class="sw-d">Sold once the shop opens</div>
+      <div class="sw-spark" id="sp-prod" data-source="weekly"></div>
+    </div>
+  </section>
+
+  <div class="sw-grid">
+    <section class="sw-card" id="growth">
+      <h2>Pages added each week</h2>
+      <p class="sw-note">New calculators, guides and reference pages published by the crew, by week ending Sunday.</p>
+      <div class="sw-chart" id="chart" data-source="weekly"></div>
+    </section>
+    <section class="sw-card" id="recent">
+      <h2>Added recently</h2>
+      <p class="sw-note">Newest first. Each one is live on the site.</p>
+      <table class="sw-table" data-source="pages" data-row-key="title">
+        <thead><tr><th data-field="added">Date</th><th data-field="title">Page</th><th data-field="kind">Type</th></tr></thead>
+        <tbody id="pages-body"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <div class="sw-grid">
+    <section class="sw-card" id="next">
+      <h2>Up next</h2>
+      <p class="sw-note">The Builder's queue, top first. The Analyst reorders it every Monday.</p>
+      <table class="sw-table" data-source="queue" data-row-key="rank">
+        <thead><tr><th data-field="rank">#</th><th data-field="item">Page</th></tr></thead>
+        <tbody id="queue-body"></tbody>
+      </table>
+    </section>
+    <section class="sw-card sw-on" id="you">
+      <h2>On you</h2>
+      <p>Nothing this week. In December, if search traffic has started, buy the domain and open the Gumroad shop together.</p>
+      <p>Google has indexed only the home page so far. The fastest fix is a link to the site from somewhere Google already crawls.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+dash.calc('thisweek', {
+  inputs: ['weekly'],
+  title: 'This week vs last',
+  description: 'The latest week, with the change in impressions and clicks from the week before.',
+  fn: (weekly) => {
+    const rows = weekly.slice().sort((a, b) => String(a.week).localeCompare(String(b.week)));
+    const cur = rows[rows.length - 1];
+    const prev = rows[rows.length - 2];
+    if (!cur) return [];
+    return [{
+      week: cur.week,
+      pages_total: Number(cur.pages_total),
+      pages_added: Number(cur.pages_added),
+      impressions: Number(cur.impressions),
+      clicks: Number(cur.clicks),
+      products_total: Number(cur.products_total),
+      impressions_change: prev ? Number(cur.impressions) - Number(prev.impressions) : null,
+      clicks_change: prev ? Number(cur.clicks) - Number(prev.clicks) : null,
+    }];
+  },
+});
+
+(() => {
+  const fmt = d3.format(',');
+  const signed = (n) => (n > 0 ? '+' : n < 0 ? '−' : '±') + fmt(Math.abs(n));
+  const day = d3.utcFormat('%b %-d');
+  const parse = (s) => new Date(String(s).slice(0, 10) + 'T00:00:00Z');
+  const tip = document.createElement('div'); tip.className = 'sw-tip'; tip.hidden = true;
+  document.getElementById('growth').style.position = 'relative';
+
+  function fail(el) { el.replaceChildren(); const f = document.createElement('div'); f.className = 'sw-fail'; f.textContent = 'Failed to load'; el.appendChild(f); }
+
+  function spark(id, rows, key) {
+    const el = document.getElementById(id); el.replaceChildren();
+    if (rows.length < 2) return;
+    const w = el.clientWidth || 160, h = 28;
+    const x = d3.scalePoint(rows.map((r) => r.week), [2, w - 4]);
+    const max = d3.max(rows, (r) => Number(r[key])) || 1;
+    const y = d3.scaleLinear([0, max], [h - 3, 3]);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('height', h).attr('viewBox', `0 0 ${w} ${h}`);
+    svg.append('path').attr('fill', 'none').attr('stroke', dash.colors[0]).attr('stroke-width', 2)
+      .attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round')
+      .attr('d', d3.line().x((r) => x(r.week)).y((r) => y(Number(r[key])))(rows));
+    const last = rows[rows.length - 1];
+    svg.append('circle').attr('r', 3).attr('fill', dash.colors[0]).attr('cx', x(last.week)).attr('cy', y(Number(last[key])));
+  }
+
+  function bars(rows) {
+    const el = document.getElementById('chart'); el.replaceChildren(); el.appendChild(tip);
+    const w = el.clientWidth || 320, h = 180, m = { t: 8, r: 4, b: 24, l: 28 };
+    const x = d3.scaleBand(rows.map((r) => r.week), [m.l, w - m.r]).padding(0.45);
+    const max = Math.max(4, d3.max(rows, (r) => Number(r.pages_added)) || 0);
+    const y = d3.scaleLinear([0, max], [h - m.b, m.t]).nice();
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('height', h).attr('viewBox', `0 0 ${w} ${h}`);
+    svg.append('g').selectAll('line').data(y.ticks(4)).join('line')
+      .attr('x1', m.l).attr('x2', w - m.r).attr('y1', (d) => y(d)).attr('y2', (d) => y(d))
+      .attr('stroke', 'var(--cds-chart-grid)');
+    svg.append('g').selectAll('text').data(y.ticks(4)).join('text')
+      .attr('x', m.l - 6).attr('y', (d) => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end')
+      .attr('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)').text((d) => d3.format('d')(d));
+    svg.append('g').selectAll('text').data(rows).join('text')
+      .attr('x', (r) => x(r.week) + x.bandwidth() / 2).attr('y', h - 6).attr('text-anchor', 'middle')
+      .attr('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)').text((r) => day(parse(r.week)));
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', (r) => x(r.week)).attr('width', x.bandwidth()).attr('rx', 4)
+      .attr('y', (r) => y(Number(r.pages_added))).attr('height', (r) => Math.max(0, y(0) - y(Number(r.pages_added))))
+      .attr('fill', dash.colors[0])
+      .on('mousemove', (ev, r) => {
+        tip.hidden = false;
+        tip.replaceChildren();
+        const t = document.createElement('div'); t.className = 't'; t.textContent = 'Week ending ' + day(parse(r.week));
+        const v = document.createElement('div'); v.textContent = fmt(Number(r.pages_added)) + ' added, ' + fmt(Number(r.pages_total)) + ' total';
+        tip.append(t, v);
+        const box = el.getBoundingClientRect();
+        const left = Math.min(ev.clientX - box.left + 10, box.width - tip.offsetWidth - 4);
+        tip.style.left = Math.max(0, left) + 'px'; tip.style.top = Math.max(0, ev.clientY - box.top - 40) + 'px';
+      })
+      .on('mouseleave', () => { tip.hidden = true; });
+  }
+
+  function table(bodyId, rows, cols, linkCol) {
+    const body = document.getElementById(bodyId); body.replaceChildren();
+    for (const r of rows) {
+      const tr = document.createElement('tr');
+      for (const c of cols) {
+        const td = document.createElement('td');
+        if (c === 'added' || c === 'rank') td.className = 'num';
+        if (c === linkCol && r.url) { const a = document.createElement('a'); a.href = r.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = r[c]; td.appendChild(a); }
+        else td.textContent = c === 'added' ? day(parse(r[c])) : String(r[c] ?? '');
+        tr.appendChild(td);
+      }
+      body.appendChild(tr);
+    }
+  }
+
+  dash.onData(() => {
+    const wk = dash.data('weekly'), tw = dash.data('thisweek'), pg = dash.data('pages'), q = dash.data('queue');
+    const take = document.getElementById('take');
+
+    if (tw.status === 'ok' && tw.data.length) {
+      const r = tw.data[0];
+      take.classList.remove('dash-skeleton');
+      take.textContent = 'Week ending ' + day(parse(r.week)) + ': ' + fmt(r.pages_added) + (r.pages_added === 1 ? ' page' : ' pages') + ' added, ' + fmt(r.pages_total) + ' on the site. '
+        + (r.impressions > 0 ? fmt(r.impressions) + ' search impressions and ' + fmt(r.clicks) + ' clicks.' : 'Google has not shown the site in search yet.');
+      document.getElementById('d-pages').textContent = signed(r.pages_added) + ' this week';
+      document.getElementById('d-impr').textContent = r.impressions_change == null ? 'First week' : signed(r.impressions_change) + ' vs last week';
+      document.getElementById('d-clicks').textContent = r.clicks_change == null ? 'First week' : signed(r.clicks_change) + ' vs last week';
+      document.getElementById('d-impr').classList.toggle('up', r.impressions_change > 0);
+      document.getElementById('d-clicks').classList.toggle('up', r.clicks_change > 0);
+      document.querySelectorAll('.sw-tiles .dash-skeleton').forEach((n) => n.classList.remove('dash-skeleton'));
+      document.querySelectorAll('[data-source="thisweek"].sw-v').forEach((n) => { n.textContent = fmt(r[n.dataset.field]); });
+    } else if (tw.status === 'error' || wk.status === 'error') {
+      take.classList.remove('dash-skeleton'); take.textContent = '—';
+    }
+
+    if (wk.status === 'ok') {
+      const rows = wk.data.slice().sort((a, b) => String(a.week).localeCompare(String(b.week)));
+      spark('sp-pages', rows, 'pages_total'); spark('sp-impr', rows, 'impressions');
+      spark('sp-clicks', rows, 'clicks'); spark('sp-prod', rows, 'products_total');
+      bars(rows);
+    } else if (wk.status === 'error') fail(document.getElementById('chart'));
+
+    if (pg.status === 'ok') {
+      const rows = pg.data.slice().sort((a, b) => String(b.added).localeCompare(String(a.added))).slice(0, 8);
+      table('pages-body', rows, ['added', 'title', 'kind'], 'title');
+    }
+    if (q.status === 'ok') {
+      const rows = q.data.slice().sort((a, b) => Number(a.rank) - Number(b.rank));
+      table('queue-body', rows, ['rank', 'item'], null);
+    }
+  });
+})();
+</script>
