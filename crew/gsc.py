@@ -28,7 +28,8 @@ def session():
     check = [sys.executable, "-c", "from google.oauth2 import service_account; import google.auth.transport.requests"]
     if subprocess.run(check, capture_output=True).returncode != 0:
         subprocess.run(
-            [sys.executable, "-m", "pip", "install", "-q", "--upgrade", "google-auth", "requests", "cffi", "cryptography"],
+            # --ignore-installed: pip cannot remove the Debian-owned copy, so install beside it.
+            [sys.executable, "-m", "pip", "install", "-q", "--ignore-installed", "google-auth", "requests", "cffi", "cryptography"],
             check=True,
         )
     from google.oauth2 import service_account
