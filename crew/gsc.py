@@ -22,13 +22,17 @@ SCOPE = "https://www.googleapis.com/auth/webmasters.readonly"
 
 
 def session():
-    try:
-        from google.oauth2 import service_account
-        from google.auth.transport.requests import AuthorizedSession
-    except ImportError:
-        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "google-auth", "requests"], check=True)
-        from google.oauth2 import service_account
-        from google.auth.transport.requests import AuthorizedSession
+    # Check the imports in a separate process first: the cloud image's system
+    # `cryptography` can be broken (missing _cffi_backend) and panics on import,
+    # which cannot be retried in-process once half-loaded.
+    check = [sys.executable, "-c", "from google.oauth2 import service_account; import google.auth.transport.requests"]
+    if subprocess.run(check, capture_output=True).returncode != 0:
+        subprocess.run(
+            [sys.executable, "-m", "pip", "install", "-q", "--upgrade", "google-auth", "requests", "cffi", "cryptography"],
+            check=True,
+        )
+    from google.oauth2 import service_account
+    from google.auth.transport.requests import AuthorizedSession
     raw = os.environ.get("GSC_KEY_B64")
     if not raw:
         raise SystemExit("GSC_KEY_B64 is not set; Search Console data is not available in this run.")
