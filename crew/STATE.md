@@ -2,6 +2,8 @@
 
 Gumroad link: (none yet)
 
+Owner decision, 2026-10-24: the Gumroad shop gets set up together with buying the domain, around December 2026, and only if traffic justifies it. Until then, do not list Gumroad as something the owner has to do; keep building products.
+
 ## Money changes
 
 One lever at a time, four weeks apart (see the rules). Newest last.
