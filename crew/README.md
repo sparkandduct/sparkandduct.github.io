@@ -45,6 +45,10 @@ Google ranks pages that help the person reading them and pushes down sites that 
 - **Descriptive titles.** Title and description say exactly what the page does ("Superheat and subcooling calculator for R-410A and R-22"), with no hype.
 - **Editor pass.** Before committing, reread the finished page as a skeptical journeyman would: recheck every number against its source, click every link, cut every sentence that does not help, and confirm each rule above. Fix, then reread once more.
 
+## The look
+
+The site is laid out like a printed data sheet: ruled lines, square corners, one orange accent, readouts in the monospace face, fonts served from `/fonts/`. Use only the classes already in `style.css` and the existing page patterns; never add gradients, shadows, rounded tiles, emoji, icons or stock images, and never load fonts or styles from another site. In diagrams, keep every label inside the viewBox and clear of lines and other labels; check this in the headless browser with `getBBox()`.
+
 ## Growing it
 
 - **Depth over volume.** One good page a day is the pace; never raise it. A refreshed page that ranks beats three new ones that do not.

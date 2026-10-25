@@ -71,7 +71,7 @@ TEMPLATE = """<!doctype html>
   <meta property="og:url" content="{canonical}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Spark &amp; Duct">
-  <meta name="theme-color" content="#d9480f">
+  <meta name="theme-color" content="#1f2225">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <script type="application/ld+json">{schema}</script>
   <link rel="stylesheet" href="{style}">
@@ -80,7 +80,7 @@ TEMPLATE = """<!doctype html>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site">
     <div class="inner">
-      <a class="brand" href="/">Spark <span>&amp;</span> Duct</a>
+      <a class="brand" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#c2410c"/><path d="M18.5 4 8 18h6.5L13 28l11-15h-7z" fill="#fff"/></svg>Spark <span>&amp;</span> Duct</a>
       <nav>
 {nav}
       </nav>
@@ -92,9 +92,28 @@ TEMPLATE = """<!doctype html>
 {more}  </main>
 
   <footer class="site">
-    <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
-    <p><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy</a></p>
-    <p>&copy; 2026 Spark &amp; Duct</p>
+    <div class="inner">
+      <div class="about">
+        <h2>Spark &amp; Duct</h2>
+        <p>Calculators and reference for low voltage, electrical and HVAC work. Every tool shows its formula; every fact is checked against the manufacturer, the code or the state board.</p>
+        <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+{footer_nav}
+        </ul>
+      </div>
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact and corrections</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <p class="legal"><span>&copy; 2026 Spark &amp; Duct</span><span>No accounts, no tracking. Calculations run in your browser.</span></p>
+    </div>
   </footer>
   <script src="{site_js}"></script>
 {scripts}</body>
@@ -183,6 +202,7 @@ def render(page, pages):
         f'        <a href="{href}"{" aria-current=" + chr(34) + "page" + chr(34) if key == meta["section"] else ""}>{label}</a>'
         for key, label, href in NAV
     )
+    footer_nav = "\n".join(f'          <li><a href="{href}">{label}</a></li>' for _, label, href in NAV)
     scripts = "".join(f'  <script src="{s}"></script>\n' for s in meta.get("scripts", "").split())
     body = LIST.sub(lambda m: listing(pages, m.group(1), m.group(2)), page["body"])
 
@@ -198,7 +218,9 @@ def render(page, pages):
     label, href, more_name = SECTIONS[meta["section"]]
     crumbs = ""
     if not page["rel"].endswith("index.html"):
-        crumbs = f'    <p class="crumbs"><a href="{href}">&larr; {label}</a></p>\n'
+        crumbs = f'    <p class="crumbs"><a href="/">Home</a> / <a href="{href}">{label}</a></p>\n'
+        if href == "/":
+            crumbs = f'    <p class="crumbs"><a href="/">{label}</a></p>\n'
 
     more = ""
     if is_content:
@@ -215,6 +237,7 @@ def render(page, pages):
         style=asset("/style.css"),
         site_js=asset("/js/site.js"),
         nav=nav,
+        footer_nav=footer_nav,
         crumbs=crumbs,
         body=body,
         more=more,
