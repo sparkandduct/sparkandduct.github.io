@@ -31,6 +31,7 @@ Times are set in UTC, so they shift by an hour when daylight saving time changes
 8. Append one line to the log in `STATE.md` saying what you did. Commit with a clear message ending with `Co-Authored-By: Claude <noreply@anthropic.com>`.
 9. Never ask questions; nobody is there to answer. Make the sensible choice and write it down.
 10. If a source site is blocked by the network, say so in `UNVERIFIED.md` and use another source; never work around the block. For refrigerant properties, the CoolProp library (`pip install CoolProp`, reference equations of state) counts as one source.
+11. `crew/gsc.py` reads Google Search Console with the key in `GSC_KEY_B64`. Never print, log, commit or copy that variable.
 
 ## The quality bar
 
