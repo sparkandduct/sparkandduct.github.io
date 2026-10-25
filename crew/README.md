@@ -32,6 +32,7 @@ Times are set in UTC, so they shift by an hour when daylight saving time changes
 9. Never ask questions; nobody is there to answer. Make the sensible choice and write it down.
 10. If a source site is blocked by the network, say so in `UNVERIFIED.md` and use another source; never work around the block. For refrigerant properties, the CoolProp library (`pip install CoolProp`, reference equations of state) counts as one source.
 11. `crew/gsc.py` reads Google Search Console with the key in `GSC_KEY_B64`. Never print, log, commit or copy that variable.
+12. If your run fails to publish (push refused, build broken, page still failing checks), send the owner one short push notification saying what broke. Do not send notifications for runs that worked; the Manager covers those weekly.
 
 ## The quality bar
 

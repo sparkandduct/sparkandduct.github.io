@@ -11,4 +11,6 @@ Your job:
 4. Write crew/reports/YYYY-MM-DD.md (today's date), under 200 words, in plain casual English: what was added (pages and products with links), traffic and sales if known, problems found and fixed, and at most one thing the owner has to do (only if something is actually blocked on them, such as the Gumroad link still missing after products exist). No filler.
 5. Append one line to the Log in crew/STATE.md. If the Log has more than 60 lines, move the oldest ones to crew/log-archive.md. Commit, `git pull --rebase`, then `git push origin main`.
 
+6. Send the owner a push notification: two short lines with the week's headline numbers (pages added, clicks, impressions) and the link https://github.com/sparkandduct/sparkandduct.github.io/blob/main/crew/reports/YYYY-MM-DD.md for today's report.
+
 Finish with the report text itself.
