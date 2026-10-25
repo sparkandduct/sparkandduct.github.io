@@ -55,10 +55,37 @@ def row(r):
     return f'{r["clicks"]:>6.0f} clicks {r["impressions"]:>7.0f} impr  CTR {r["ctr"] * 100:4.1f}%  pos {r["position"]:5.1f}'
 
 
+def status(http):
+    """Print what Google has done with the sitemap and whether key pages are indexed."""
+    site = urllib.parse.quote(SITE, safe="")
+    response = http.get(f"https://www.googleapis.com/webmasters/v3/sites/{site}/sitemaps", timeout=60)
+    print(f"Sitemaps ({response.status_code}):")
+    for sm in response.json().get("sitemap", []) if response.ok else []:
+        counts = ", ".join(f'{c.get("type")}: {c.get("submitted")} submitted' for c in sm.get("contents", []))
+        print(f'  {sm.get("path")}  last read {sm.get("lastDownloaded", "never")}  '
+              f'errors {sm.get("errors", 0)}  warnings {sm.get("warnings", 0)}  {counts}')
+    if not response.ok:
+        print("  " + response.text[:300])
+    for path in ("", "voltage-drop.html", "guides/how-to-size-a-fire-alarm-battery.html"):
+        body = {"inspectionUrl": SITE + path, "siteUrl": SITE}
+        r = http.post("https://searchconsole.googleapis.com/v1/urlInspection/index:inspect", json=body, timeout=60)
+        if not r.ok:
+            print(f"\nInspect /{path}: {r.status_code} {r.text[:200]}")
+            continue
+        idx = r.json().get("inspectionResult", {}).get("indexStatusResult", {})
+        print(f"\nInspect /{path}: {idx.get('verdict')} | {idx.get('coverageState')} | "
+              f"last crawl {idx.get('lastCrawlTime', 'never')} | robots {idx.get('robotsTxtState')} | "
+              f"indexing {idx.get('indexingState')} | fetch {idx.get('pageFetchState')}")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--days", type=int, default=28)
+    parser.add_argument("--status", action="store_true", help="sitemap and indexing status instead of traffic")
     args = parser.parse_args()
+    if args.status:
+        status(session())
+        return
     # Search Console data runs about three days behind.
     end = datetime.date.today() - datetime.timedelta(days=3)
     start = end - datetime.timedelta(days=args.days - 1)
