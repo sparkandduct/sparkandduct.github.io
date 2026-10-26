@@ -1,5 +1,7 @@
-/* Spark & Duct. Laid out like a printed data sheet: ruled lines, square corners,
-   one accent color, readouts in a monospace face. Fonts are served from /fonts/. */
+/* Spark & Duct. Plain and practical: ruled lines, square corners, sentence-case labels.
+   Colors come from the trade: panel slate, print blue for links and actions, safety
+   yellow only as a marker. Monospace is for numbers you type or read off, nothing else.
+   Fonts are served from /fonts/. */
 
 @font-face { font-family: "Barlow"; src: url("/fonts/barlow-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Barlow"; src: url("/fonts/barlow-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
@@ -10,18 +12,19 @@
 @font-face { font-family: "Plex Mono"; src: url("/fonts/plex-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 
 :root {
-  --bg: #f6f5f1;
+  --bg: #f4f5f6;
   --surface: #ffffff;
-  --sunk: #efeee9;
-  --text: #1b1c1e;
-  --muted: #5c6066;
-  --rule: #cfcdc6;
-  --rule-strong: #1b1c1e;
-  --accent: #c2410c;
+  --sunk: #eceef0;
+  --text: #1a1f24;
+  --muted: #586069;
+  --rule: #d3d7db;
+  --rule-strong: #2a323a;
+  --accent: #1c5a96;
   --accent-text: #ffffff;
-  --bar: #1f2225;
-  --bar-text: #e9e8e4;
-  --bar-muted: #a3a6aa;
+  --mark: #f0b400;
+  --bar: #26303a;
+  --bar-text: #eef0f2;
+  --bar-muted: #b3bcc5;
   --ok: #1d6b35;
   --ok-bg: #e4f0e6;
   --bad: #a3231a;
@@ -34,18 +37,19 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #141517;
-    --surface: #1b1d20;
-    --sunk: #222528;
-    --text: #e8e7e3;
-    --muted: #9b9fa5;
-    --rule: #34373b;
-    --rule-strong: #e8e7e3;
-    --accent: #f26b2a;
-    --accent-text: #141517;
-    --bar: #0d0e10;
-    --bar-text: #e8e7e3;
-    --bar-muted: #8d9197;
+    --bg: #12161a;
+    --surface: #191e23;
+    --sunk: #20262c;
+    --text: #e6e9ec;
+    --muted: #9aa4ae;
+    --rule: #313941;
+    --rule-strong: #e6e9ec;
+    --accent: #7db2e8;
+    --accent-text: #12161a;
+    --mark: #f2be1a;
+    --bar: #1c242c;
+    --bar-text: #e6e9ec;
+    --bar-muted: #a3adb7;
     --ok: #6cc785;
     --ok-bg: #13261a;
     --bad: #ff8a7f;
@@ -67,11 +71,11 @@ body {
 a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
 
-/* Header: a dark bar with an orange rule on top, like a nameplate. */
+/* Header: a slate bar with a safety-yellow rule on top, like a panel label. */
 header.site {
   background: var(--bar);
   color: var(--bar-text);
-  border-top: 4px solid var(--accent);
+  border-top: 4px solid var(--mark);
 }
 header.site .inner {
   max-width: var(--wide);
@@ -91,27 +95,23 @@ header.site .inner {
   color: var(--bar-text);
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+  font-size: 1.2rem;
   padding: 10px 0;
 }
-.brand span { color: var(--accent); }
+.brand .amp { color: var(--mark); }
 .brand svg { width: 26px; height: 26px; flex: none; }
 nav { display: flex; flex-wrap: wrap; gap: 0 22px; }
 nav a {
   color: var(--bar-muted);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.86rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.98rem;
   padding: 16px 0 13px;
   border-bottom: 3px solid transparent;
   white-space: nowrap;
 }
 nav a:hover { color: var(--bar-text); }
-nav a[aria-current="page"] { color: var(--bar-text); border-bottom-color: var(--accent); }
+nav a[aria-current="page"] { color: var(--bar-text); border-bottom-color: var(--mark); }
 
 main {
   max-width: var(--wide);
@@ -126,13 +126,11 @@ h1 { font-size: 2.1rem; line-height: 1.12; margin: 0 0 8px; }
 h2 { font-size: 1.2rem; line-height: 1.25; margin: 0 0 12px; }
 .lede { color: var(--muted); font-size: 1.12rem; margin: 0 0 24px; max-width: 620px; }
 
-/* Breadcrumb: small caps trail above the title. */
+/* Breadcrumb: a small trail above the title. */
 .crumbs {
-  margin: 0 0 14px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 .crumbs a { color: var(--muted); text-decoration: none; }
 .crumbs a:hover { color: var(--accent); }
@@ -146,10 +144,7 @@ h2 { font-size: 1.2rem; line-height: 1.25; margin: 0 0 12px; }
   margin-bottom: 20px;
 }
 .card > h2:first-child {
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-size: 1.05rem;
   padding-bottom: 10px;
   margin-bottom: 16px;
   border-bottom: 1px solid var(--rule);
@@ -164,11 +159,9 @@ h2 { font-size: 1.2rem; line-height: 1.25; margin: 0 0 12px; }
 
 label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text);
 }
 
 input, select, button { font: inherit; color: var(--text); }
@@ -182,8 +175,6 @@ input, select {
   border-bottom-color: var(--muted);
   border-radius: 2px;
   font-size: 1.02rem;
-  text-transform: none;
-  letter-spacing: 0;
   font-weight: 500;
 }
 input[type="number"], input[inputmode="decimal"] { font-family: var(--mono); font-size: 0.98rem; }
@@ -200,9 +191,7 @@ button {
   border: 1px solid var(--rule-strong);
   border-radius: 2px;
   font-weight: 600;
-  font-size: 0.86rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 1rem;
   cursor: pointer;
 }
 button:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
@@ -212,10 +201,8 @@ button.plain:hover { border-color: var(--text); background: transparent; color: 
 .rows { width: 100%; border-collapse: collapse; }
 .rows th {
   text-align: left;
-  font-size: 0.76rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--muted);
   padding: 0 6px 6px 0;
 }
@@ -225,7 +212,7 @@ button.plain:hover { border-color: var(--text); background: transparent; color: 
 .rows td:first-child input, .rows td:first-child select { min-width: 130px; }
 .table-wrap { overflow-x: auto; margin-bottom: 12px; }
 
-/* Readouts: label above, value in mono, accent rule on the left. */
+/* Readouts: label above, value in mono, accent rule on the main result. */
 .results {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -242,10 +229,8 @@ button.plain:hover { border-color: var(--text); background: transparent; color: 
 }
 .results div:first-child { box-shadow: inset 3px 0 0 var(--accent); }
 .results dt {
-  font-size: 0.74rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--muted);
 }
 .results dd {
@@ -294,44 +279,19 @@ code { font-family: var(--mono); font-size: 0.88em; }
 .tools a {
   display: block;
   height: 100%;
-  padding: 13px 28px 13px 0;
+  padding: 13px 0;
   color: var(--text);
   text-decoration: none;
-  position: relative;
 }
-.tools a::after {
-  content: "\2192";
-  position: absolute;
-  right: 4px;
-  top: 13px;
-  color: var(--muted);
-}
-.tools a:hover strong { color: var(--accent); }
-.tools a:hover::after { color: var(--accent); transform: translateX(2px); }
+.tools a:hover strong { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .tools strong { display: block; font-weight: 600; font-size: 1.04rem; line-height: 1.3; }
 .tools span { display: block; color: var(--muted); font-size: 0.93rem; line-height: 1.4; margin-top: 2px; }
 
 h2.section {
-  font-size: 0.86rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 1.35rem;
   margin: 40px 0 0;
   padding-bottom: 8px;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
   max-width: none;
-}
-
-/* Home page: numbered sections like a manual's table of contents. */
-.home { counter-reset: part; }
-.home h2.section { counter-increment: part; }
-.home h2.section::before {
-  content: counter(part, decimal-leading-zero);
-  font-family: var(--mono);
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 0;
 }
 
 .masthead {
@@ -348,7 +308,7 @@ h2.section {
 .masthead .lede { margin: 0; }
 .masthead .search { margin: 0; }
 .masthead dl { display: flex; gap: 28px; margin: 0 0 18px; }
-.masthead dt { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.masthead dt { font-size: 0.9rem; font-weight: 600; color: var(--muted); }
 .masthead dd { margin: 0; font-family: var(--mono); font-size: 1.5rem; }
 @media (max-width: 760px) {
   .masthead { grid-template-columns: 1fr; }
@@ -375,7 +335,6 @@ h2.section {
 .prose ul, .prose ol { padding-left: 22px; }
 .prose li { margin-bottom: 7px; }
 .prose li::marker { color: var(--muted); }
-.prose ol li::marker { font-family: var(--mono); font-size: 0.9em; }
 .prose code { background: var(--surface); border: 1px solid var(--rule); border-radius: 2px; padding: 1px 5px; }
 .prose a { overflow-wrap: anywhere; }
 .callout, .prose .callout {
@@ -403,10 +362,8 @@ table.data th, table.data td {
   vertical-align: top;
 }
 table.data th {
-  font-size: 0.76rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--muted);
   background: var(--sunk);
 }
@@ -437,8 +394,6 @@ dl.glossary dd { margin: 2px 0 0; }
   color: var(--text);
   font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
   padding: 8px 10px;
   border: 1px solid var(--rule);
   margin-bottom: -1px;
@@ -463,9 +418,7 @@ dl.glossary dd { margin: 2px 0 0; }
   margin: 20px 0;
   border: 1px dashed var(--muted);
   color: var(--muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 .ad-preview .ad-slot::before { content: "Ad space: " attr(data-slot); }
 
@@ -515,19 +468,17 @@ footer.site .inner {
 }
 footer.site h2 {
   color: var(--bar-text);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 1rem;
   margin: 0 0 10px;
 }
 footer.site p { margin: 0 0 8px; }
 footer.site ul { list-style: none; margin: 0; padding: 0; }
 footer.site li { margin: 0 0 6px; }
 footer.site a { color: var(--bar-text); text-decoration: none; }
-footer.site a:hover { color: var(--accent); }
+footer.site a:hover { color: var(--mark); }
 footer.site .legal {
   grid-column: 1 / -1;
-  border-top: 1px solid #3a3e42;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding-top: 14px;
   font-size: 0.8rem;
   display: flex;
@@ -547,7 +498,7 @@ button, input, select { min-height: 44px; }
   h1 { font-size: 1.75rem; }
   header.site .inner { min-height: 0; }
   nav { width: 100%; flex-wrap: nowrap; gap: 0 16px; overflow-x: auto; scrollbar-width: none; }
-  nav a { padding: 10px 0 9px; font-size: 0.78rem; letter-spacing: 0.06em; }
+  nav a { padding: 10px 0 9px; font-size: 0.92rem; }
   .card { padding: 16px; }
   .results dd { font-size: 1.25rem; }
 }

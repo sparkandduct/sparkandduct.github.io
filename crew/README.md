@@ -49,7 +49,17 @@ Google ranks pages that help the person reading them and pushes down sites that 
 
 ## The look
 
-The site is laid out like a printed data sheet: ruled lines, square corners, one orange accent, readouts in the monospace face, fonts served from `/fonts/`. Use only the classes already in `style.css` and the existing page patterns; never add gradients, shadows, rounded tiles, emoji, icons or stock images, and never load fonts or styles from another site. In diagrams, keep every label inside the viewBox and clear of lines and other labels; check this in the headless browser with `getBBox()`.
+The site should read as made by a person who does the work, not as a generated template (reworked 2026-10-26 after research on what makes sites look AI-made). Plain and practical: ruled lines, square corners, Barlow for text, fonts served from `/fonts/`. Colors come from the trade: panel slate for the header and footer, print blue (`--accent`) for links and actions, safety yellow (`--mark`) only as a marker on the dark bar, never for text on light backgrounds. Use only the classes already in `style.css` and the existing page patterns, and never load fonts or styles from another site.
+
+Never add these, because they are the common tells of AI-made pages:
+- all-caps or letter-spaced labels, headings, buttons or eyebrow text (write everything in sentence case);
+- monospace for anything except numbers a reader types or reads off (inputs, results, formulas in `code`);
+- 01/02/03 numbering unless the content really is a sequence of steps;
+- arrows tacked onto links, icon tiles above headings, cards inside cards, gradients, glows, soft shadows, rounded tiles, emoji, stock photos or AI images;
+- fade-ins or other decorative motion;
+- stock phrasing: "In today's...", "It's important to note", "Whether you're a...", "not only... but also", "It's not X. It's Y", "delve", "crucial", "pivotal", "seamless", "robust", "comprehensive", "unlock", em dashes, a closing paragraph that repeats the page, or habitually listing things in threes.
+
+Write headings that say exactly what the section covers ("Step 4: Halve the circuit"), give real numbers instead of hedges, and cite the source for every fact. In diagrams, keep every label inside the viewBox and clear of lines and other labels; check this in the headless browser with `getBBox()`.
 
 ## Growing it
 
