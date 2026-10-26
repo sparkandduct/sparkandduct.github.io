@@ -1,6 +1,6 @@
 <!--
 title: How to measure furnace temperature rise
-description: How to measure a furnace's temperature rise, compare it with the nameplate range, and use it to work out airflow in CFM.
+description: Measure furnace temperature rise (supply minus return), compare it with the nameplate range, and convert it to airflow in CFM with a worked example.
 section: guides
 group: how-to
 order: 4
@@ -10,7 +10,7 @@ summary: Measuring rise, reading the nameplate range and turning it into CFM.
       <h1>How to measure furnace temperature rise</h1>
       <p class="lede">One of the quickest checks of whether a furnace is moving enough air.</p>
 
-      <div class="callout"><p>The <a href="/airflow.html">airflow calculator</a> turns heat output and temperature rise into CFM.</p></div>
+      <div class="callout"><p>Short answer: rise = supply air minus return air, read after ten minutes of burner run time. It should land inside the range on the furnace nameplate. The <a href="/airflow.html">airflow calculator</a> turns heat output and temperature rise into CFM.</p></div>
 
       <h2>What it tells you</h2>
       <p>Temperature rise is the difference between the air entering the furnace and the air leaving it. Every furnace nameplate gives an acceptable range, for example 35 to 65&deg;F. A rise above the range means too little airflow, which overheats the heat exchanger and trips the limit switch. A rise below the range means too much airflow or too little heat, which can cause condensation in a furnace that is not built for it.</p>
@@ -71,4 +71,13 @@ summary: Measuring rise, reading the nameplate range and turning it into CFM.
       </ul>
 
       <p class="note">The 1.08 factor is for standard air at sea level and falls with altitude. Gas pressure and combustion work should be done by a qualified technician.</p>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li>The furnace nameplate and installation manual for your model: the allowed temperature rise range and the output rating.</li>
+          <li><a href="https://www.energy.gov/energysaver/furnaces-and-boilers">U.S. Department of Energy: furnaces and boilers</a>: AFUE and how efficiency relates to heat output.</li>
+        </ul>
+        <p>The 1.08 factor is 0.075 lb/ft&sup3; (standard air) &times; 60 min/h &times; 0.24 BTU/lb&deg;F, worked out from air properties. Last checked: October 2026</p>
+      </section>
     </article>
