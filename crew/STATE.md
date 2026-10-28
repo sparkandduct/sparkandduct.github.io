@@ -31,13 +31,13 @@ The Product maker owns this list.
 
 Ideas, in order:
 1. EPA 608 full practice exam pack: 25 questions each for Core, Type I, Type II and Type III, with answer explanations.
-2. HVAC service call checklist: printable one-page sheets for a cooling call and a heating call.
 3. Pocket reference card set: thermostat wire colors, electrical wire colors, Ohm's law and common formulas.
 4. Fire alarm battery calculation worksheet: fill-in-by-hand version of the calculator.
 5. Conduit bending field card: multipliers, shrink and offset steps.
+6. Motor starting troubleshooting worksheet: fill-in meg and amp readings log (no limits, fill from nameplate).
 
 Made:
-(none yet)
+- HVAC service call checklists: src/pro/service-call-checklists.html (2026-10-28). Cooling and heating sheets, one Letter page each, blank Target columns so no unverified numbers.
 
 ## Log
 
@@ -47,3 +47,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-10-24, builder: added the superheat and subcooling calculator (src/superheat-subcooling.html, js/superheat.js), linked from the AC-not-cooling guide. Gumroad link still absent, so no shop link. Verified with node, Playwright at 375 px and link crawl; pressure table is computed (CoolProp), see UNVERIFIED.md.
 - 2026-10-25, manager: weekly report written; added missing Sources list to the superheat calculator; Search Console shows 0 clicks/0 impressions; first three-page Builder run is Thursday.
 - 2026-10-26, analyst: Search Console has no data yet (0 impressions), so the queue was ranked from web research and cluster gaps (ignition troubleshooting moved up). Goodman one-hour reset could not be confirmed from a primary source; noted in UNVERIFIED.md. Refreshed furnace-temperature-rise guide (answer first, field tip, links, Sources, better description).
+- 2026-10-28, product maker: created src/pro/index.html and src/pro/service-call-checklists.html (prints to 2 Letter pages, not in sitemap, no inbound links). Chose idea 2 over the EPA 608 exam pack because epa.gov, ecfr.gov and law.cornell.edu are blocked here, so 608 facts could not be verified from a primary source; revisit when allowed.
