@@ -20,3 +20,5 @@ These were entered from memory of the tables named. Check each against the curre
 - `src/guides/furnace-will-not-ignite.html`: sequence timings are from two Bryant manuals and flame microamp ranges from two Goodman manuals, all read through manualslib, not the makers' own sites. Page tells readers to use their own furnace's manual. Trane flash codes skipped 2026-10-29: sources conflict and no Trane manual was reachable.
 
 - `js/box-fill.js` and `src/box-fill.html`: Table 314.16(B) allowances for 14 to 6 AWG and the clamp, fitting, yoke and ground rules come from two secondary sites; the NFPA 70 text was not reachable. The 2023 extra quarter allowance per ground beyond four is from one site only. The pigtail rule is from a trade magazine seen in search results (page returned 403). 18 and 16 AWG and standard box volumes were left out.
+
+- `src/guides/heat-pump-blowing-cold-air.html`: defrost thresholds and timings are from Bryant and Bard manuals (read via manualslib) and a Lennox consumer page; they differ by brand and the page says so. The reversing-valve and charge check list is general service practice, not sourced to a manual.
