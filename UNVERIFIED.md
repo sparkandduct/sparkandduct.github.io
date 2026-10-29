@@ -18,3 +18,5 @@ These were entered from memory of the tables named. Check each against the curre
 - `src/pro/service-call-checklists.html`: generic checks only; no limits given. EPA 608 exam pack (top product idea) was postponed 2026-10-28 because epa.gov, ecfr.gov and law.cornell.edu were blocked from the unattended run.
 
 - `src/guides/furnace-will-not-ignite.html`: sequence timings are from two Bryant manuals and flame microamp ranges from two Goodman manuals, all read through manualslib, not the makers' own sites. Page tells readers to use their own furnace's manual. Trane flash codes skipped 2026-10-29: sources conflict and no Trane manual was reachable.
+
+- `js/box-fill.js` and `src/box-fill.html`: Table 314.16(B) allowances for 14 to 6 AWG and the clamp, fitting, yoke and ground rules come from two secondary sites; the NFPA 70 text was not reachable. The 2023 extra quarter allowance per ground beyond four is from one site only. The pigtail rule is from a trade magazine seen in search results (page returned 403). 18 and 16 AWG and standard box volumes were left out.

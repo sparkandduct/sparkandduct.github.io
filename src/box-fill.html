@@ -1,0 +1,120 @@
+<!--
+title: Electrical box fill calculator (NEC 314.16)
+description: Box fill calculator. Count conductors, grounds, clamps, support fittings and device yokes in cubic inches and compare the total with the volume marked on the box.
+section: calculators
+summary: Total NEC 314.16 volume for conductors, grounds, clamps and devices, checked against the box volume.
+order: 10
+scripts: /js/common.js /js/box-fill.js
+-->
+    <h1>Electrical box fill calculator</h1>
+    <p class="lede">Adds up the cubic inches the NEC 314.16 method requires and compares them with the volume stamped in the box. Conductors in AWG 14 to 6.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Volume marked on the box (in&sup3;)
+          <input id="volume" type="number" min="0" step="any" value="18" inputmode="decimal">
+        </label>
+        <label>14 AWG conductors
+          <input id="n14" type="number" min="0" step="1" value="4" inputmode="numeric">
+        </label>
+        <label>12 AWG conductors
+          <input id="n12" type="number" min="0" step="1" value="0" inputmode="numeric">
+        </label>
+        <label>10 AWG conductors
+          <input id="n10" type="number" min="0" step="1" value="0" inputmode="numeric">
+        </label>
+        <label>8 AWG conductors
+          <input id="n8" type="number" min="0" step="1" value="0" inputmode="numeric">
+        </label>
+        <label>6 AWG conductors
+          <input id="n6" type="number" min="0" step="1" value="0" inputmode="numeric">
+        </label>
+        <label>Equipment grounding conductors
+          <input id="grounds" type="number" min="0" step="1" value="1" inputmode="numeric">
+        </label>
+        <label>Largest grounding conductor
+          <select id="groundSize">
+            <option value="14" selected>14 AWG</option>
+            <option value="12">12 AWG</option>
+            <option value="10">10 AWG</option>
+            <option value="8">8 AWG</option>
+            <option value="6">6 AWG</option>
+          </select>
+        </label>
+        <label>Device yokes (switches, receptacles)
+          <input id="yokes" type="number" min="0" step="1" value="1" inputmode="numeric">
+        </label>
+        <label>Support fittings (studs, hickeys)
+          <input id="fittings" type="number" min="0" step="1" value="0" inputmode="numeric">
+        </label>
+        <label>Code edition for grounds
+          <select id="edition">
+            <option value="2020" selected>NEC 2020 or earlier</option>
+            <option value="2023">NEC 2023</option>
+          </select>
+        </label>
+        <label><input id="clamps" type="checkbox" checked> Internal cable clamps in the box</label>
+      </div>
+      <p class="note">Count conductors that enter the box from outside. Pigtails and jumpers that start and end inside the box are not counted.</p>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Volume required</dt><dd id="outTotal"></dd></div>
+        <div><dt>Left in the box</dt><dd id="outVolume"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Item</th><th>in&sup3;</th></tr></thead>
+          <tbody id="outRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    {{ad}}
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p>Each item gets an allowance in cubic inches based on the conductor size in Table 314.16(B). Add them up and the sum must not exceed the box volume.</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Conductor</th><th>Allowance</th></tr></thead>
+          <tbody>
+            <tr><td>14 AWG</td><td>2.00 in&sup3;</td></tr>
+            <tr><td>12 AWG</td><td>2.25 in&sup3;</td></tr>
+            <tr><td>10 AWG</td><td>2.50 in&sup3;</td></tr>
+            <tr><td>8 AWG</td><td>3.00 in&sup3;</td></tr>
+            <tr><td>6 AWG</td><td>5.00 in&sup3;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>Every conductor that enters the box counts once.</li>
+        <li>All internal cable clamps together count once, at the allowance of the largest conductor in the box. Clamps outside the box add nothing.</li>
+        <li>Each support fitting counts once at the largest conductor allowance.</li>
+        <li>Each device yoke counts twice at the largest conductor connected to it. This calculator uses the largest conductor in the box, which is the cautious choice.</li>
+        <li>All equipment grounding conductors together count once, at the largest one. Under the 2023 edition, check the text for an extra quarter allowance for each ground beyond four; the calculator adds it when you pick 2023.</li>
+      </ul>
+      <p><strong>Worked example.</strong> Two 14 AWG cables (two black, two white, two bare) feed a switch in an 18 in&sup3; single-gang box with internal clamps. The two bare grounds count as one.</p>
+      <ul>
+        <li>4 conductors &times; 2.00 = 8.00</li>
+        <li>1 ground &times; 2.00 = 2.00</li>
+        <li>Clamps: 1 &times; 2.00 = 2.00</li>
+        <li>1 yoke &times; 2 &times; 2.00 = 4.00</li>
+        <li>Total 16.00 in&sup3; against 18.0 in&sup3; marked, so it fits with 2.00 in&sup3; to spare.</li>
+      </ul>
+      <p>Swap those four conductors for 12 AWG and the same box needs 4 &times; 2.25 + 2.25 + 2.25 + 4.50 = 18.00 in&sup3;, exactly full.</p>
+      <p>Use the volume marked on the box; the code also lists standard volumes for unmarked metal boxes. This calculator leaves out luminaire fixture wires, conductors smaller than 14 AWG and anything with its own rule, such as the 300.14 free-length rule for conductors that pass through. For those, read 314.16 in your adopted code book. To size the feed to the box, see <a href="/voltage-drop.html">voltage drop</a> and <a href="/conduit-fill.html">conduit fill</a>.</p>
+    </section>
+
+    <section class="card">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://boxfillcalculator.com/blog/conductor-volume-allowances-table-314-16-b">Conductor volume allowances, Table 314.16(B) explained</a>: 14, 12 and 10 AWG values, yoke and ground rules.</li>
+        <li><a href="https://reuven.tools/reference/box-fill-volumes/">Box fill chart, NEC 314.16</a>: all five allowances, clamps, fittings, yokes and the 2023 ground rule.</li>
+        <li><a href="https://www.ecmag.com/magazine/articles/article-detail/codes-standards-box-fill-calculations-part-vi">Electrical Contractor magazine, box fill calculations</a>: pigtails and jumpers that stay in the box are not counted (read through search results; the page itself was not reachable).</li>
+      </ul>
+      <p>The NFPA 70 text itself was not available, so these are secondary sources. Check Table 314.16(B) and 314.16(B)(1) to (B)(5) in the edition your jurisdiction has adopted. Last checked: October 2026</p>
+    </section>
