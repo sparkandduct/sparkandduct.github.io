@@ -49,8 +49,8 @@ scripts: /js/common.js /js/box-fill.js
         </label>
         <label>Code edition for grounds
           <select id="edition">
-            <option value="2020" selected>NEC 2020 or earlier</option>
-            <option value="2023">NEC 2023</option>
+            <option value="2020">NEC 2020 or later</option>
+            <option value="2017">NEC 2017 or earlier</option>
           </select>
         </label>
         <label><input id="clamps" type="checkbox" checked> Internal cable clamps in the box</label>
@@ -95,7 +95,7 @@ scripts: /js/common.js /js/box-fill.js
         <li>All internal cable clamps together count once, at the allowance of the largest conductor in the box. Clamps outside the box add nothing.</li>
         <li>Each support fitting counts once at the largest conductor allowance.</li>
         <li>Each device yoke counts twice at the largest conductor connected to it. This calculator uses the largest conductor in the box, which is the cautious choice.</li>
-        <li>All equipment grounding conductors together count once, at the largest one. Under the 2023 edition, check the text for an extra quarter allowance for each ground beyond four; the calculator adds it when you pick 2023.</li>
+        <li>Up to four equipment grounding conductors together count once, at the largest one. Since the 2020 edition, each ground beyond four adds a quarter allowance at the largest ground size; the calculator adds it when you pick NEC 2020 or later. Editions before 2020 count all the grounds once.</li>
       </ul>
       <p><strong>Worked example.</strong> Two 14 AWG cables (two black, two white, two bare) feed a switch in an 18 in&sup3; single-gang box with internal clamps. The two bare grounds count as one.</p>
       <ul>
@@ -113,7 +113,7 @@ scripts: /js/common.js /js/box-fill.js
       <h2>Sources</h2>
       <ul>
         <li><a href="https://boxfillcalculator.com/blog/conductor-volume-allowances-table-314-16-b">Conductor volume allowances, Table 314.16(B) explained</a>: 14, 12 and 10 AWG values, yoke and ground rules.</li>
-        <li><a href="https://reuven.tools/reference/box-fill-volumes/">Box fill chart, NEC 314.16</a>: all five allowances, clamps, fittings, yokes and the 2023 ground rule.</li>
+        <li><a href="https://reuven.tools/reference/box-fill-volumes/">Box fill chart, NEC 314.16</a>: all five allowances, clamps, fittings, yokes and the ground rule added in 2020.</li>
         <li><a href="https://www.ecmag.com/magazine/articles/article-detail/codes-standards-box-fill-calculations-part-vi">Electrical Contractor magazine, box fill calculations</a>: pigtails and jumpers that stay in the box are not counted (read through search results; the page itself was not reachable).</li>
       </ul>
       <p>The NFPA 70 text itself was not available, so these are secondary sources. Check Table 314.16(B) and 314.16(B)(1) to (B)(5) in the edition your jurisdiction has adopted. Last checked: October 2026</p>

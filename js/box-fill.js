@@ -16,7 +16,7 @@ function boxFill(input) {
     const g = ALLOWANCE[input.groundSize];
     largest = Math.max(largest, g);
     let units = 1;
-    if (input.edition === '2023' && input.grounds > 4) units += (input.grounds - 4) / 4;
+    if (input.edition === '2020' && input.grounds > 4) units += (input.grounds - 4) / 4;
     rows.push([input.grounds + ' equipment grounding conductor' + (input.grounds > 1 ? 's' : '') + ', ' + units + ' &times; ' + input.groundSize + ' AWG', units * g]);
   }
   if (input.clamps) rows.push(['Internal cable clamps (all together)', largest]);
