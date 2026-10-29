@@ -14,8 +14,6 @@ One lever at a time, four weeks apart (see the rules). Newest last.
 
 The Analyst owns this list; the Builder takes the top item and deletes it. Keep about ten items, most valuable first. Alternate calculators with content pages where the value is close.
 
-1. Trane furnace fault codes (needs Trane's own flash codes; skip if only secondary sources).
-2. Furnace will not ignite: troubleshooting walkthrough (flame sensor first; most common call, hub for the fault code pages).
 3. Box fill calculator (NEC 314.16 method, original wording only).
 4. Heat pump blowing cold air: troubleshooting walkthrough.
 5. Duct sizing by friction rate calculator.
@@ -48,3 +46,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-10-25, manager: weekly report written; added missing Sources list to the superheat calculator; Search Console shows 0 clicks/0 impressions; first three-page Builder run is Thursday.
 - 2026-10-26, analyst: Search Console has no data yet (0 impressions), so the queue was ranked from web research and cluster gaps (ignition troubleshooting moved up). Goodman one-hour reset could not be confirmed from a primary source; noted in UNVERIFIED.md. Refreshed furnace-temperature-rise guide (answer first, field tip, links, Sources, better description).
 - 2026-10-28, product maker: created src/pro/index.html and src/pro/service-call-checklists.html (prints to 2 Letter pages, not in sitemap, no inbound links). Chose idea 2 over the EPA 608 exam pack because epa.gov, ecfr.gov and law.cornell.edu are blocked here, so 608 facts could not be verified from a primary source; revisit when allowed.
+- 2026-10-29, builder: skipped Trane codes (no primary source). Added furnace-will-not-ignite guide.

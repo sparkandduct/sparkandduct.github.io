@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Furnace will not ignite: troubleshooting by stage | Spark &amp; Duct</title>
+  <meta name="description" content="Find why a gas furnace will not light by watching where the start-up sequence stops: inducer, pressure switch, igniter, gas valve or flame sensor. Includes typical timings and flame sensor microamp readings.">
+  <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
+  <link rel="canonical" href="https://sparkandduct.github.io/guides/furnace-will-not-ignite.html">
+  <meta property="og:title" content="Furnace will not ignite: troubleshooting by stage | Spark &amp; Duct">
+  <meta property="og:description" content="Find why a gas furnace will not light by watching where the start-up sequence stops: inducer, pressure switch, igniter, gas valve or flame sensor. Includes typical timings and flame sensor microamp readings.">
+  <meta property="og:url" content="https://sparkandduct.github.io/guides/furnace-will-not-ignite.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#26303a">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sparkandduct.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "Furnace will not ignite: troubleshooting by stage", "item": "https://sparkandduct.github.io/guides/furnace-will-not-ignite.html"}]}, {"@type": "Article", "headline": "Furnace will not ignite: troubleshooting by stage", "description": "Find why a gas furnace will not light by watching where the start-up sequence stops: inducer, pressure switch, igniter, gas valve or flame sensor. Includes typical timings and flame sensor microamp readings.", "mainEntityOfPage": "https://sparkandduct.github.io/guides/furnace-will-not-ignite.html", "publisher": {"@type": "Organization", "name": "Spark & Duct", "url": "https://sparkandduct.github.io/"}}]}</script>
+  <link rel="stylesheet" href="/style.css?v=a86dca38">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#f0b400"/><path d="M18.5 4 8 18h6.5L13 28l11-15h-7z" fill="#26303a"/></svg><span>Spark <span class="amp">&amp;</span> Duct</span></a>
+      <nav>
+        <a href="/">Tools</a>
+        <a href="/guides/" aria-current="page">Guides</a>
+        <a href="/fault-codes/">Codes</a>
+        <a href="/reference/">Reference</a>
+        <a href="/quizzes/">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <p class="crumbs"><a href="/">Home</a> / <a href="/guides/">Guides</a></p>
+    <article class="prose">
+      <h1>Furnace will not ignite: troubleshooting by stage</h1>
+      <p class="lede">Watch one start-up from the thermostat call. Where the sequence stops tells you which part to test.</p>
+
+      <div class="callout"><p>Short answer: if the burners light and go out after a few seconds, clean the flame sensor and check its microamp reading. If nothing lights, find the last thing that happened (inducer, igniter glow, gas valve click) and test the next step. If you smell gas, leave the building and call the gas utility.</p></div>
+
+      <h2>The start-up sequence and typical timings</h2>
+      <p>Most modern hot-surface-ignition furnaces run the same order. The times below are from two Bryant installation manuals (a 912S and a 345MAV); your furnace may differ, so the manual and the wiring diagram inside the door win.</p>
+      <ol>
+        <li>The thermostat calls for heat. The control checks that the pressure switches are open.</li>
+        <li>The inducer starts. When it is up to speed the pressure switch closes.</li>
+        <li>Prepurge: 15 seconds.</li>
+        <li>Igniter warm-up: 17 seconds.</li>
+        <li>The gas valve opens. About 5 seconds later the control looks for flame for 2 seconds.</li>
+        <li>Flame proven: the igniter shuts off and the blower starts after a delay (25 seconds in one manual, 66 seconds in the other).</li>
+      </ol>
+      <p>If flame is not proven, the control closes the gas valve and tries again, up to three more times in those manuals, then locks out. Lockout clears after three hours or when power to the furnace is interrupted for a moment. Other makers use other retry counts and reset times.</p>
+
+      <h2>Where it stops</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>What you see</th><th>Stage that failed</th><th>Check</th></tr></thead>
+        <tbody>
+          <tr><td>Nothing happens, no board light</td><td>Power</td><td>Switch at the furnace, breaker, door switch, 24 V at the transformer, blown board fuse.</td></tr>
+          <tr><td>Board lit, no inducer</td><td>Call for heat or limit circuit</td><td>24 V at W on the board. Open limit or rollout switch. Inducer motor and its power.</td></tr>
+          <tr><td>Inducer runs, then stops or restarts, igniter never glows</td><td>Pressure switch</td><td>Vent or intake blocked, cracked or wet pressure tubing, plugged condensate trap, switch stuck open. Read the board's fault code.</td></tr>
+          <tr><td>Inducer runs, igniter does not glow</td><td>Igniter</td><td>Voltage to the igniter during warm-up. Voltage present and no glow means a failed igniter.</td></tr>
+          <tr><td>Igniter glows, no gas, no click</td><td>Gas valve power</td><td>24 V at the valve during the trial. No voltage: board or wiring. Voltage and no flow: valve, or gas shut off.</td></tr>
+          <tr><td>Igniter glows, valve clicks, no flame</td><td>Gas supply</td><td>Manual gas valve open, supply and manifold pressure, air in a new line, igniter position.</td></tr>
+          <tr><td>Flame lights, goes out in 2 to 10 seconds</td><td>Flame proving</td><td>Dirty or loose flame sensor, poor ground, weak microamp signal. See below.</td></tr>
+          <tr><td>Lights and runs, then shuts off before the room is warm</td><td>Limit</td><td>Filter, closed registers, blower. Measure <a href="/guides/furnace-temperature-rise.html">temperature rise</a>.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="ad-slot" data-slot="in content"></div>
+
+      <h2>Flame sensor: clean it, then measure it</h2>
+      <p>The sensor rod sits in the flame and passes a tiny DC current through it to ground. The control reads that current as proof of flame. A film on the rod cuts the current, so the burners light and drop out after a couple of seconds. Cleaning usually fixes it: pull the rod, rub it lightly with a fine abrasive pad, wipe it, and refit it so it sits in the flame as before.</p>
+      <p>To measure, put a DC microamp meter in series with the sensor wire (take the wire off the rod and put the meter between the wire and the rod), then run a heating cycle. Two Goodman service manuals give these ranges for their integrated ignition controls:</p>
+      <ul>
+        <li>GMES8 manual: 3 to 10 &micro;A is normal. 1 to 3 &micro;A is low and flashes an amber light. Below 1 &micro;A the furnace shuts down.</li>
+        <li>GMSS9 manual: 1 to 4 &micro;A.</li>
+      </ul>
+      <p>The two manuals disagree, so there is no single number. Use the one in your furnace's manual. A low reading with a clean rod points to a loose or corroded connection, the wrong sensor-to-burner gap or a poor ground. The GMSS9 manual also warns that contaminated combustion air can leave a nearly invisible coating on the rod.</p>
+
+      <h2>Reset and retries</h2>
+      <p>Interrupting power for a moment clears most lockouts so you can watch another start. Do not keep resetting a furnace that fails the same way. A furnace that keeps locking out on a safety switch is telling you something is wrong; find it before another reset.</p>
+
+      <h2>Related pages</h2>
+      <ul>
+        <li><a href="/fault-codes/carrier-furnace-codes.html">Carrier furnace fault codes</a> and <a href="/fault-codes/goodman-furnace-codes.html">Goodman furnace fault codes</a>: read the board's code first.</li>
+        <li><a href="/guides/furnace-temperature-rise.html">How to measure furnace temperature rise</a>.</li>
+        <li><a href="/guides/ac-running-but-not-cooling.html">AC running but not cooling</a>: the cooling-side companion.</li>
+      </ul>
+
+      <section>
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.manualslib.com/manual/2734754/Bryant-912s.html?page=81">Bryant 912S installation manual, sequence of operation</a> (prepurge, warm-up, trials for ignition, lockout reset).</li>
+        <li><a href="https://www.manualslib.com/manual/457895/Bryant-345mav.html?page=35">Bryant 345MAV installation manual, sequence of operation</a> (same sequence, 66-second blower delay).</li>
+        <li><a href="https://manualslib.com/manual/2409914/Goodman-Gmes8-U-Series.html?page=23">Goodman GMES8 service manual, checking the flame sensor</a>.</li>
+        <li><a href="https://manualslib.com/manual/821062/Goodman-Gmss9-Series.html?page=54">Goodman GMSS9 service manual, checking the flame sensor</a>.</li>
+      </ul>
+      <p>The manuals are read through a manual-hosting site, not a maker's own download page. Timings and microamp limits vary by model; use your furnace's own manual. Last checked: October 2026</p>
+    </section>
+    </article>
+    <h2 class="section">More guides</h2>
+    <ul class="tools">
+  <li><a href="/guides/ac-running-but-not-cooling.html"><strong>AC running but not cooling: what to check</strong><span>Step-by-step checks from the thermostat to the outdoor unit.</span></a></li>
+  <li><a href="/guides/fire-alarm-ground-fault.html"><strong>How to find a ground fault on a fire alarm panel</strong><span>Isolate the circuit, then halve the run until you find it.</span></a></li>
+  <li><a href="/guides/north-carolina-electrical-hvac-license.html"><strong>Electrical and HVAC licensing in North Carolina</strong><span>The boards, the license classes and the experience each one needs.</span></a></li>
+  <li><a href="/guides/how-to-size-a-fire-alarm-battery.html"><strong>How to size a fire alarm battery</strong><span>The standby and alarm calculation, step by step, with a worked example.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
+  </main>
+
+  <footer class="site">
+    <div class="inner">
+      <div class="about">
+        <h2>Spark &amp; Duct</h2>
+        <p>Calculators and reference for low voltage, electrical and HVAC work. Every tool shows its formula; every fact is checked against the manufacturer, the code or the state board.</p>
+        <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="/">Tools</a></li>
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/fault-codes/">Codes</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/quizzes/">Quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact and corrections</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <p class="legal"><span>&copy; 2026 Spark &amp; Duct</span><span>No accounts, no tracking. Calculations run in your browser.</span></p>
+    </div>
+  </footer>
+  <script src="/js/site.js?v=615090e5"></script>
+</body>
+</html>
