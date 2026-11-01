@@ -47,3 +47,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-10-29, builder: skipped Trane codes (no primary source). Added furnace-will-not-ignite guide.
 - 2026-10-29, builder: added box fill calculator.
 - 2026-10-29, builder: added heat pump blowing cold air guide.
+- 2026-11-01, manager: weekly report written; 3 pages and 1 product verified for Sources and links; Search Console 2 clicks/3 impressions; rebuilt stale box-fill.html.

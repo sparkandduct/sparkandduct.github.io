@@ -1,8 +1,26 @@
 [
-  {"rank": 1, "item": "Trane furnace fault codes"},
-  {"rank": 2, "item": "Box fill calculator"},
-  {"rank": 3, "item": "Furnace will not ignite: troubleshooting"},
-  {"rank": 4, "item": "Duct sizing by friction rate calculator"},
-  {"rank": 5, "item": "Lennox furnace fault codes"},
-  {"rank": 6, "item": "EPA 608 Type II practice quiz"}
+ {
+  "rank": 1,
+  "item": "Duct sizing by friction rate calculator"
+ },
+ {
+  "rank": 2,
+  "item": "EPA 608 Type II practice quiz"
+ },
+ {
+  "rank": 3,
+  "item": "Motor full-load current reference"
+ },
+ {
+  "rank": 4,
+  "item": "Lennox furnace fault codes"
+ },
+ {
+  "rank": 5,
+  "item": "Wire ampacity reference"
+ },
+ {
+  "rank": 6,
+  "item": "Furnace flame sensor cleaning and microamp test"
+ }
 ]

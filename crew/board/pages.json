@@ -1,5 +1,38 @@
 [
-  {"added": "2026-10-24", "title": "Superheat and subcooling calculator", "kind": "Calculator", "url": "https://sparkandduct.github.io/superheat-subcooling.html"},
-  {"added": "2026-10-07", "title": "Conduit offset bending calculator", "kind": "Calculator", "url": "https://sparkandduct.github.io/conduit-offset.html"},
-  {"added": "2026-10-05", "title": "How to size a 24 V control transformer", "kind": "Guide", "url": "https://sparkandduct.github.io/guides/how-to-size-a-control-transformer.html"}
+ {
+  "added": "2026-10-29",
+  "title": "Heat pump blowing cold air: troubleshooting",
+  "kind": "Guide",
+  "url": "https://sparkandduct.github.io/guides/heat-pump-blowing-cold-air.html"
+ },
+ {
+  "added": "2026-10-29",
+  "title": "NEC box fill calculator",
+  "kind": "Calculator",
+  "url": "https://sparkandduct.github.io/box-fill.html"
+ },
+ {
+  "added": "2026-10-29",
+  "title": "Furnace will not ignite: troubleshooting",
+  "kind": "Guide",
+  "url": "https://sparkandduct.github.io/guides/furnace-will-not-ignite.html"
+ },
+ {
+  "added": "2026-10-24",
+  "title": "Superheat and subcooling calculator",
+  "kind": "Calculator",
+  "url": "https://sparkandduct.github.io/superheat-subcooling.html"
+ },
+ {
+  "added": "2026-10-07",
+  "title": "Conduit offset bending calculator",
+  "kind": "Calculator",
+  "url": "https://sparkandduct.github.io/conduit-offset.html"
+ },
+ {
+  "added": "2026-10-05",
+  "title": "How to size a 24 V control transformer",
+  "kind": "Guide",
+  "url": "https://sparkandduct.github.io/guides/how-to-size-a-control-transformer.html"
+ }
 ]
