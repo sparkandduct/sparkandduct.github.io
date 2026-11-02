@@ -14,12 +14,18 @@ One lever at a time, four weeks apart (see the rules). Newest last.
 
 The Analyst owns this list; the Builder takes the top item and deletes it. Keep about ten items, most valuable first. Alternate calculators with content pages where the value is close.
 
-5. Duct sizing by friction rate calculator.
-6. EPA 608 Type II practice quiz (copy the structure of src/quizzes/epa-608-core-practice.html).
-7. Motor full-load current reference (NEC Table 430.250 values, checked; needs a second source).
-8. Lennox furnace fault codes.
-9. Wire ampacity reference (only if it avoids copying NEC Table 310.16 wholesale).
-10. Furnace flame sensor cleaning and microamp test how-to (completes the ignition cluster).
+Search Console (2026-11-02) still has no query data, so ranking is from cluster gaps and web demand.
+
+1. R-410A, R-32 and R-454B pressure-temperature chart (computed with CoolProp, glide explained: read dew for superheat, bubble for subcooling; completes the superheat cluster; Honeywell and Arkema charts as cross-check).
+2. Furnace flame sensor cleaning and microamp test how-to (completes the ignition cluster; Goodman and Bryant manuals already used).
+3. Three-phase power calculator (kW, amps, kVA, with worked example; pure formulas).
+4. PoE voltage drop and cable length calculator (low voltage; IEEE 802.3af/at/bt power levels, TIA 100 m limit).
+5. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct).
+6. How to test a run capacitor and when to replace it (extends the AC not cooling guide).
+7. Thermostat with no C wire: options and wiring (extends thermostat wire colors reference).
+8. EPA 608 Type II practice quiz (copy the structure of src/quizzes/epa-608-core-practice.html).
+9. Motor full-load current reference (NEC Table 430.250 values, checked; needs a second source).
+10. Lennox furnace fault codes (only with a Lennox manual as primary source).
 
 ## Products
 
@@ -48,3 +54,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-10-29, builder: added box fill calculator.
 - 2026-10-29, builder: added heat pump blowing cold air guide.
 - 2026-11-01, manager: weekly report written; 3 pages and 1 product verified for Sources and links; Search Console 2 clicks/3 impressions; rebuilt stale box-fill.html.
+- 2026-11-02, analyst: Search Console still has no query data (2 clicks, 3 impressions, home page only); queue rewritten from cluster gaps. Confirmed voltage drop K values (12.9, 21.2) as derived from NEC Table 8 resistances; 24-16 AWG still open. Refreshed voltage-drop.html (title, description, worked example, related links, Sources).

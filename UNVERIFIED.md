@@ -2,7 +2,7 @@
 
 These were entered from memory of the tables named. Check each against the current edition before relying on them.
 
-- `js/voltage-drop.js`: circular mil areas for 14 AWG to 4/0 were compared with a published copy of NEC Chapter 9 Table 8 on 2026-10-05 and match. Still unchecked: 24 to 16 AWG, and the K values 12.9 copper and 21.2 aluminum.
+- `js/voltage-drop.js`: circular mil areas for 14 AWG to 4/0 were compared with a published copy of NEC Chapter 9 Table 8 on 2026-10-05 and match. K values 12.9 copper and 21.2 aluminum checked 2026-11-02: both equal the Table 8 resistance of 1,000 kcmil conductors (0.0129 and 0.0212 ohm per 1,000 ft) times 1,000,000 circular mils, and agree with an IAEI Magazine article and trade forum posts (the NEC text itself was not reachable, and they are rounded approximations). The page now says so. Still unchecked: 24 to 16 AWG circular mils.
 - `js/conduit-fill.js`: all ten EMT areas were compared with a published copy of NEC Chapter 9 Table 4 on 2026-10-05 and match. THHN areas for 14 to 4 AWG were confirmed the same day. Still unchecked: THHN areas for 3 AWG to 4/0.
 - `js/unit-converter.js`: conversion factors are standard values entered from memory (inches of water column taken at 4 C).
 - `battery.html`: NFPA 72 standby and alarm durations and the 20 % margin.
