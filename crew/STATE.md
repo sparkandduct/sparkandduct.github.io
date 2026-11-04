@@ -32,14 +32,15 @@ Search Console (2026-11-02) still has no query data, so ranking is from cluster 
 The Product maker owns this list.
 
 Ideas, in order:
-1. EPA 608 full practice exam pack: 25 questions each for Core, Type I, Type II and Type III, with answer explanations.
 3. Pocket reference card set: thermostat wire colors, electrical wire colors, Ohm's law and common formulas.
 4. Fire alarm battery calculation worksheet: fill-in-by-hand version of the calculator.
 5. Conduit bending field card: multipliers, shrink and offset steps.
 6. Motor starting troubleshooting worksheet: fill-in meg and amp readings log (no limits, fill from nameplate).
+7. EPA 608 evacuation and recovery pocket card: Table 1 levels, small appliance percentages and leak rates, laminate-ready (facts already verified in the exam pack).
 
 Made:
 - HVAC service call checklists: src/pro/service-call-checklists.html (2026-10-28). Cooling and heating sheets, one Letter page each, blank Target columns so no unverified numbers.
+- EPA 608 practice exams: src/pro/epa-608-practice-exams.html (2026-11-04). Core, Type I, II and III, 25 original questions each with answer key; prints to 11 Letter pages (8 exam, 3 key). Facts from 40 CFR 82 subpart F and EPA pages; CFC/R-22 phaseout dates, penalty amounts, pass marks and HFC leak rules (40 CFR 84) left out as unverified.
 
 ## Log
 
@@ -55,3 +56,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-10-29, builder: added heat pump blowing cold air guide.
 - 2026-11-01, manager: weekly report written; 3 pages and 1 product verified for Sources and links; Search Console 2 clicks/3 impressions; rebuilt stale box-fill.html.
 - 2026-11-02, analyst: Search Console still has no query data (2 clicks, 3 impressions, home page only); queue rewritten from cluster gaps. Confirmed voltage drop K values (12.9, 21.2) as derived from NEC Table 8 resistances; 24-16 AWG still open. Refreshed voltage-drop.html (title, description, worked example, related links, Sources).
+- 2026-11-04, product maker: made the EPA 608 practice exams (src/pro/epa-608-practice-exams.html, added to the Pro Pack index); epa.gov, ecfr.gov and law.cornell.edu are reachable again, so the 608 facts were checked there. Not in sitemap, no inbound links, link crawl clean.
