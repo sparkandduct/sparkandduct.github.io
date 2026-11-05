@@ -1,0 +1,96 @@
+<!--
+title: Three-phase power calculator
+head_title: Three-phase power calculator: amps, kW and kVA | Spark & Duct
+description: Three-phase power calculator. Enter line-to-line voltage, power factor and amps, kW or kVA to get the other values. Single-phase included, with the formulas and worked examples.
+section: calculators
+summary: Amps, kW, kVA and kVAR for three-phase and single-phase loads.
+order: 10
+scripts: /js/common.js /js/three-phase.js
+-->
+    <h1>Three-phase power calculator</h1>
+    <p class="lede">Enter the line-to-line voltage, power factor and one known value to get amps, kW, kVA and kVAR.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Circuit
+          <select id="phase">
+            <option value="3" selected>Three-phase</option>
+            <option value="1">Single-phase</option>
+          </select>
+        </label>
+        <label>Line-to-line voltage (V)
+          <input id="volts" type="number" min="0" step="any" value="480" inputmode="decimal">
+        </label>
+        <label>Power factor (0 to 1)
+          <input id="pf" type="number" min="0" max="1" step="any" value="0.85" inputmode="decimal">
+        </label>
+        <label>I know the
+          <select id="known">
+            <option value="amps" selected>Current</option>
+            <option value="kw">Real power</option>
+            <option value="kva">Apparent power</option>
+          </select>
+        </label>
+        <label id="valueLabel">Current (A)
+          <input id="value" type="number" min="0" step="any" value="100" inputmode="decimal">
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Current</dt><dd id="outAmps"></dd></div>
+        <div><dt>Real power</dt><dd id="outKw"></dd></div>
+        <div><dt>Apparent power</dt><dd id="outKva"></dd></div>
+        <div><dt>Reactive power</dt><dd id="outKvar"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+    </section>
+
+    {{ad}}
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p><code>kVA = &radic;3 &times; V &times; I &divide; 1000</code> for three-phase, with V measured between two phase legs.</p>
+      <p><code>kW = kVA &times; power factor</code> and <code>I = kVA &times; 1000 &divide; (&radic;3 &times; V)</code></p>
+      <p><code>kVAR = &radic;(kVA&sup2; &minus; kW&sup2;)</code></p>
+      <p>Single-phase drops the &radic;3 (1.732): <code>kVA = V &times; I &divide; 1000</code>. These assume a balanced load, with the same current on all three legs.</p>
+      <p>Worked example: a 480 V three-phase load draws 100 A at 0.85 power factor. kVA = 1.732 &times; 480 &times; 100 &divide; 1000 = 83.14 kVA. kW = 83.14 &times; 0.85 = 70.67 kW. Going the other way, 70.67 kW at 0.85 needs 70,670 &divide; (1.732 &times; 480 &times; 0.85) = 100 A.</p>
+    </section>
+
+    <section class="card">
+      <h2>Amps per kVA, three-phase</h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Line voltage</th><th>Amps per kVA</th><th>Amps per kW at 0.85 PF</th></tr></thead>
+          <tbody>
+            <tr><td>208 V</td><td>2.78</td><td>3.27</td></tr>
+            <tr><td>240 V</td><td>2.41</td><td>2.83</td></tr>
+            <tr><td>480 V</td><td>1.20</td><td>1.42</td></tr>
+            <tr><td>600 V</td><td>0.96</td><td>1.13</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Amps per kVA is 1000 &divide; (1.732 &times; V). Divide by the power factor to get amps per kW.</p>
+    </section>
+
+    <section class="card">
+      <h2>Using it in the field</h2>
+      <ul>
+        <li><strong>Heating elements</strong> are resistive, so use a power factor of 1. A 15 kW electric heat strip on 208 V three-phase draws 15,000 &divide; (1.732 &times; 208) = 41.6 A per leg.</li>
+        <li><strong>Motors and compressors</strong> run at a power factor below 1, often 0.8 to 0.9 when loaded, lower when lightly loaded. This is a typical range, not a fixed value. The calculator gives the power the load takes from the line, not the shaft output, which is lower by the motor efficiency.</li>
+        <li><strong>Sizing wire and breakers</strong> uses the nameplate full-load or rated-load amps and the code rules, not a computed current. Use this page to check a reading or estimate a load. Check the wire with the <a href="/voltage-drop.html">voltage drop calculator</a>.</li>
+        <li><strong>Check the leg balance.</strong> Measure all three legs with a clamp meter. If they differ by more than a few percent, the formula above is only an estimate. A single-phase load on a three-phase panel is not a three-phase load.</li>
+        <li>For a single load, <a href="/ohms-law.html">Ohm&rsquo;s law</a> still works per leg when the load is resistive.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://electricityforum.com/iep/power-quality/3-phase-power-formula">Electricity Forum: three-phase power formula</a>: kW, kVA and amps relations for balanced loads.</li>
+        <li><a href="https://www.jcalc.net/three-phase-power-calculator">jCalc three-phase power calculator</a>: second check of the same formulas and a 480 V, 100 A, 0.8 PF example.</li>
+      </ul>
+      <p>The relations are standard AC circuit theory. Worked examples were recomputed by hand. Last checked: November 2026</p>
+    </section>

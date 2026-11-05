@@ -16,8 +16,6 @@ The Analyst owns this list; the Builder takes the top item and deletes it. Keep 
 
 Search Console (2026-11-02) still has no query data, so ranking is from cluster gaps and web demand.
 
-2. Furnace flame sensor cleaning and microamp test how-to (completes the ignition cluster; Goodman and Bryant manuals already used).
-3. Three-phase power calculator (kW, amps, kVA, with worked example; pure formulas).
 4. PoE voltage drop and cable length calculator (low voltage; IEEE 802.3af/at/bt power levels, TIA 100 m limit).
 5. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct).
 6. How to test a run capacitor and when to replace it (extends the AC not cooling guide).
@@ -57,3 +55,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-02, analyst: Search Console still has no query data (2 clicks, 3 impressions, home page only); queue rewritten from cluster gaps. Confirmed voltage drop K values (12.9, 21.2) as derived from NEC Table 8 resistances; 24-16 AWG still open. Refreshed voltage-drop.html (title, description, worked example, related links, Sources).
 - 2026-11-04, product maker: made the EPA 608 practice exams (src/pro/epa-608-practice-exams.html, added to the Pro Pack index); epa.gov, ecfr.gov and law.cornell.edu are reachable again, so the 608 facts were checked there. Not in sitemap, no inbound links, link crawl clean.
 - 2026-11-05, builder: added R-410A/R-32/R-454B pressure temperature chart (reference); linked from superheat calculator. Gumroad link still absent.
+- 2026-11-05, builder: skipped flame sensor how-to (already in furnace-will-not-ignite; near-copy); added three-phase power calculator, linked from Ohm's law.

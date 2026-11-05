@@ -24,3 +24,5 @@ These were entered from memory of the tables named. Check each against the curre
 - `src/guides/heat-pump-blowing-cold-air.html`: defrost thresholds and timings are from Bryant and Bard manuals (read via manualslib) and a Lennox consumer page; they differ by brand and the page says so. The reversing-valve and charge check list is general service practice, not sourced to a manual.
 
 - `src/reference/refrigerant-pressure-temperature-chart.html`: values computed with CoolProp and cross-checked against the Goodman/Daikin A2L chart (April 2024); R-454B differs by up to about 1.5 psi at 150 F. Honeywell and Chemours charts could not be opened (Honeywell link redirects). The 'R-454B about 5% below R-410A' figure is computed, not from a maker. The R-410A 110 F row was interpolated because CoolProp failed at that point.
+
+- `src/three-phase-power.html`: formulas are standard AC theory, read from two secondary calculator/reference sites (Electricity Forum, jCalc) and recomputed by hand; no standards document was opened. Typical motor power factor of 0.8 to 0.9 is a rule of thumb.
