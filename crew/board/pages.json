@@ -1,5 +1,17 @@
 [
  {
+  "added": "2026-11-05",
+  "title": "Three-phase power calculator",
+  "kind": "Calculator",
+  "url": "https://sparkandduct.github.io/three-phase-power.html"
+ },
+ {
+  "added": "2026-11-05",
+  "title": "R-410A, R-32 and R-454B pressure temperature chart",
+  "kind": "Reference",
+  "url": "https://sparkandduct.github.io/reference/refrigerant-pressure-temperature-chart.html"
+ },
+ {
   "added": "2026-10-29",
   "title": "Heat pump blowing cold air: troubleshooting",
   "kind": "Guide",

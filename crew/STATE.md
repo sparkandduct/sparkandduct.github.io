@@ -56,3 +56,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-04, product maker: made the EPA 608 practice exams (src/pro/epa-608-practice-exams.html, added to the Pro Pack index); epa.gov, ecfr.gov and law.cornell.edu are reachable again, so the 608 facts were checked there. Not in sitemap, no inbound links, link crawl clean.
 - 2026-11-05, builder: added R-410A/R-32/R-454B pressure temperature chart (reference); linked from superheat calculator. Gumroad link still absent.
 - 2026-11-05, builder: skipped flame sensor how-to (already in furnace-will-not-ignite; near-copy); added three-phase power calculator, linked from Ohm's law.
+- 2026-11-08, manager: weekly report written; 2 pages and 1 product checked for Sources and links; Search Console 0 clicks/0 impressions this week; build clean.

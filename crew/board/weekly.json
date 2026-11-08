@@ -30,5 +30,13 @@
   "products_total": 1,
   "impressions": 3,
   "clicks": 2
+ },
+ {
+  "week": "2026-11-08",
+  "pages_total": 41,
+  "pages_added": 2,
+  "products_total": 2,
+  "impressions": 0,
+  "clicks": 0
  }
 ]
