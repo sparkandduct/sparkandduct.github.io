@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How to calculate voltage drop on a NAC circuit | Spark &amp; Duct</title>
-  <meta name="description" content="Fire alarm notification appliance circuit voltage drop explained: the 20.4 V starting point, the 16 V minimum, the lump-sum method and a worked example.">
+  <meta name="description" content="NAC voltage drop in one line: start at 20.4 V, keep 16 V at the last horn strobe. Lump-sum formula, a worked 14 AWG example and the longest run per wire size.">
   <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
   <link rel="canonical" href="https://sparkandduct.github.io/guides/nac-voltage-drop.html">
   <meta property="og:title" content="How to calculate voltage drop on a NAC circuit | Spark &amp; Duct">
-  <meta property="og:description" content="Fire alarm notification appliance circuit voltage drop explained: the 20.4 V starting point, the 16 V minimum, the lump-sum method and a worked example.">
+  <meta property="og:description" content="NAC voltage drop in one line: start at 20.4 V, keep 16 V at the last horn strobe. Lump-sum formula, a worked 14 AWG example and the longest run per wire size.">
   <meta property="og:url" content="https://sparkandduct.github.io/guides/nac-voltage-drop.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Spark &amp; Duct">
   <meta name="theme-color" content="#26303a">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sparkandduct.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to calculate voltage drop on a NAC circuit", "item": "https://sparkandduct.github.io/guides/nac-voltage-drop.html"}]}, {"@type": "Article", "headline": "How to calculate voltage drop on a NAC circuit", "description": "Fire alarm notification appliance circuit voltage drop explained: the 20.4 V starting point, the 16 V minimum, the lump-sum method and a worked example.", "mainEntityOfPage": "https://sparkandduct.github.io/guides/nac-voltage-drop.html", "publisher": {"@type": "Organization", "name": "Spark & Duct", "url": "https://sparkandduct.github.io/"}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sparkandduct.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to calculate voltage drop on a NAC circuit", "item": "https://sparkandduct.github.io/guides/nac-voltage-drop.html"}]}, {"@type": "Article", "headline": "How to calculate voltage drop on a NAC circuit", "description": "NAC voltage drop in one line: start at 20.4 V, keep 16 V at the last horn strobe. Lump-sum formula, a worked 14 AWG example and the longest run per wire size.", "mainEntityOfPage": "https://sparkandduct.github.io/guides/nac-voltage-drop.html", "publisher": {"@type": "Organization", "name": "Spark & Duct", "url": "https://sparkandduct.github.io/"}}]}</script>
   <link rel="stylesheet" href="/style.css?v=a86dca38">
 </head>
 <body>
@@ -36,7 +36,7 @@
     <p class="crumbs"><a href="/">Home</a> / <a href="/guides/">Guides</a></p>
     <article class="prose">
       <h1>How to calculate voltage drop on a NAC circuit</h1>
-      <p class="lede">Making sure the last horn strobe on the run still gets enough voltage.</p>
+      <p class="lede">Short answer: start from 20.4 V, subtract 16 V, and the wire may drop 4.4 V. Drop = 2 &times; 12.9 &times; amps &times; one-way feet &divide; circular mils. Use your panel maker's figures if they differ.</p>
 
       <div class="callout"><p>The <a href="/voltage-drop.html">voltage drop calculator</a> has a fire alarm NAC preset that sets these numbers up for you.</p></div>
 
@@ -90,8 +90,21 @@
         <li><strong>Use the point-to-point method.</strong> Calculating the drop segment by segment, with the current falling after each device, gives a lower and more accurate figure. Many panel manufacturers publish a spreadsheet for it.</li>
       </ul>
 
+      <h2>Field tip: check the wire you actually pulled</h2>
+      <p>Use the real run length from the plans plus the drops and risers, not the straight-line distance. Dead-end loops on a Class B circuit still count the full length to the last device. After install, measure at the last device with the horns sounding on battery power if the panel allows a test; a reading near 16 V means no margin for aging batteries.</p>
+
       <h2>Use the real currents</h2>
       <p>Take each appliance's current at the candela setting you will use, and at the voltage the data sheet specifies for calculations. Some manufacturers require their own starting voltage or method; where they do, theirs is the one the inspector will expect.</p>
+    
+      <p>Related: <a href="/guides/how-to-size-a-fire-alarm-battery.html">how to size a fire alarm battery</a>, <a href="/battery.html">battery calculator</a>, <a href="/guides/fire-alarm-ground-fault.html">finding a fire alarm ground fault</a>, <a href="/ohms-law.html">Ohm's law calculator</a>.</p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://iaeimagazine.org/electrical-fundamentals/voltage-drop-formulas/">IAEI Magazine, voltage drop formulas</a>: the single-phase formula and K of 12.9 for copper.</li>
+        <li>NFPA 70 (NEC), Chapter 9 Table 8: circular mils of 14 AWG (4,110) and DC resistance per 1,000 ft.</li>
+        <li>Fire alarm panel and notification appliance data sheets: the listed voltage range (commonly 16 to 33 V for 24 V devices) and the starting voltage to use. The 85% of 24 V starting point is a common design assumption; confirm the figure your panel maker requires.</li>
+      </ul>
+      <p>Last checked: November 2026</p>
     </article>
     <h2 class="section">More guides</h2>
     <ul class="tools">
