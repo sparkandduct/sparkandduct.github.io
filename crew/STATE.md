@@ -38,9 +38,10 @@ Ideas, in order:
 4. Fire alarm battery calculation worksheet: fill-in-by-hand version of the calculator.
 5. Conduit bending field card: multipliers, shrink and offset steps.
 6. Motor starting troubleshooting worksheet: fill-in meg and amp readings log (no limits, fill from nameplate).
-7. EPA 608 evacuation and recovery pocket card: Table 1 levels, small appliance percentages and leak rates, laminate-ready (facts already verified in the exam pack).
+8. Wire and cable pocket card: NEC 310.16 ampacity rows for 14 to 1/0 AWG copper at 60/75/90 C (needs a primary NEC source before it is made).
 
 Made:
+- EPA 608 pocket cards: src/pro/epa-608-pocket-cards.html (2026-11-11). Four cut-out cards on one Letter page (evacuation levels, small appliances, pressure classes and certification, major repair/oil/leak repair), checked against 40 CFR 82.152/156/157/161 and EPA pages. Chosen over idea 3 because wire and thermostat colors are conventions with no primary source, which the product bar does not allow. Left out: HFC leak rules (part 84), penalties, dates.
 - HVAC service call checklists: src/pro/service-call-checklists.html (2026-10-28). Cooling and heating sheets, one Letter page each, blank Target columns so no unverified numbers.
 - EPA 608 practice exams: src/pro/epa-608-practice-exams.html (2026-11-04). Core, Type I, II and III, 25 original questions each with answer key; prints to 11 Letter pages (8 exam, 3 key). Facts from 40 CFR 82 subpart F and EPA pages; CFC/R-22 phaseout dates, penalty amounts, pass marks and HFC leak rules (40 CFR 84) left out as unverified.
 
@@ -63,3 +64,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-05, builder: skipped flame sensor how-to (already in furnace-will-not-ignite; near-copy); added three-phase power calculator, linked from Ohm's law.
 - 2026-11-08, manager: weekly report written; 2 pages and 1 product checked for Sources and links; Search Console 0 clicks/0 impressions this week; build clean.
 - 2026-11-09, analyst: Search Console still has no query data; queue rewritten (capacitor test, no-C-wire and PoE on top; added T568 pinout, pressure switch, contactor test, EOL resistor; dropped Lennox). Confirmed 24 to 16 AWG circular mils against the AWG definition (Table 8 starts at 14 AWG). Refreshed nac-voltage-drop.html (description, short answer, field tip, related links, Sources).
+- 2026-11-11, product maker: made the EPA 608 pocket cards (src/pro/epa-608-pocket-cards.html, prints to one Letter page, added to the Pro Pack index); not in sitemap, no inbound links, links 200. Noted EPA's certification page omits medium-pressure from Type II while 40 CFR 82.161 includes it; card follows the regulation.
