@@ -1,0 +1,132 @@
+<!--
+title: PoE voltage drop and cable length calculator
+head_title: PoE voltage drop and cable length calculator for 802.3af, at and bt | Spark & Duct
+description: PoE cable calculator. Enter device power, PSE voltage, cable gauge and length to get loop resistance, current, voltage drop, voltage at the device and cable loss, checked against the 12.5 ohm 802.3 limit.
+section: calculators
+summary: Voltage at the device, current and cable loss for a PoE run by gauge, length and 2 or 4 pairs.
+order: 11
+scripts: /js/common.js /js/poe.js
+-->
+    <h1>PoE voltage drop and cable length calculator</h1>
+    <p class="lede">Enter the power the device must receive, the switch output voltage, and the cable. The result is the voltage at the device, the cable loss and whether the run stays inside the 802.3 loop resistance limit.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Device class (sets device power)
+          <select id="cls">
+            <option value="">Custom</option>
+            <option value="3.84">Class 1: 3.84 W</option>
+            <option value="6.49">Class 2: 6.49 W</option>
+            <option value="13">Class 3: 13 W (802.3af)</option>
+            <option value="25.5" selected>Class 4: 25.5 W (802.3at)</option>
+            <option value="40">Class 5: 40 W (802.3bt)</option>
+            <option value="51">Class 6: 51 W (802.3bt)</option>
+            <option value="62">Class 7: 62 W (802.3bt)</option>
+            <option value="71.3">Class 8: 71.3 W (802.3bt)</option>
+          </select>
+        </label>
+        <label>Power needed at the device (W)
+          <input id="power" type="number" min="0" step="any" value="25.5" inputmode="decimal">
+        </label>
+        <label>Switch (PSE) output voltage (V)
+          <input id="volts" type="number" min="0" step="any" value="50" inputmode="decimal">
+        </label>
+        <label>Pairs carrying power
+          <select id="pairs">
+            <option value="2" selected>2 pairs</option>
+            <option value="4">4 pairs</option>
+          </select>
+        </label>
+        <label>Conductor size (solid copper)
+          <select id="awg">
+            <option value="22">22 AWG</option>
+            <option value="23">23 AWG</option>
+            <option value="24" selected>24 AWG</option>
+            <option value="26">26 AWG</option>
+          </select>
+        </label>
+        <label>Cable length
+          <input id="len" type="number" min="0" step="any" value="100" inputmode="decimal">
+        </label>
+        <label>Length unit
+          <select id="unit">
+            <option value="m" selected>meters</option>
+            <option value="ft">feet</option>
+          </select>
+        </label>
+        <label>Cable temperature (&deg;C)
+          <input id="temp" type="number" step="any" value="20" inputmode="decimal">
+        </label>
+        <label>Device minimum input voltage (V, optional)
+          <input id="pdMin" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 37 or 42.5">
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Loop resistance</dt><dd id="outLoop"></dd></div>
+        <div><dt>Current</dt><dd id="outAmps"></dd></div>
+        <div><dt>Voltage drop in the cable</dt><dd id="outDrop"></dd></div>
+        <div><dt>Voltage at the device</dt><dd id="outPd"></dd></div>
+        <div><dt>Power lost in the cable</dt><dd id="outLoss"></dd></div>
+        <div><dt>Power the switch must supply</dt><dd id="outPse"></dd></div>
+        <div><dt>Length at the resistance limit</dt><dd id="outLimit"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+    </section>
+
+    {{ad}}
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p>PoE runs DC through two pairs (one pair out, one pair back) or through four. The two wires of a pair carry the same current side by side, so each pair is two conductors in parallel.</p>
+      <p><code>conductor resistance = 1.724 &times; 10<sup>-8</sup> &Omega;&middot;m &times; length &divide; wire area</code>, corrected by 0.393% per &deg;C away from 20&deg;C.</p>
+      <p>Wire area comes from the AWG diameter, <code>0.127 mm &times; 92<sup>(36 &minus; AWG) &divide; 39</sup></code>. A pairset is two pairs in series, each pair two conductors in parallel, so its loop resistance equals the resistance of one conductor over the full length. With four pairs, two pairsets are in parallel and the loop resistance is halved.</p>
+      <p>The device takes a set power, so the current is found from <code>P = V&times;I &minus; I&sup2;&times;R</code>, which gives <code>I = (V &minus; &radic;(V&sup2; &minus; 4&times;R&times;P)) &divide; (2&times;R)</code>. Voltage drop is I &times; R, voltage at the device is V minus the drop, and cable loss is I&sup2; &times; R.</p>
+      <p>Worked example: a Class 4 device (25.5 W) on a 50 V switch, 100 m of solid 24 AWG, two pairs. Conductor resistance is 8.42 &Omega;. I = (50 &minus; &radic;(2500 &minus; 4 &times; 8.42 &times; 25.5)) &divide; (2 &times; 8.42) = (50 &minus; 40.53) &divide; 16.84 = 0.563 A. Drop is 0.563 &times; 8.42 = 4.74 V, so the device sees 45.26 V. Cable loss is 2.67 W and the switch supplies 28.17 W. The same run on four pairs for a 51 W Class 6 device is 4.21 &Omega;, 1.127 A, the same 4.74 V drop, 5.35 W of loss and 56.3 W from the switch.</p>
+      <p>Because the device holds its power constant, a long run draws more current at the lower voltage, so loss grows faster than length.</p>
+    </section>
+
+    <section class="card">
+      <h2>PoE power levels</h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Class</th><th>Standard</th><th>Switch (PSE) power</th><th>Device (PD) power</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>802.3af</td><td>4 W</td><td>3.84 W</td></tr>
+            <tr><td>2</td><td>802.3af</td><td>7 W</td><td>6.49 W</td></tr>
+            <tr><td>3</td><td>802.3af</td><td>15.4 W</td><td>13 W</td></tr>
+            <tr><td>4</td><td>802.3at</td><td>30 W</td><td>25.5 W</td></tr>
+            <tr><td>5</td><td>802.3bt</td><td>45 W</td><td>40 W</td></tr>
+            <tr><td>6</td><td>802.3bt</td><td>60 W</td><td>51 W</td></tr>
+            <tr><td>7</td><td>802.3bt</td><td>75 W</td><td>62 W</td></tr>
+            <tr><td>8</td><td>802.3bt</td><td>90 W</td><td>71.3 W</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Classes 1 to 4 can use two pairs. Class 5 and above need four. The standard guarantees operation up to 12.5 &Omega; of DC loop resistance per pairset (6.25 &Omega; with four pairs in parallel), which is the worst case for a 100 m channel.</p>
+    </section>
+
+    <section class="card">
+      <h2>Using it in the field</h2>
+      <ul>
+        <li>The standard limit is on the whole channel, so add the patch cords at both ends to the run length. The result is for the cable you enter, not for connectors or bad terminations.</li>
+        <li>Solid 24 AWG reaches 12.5 &Omega; of one conductor at about 148 m at 20&deg;C, so for good copper the 100 m Ethernet channel length is the tighter limit.</li>
+        <li>Heat adds resistance. A bundle of cables all carrying PoE runs warm; enter the temperature and see the change (a cable at 60&deg;C is about 16% higher in resistance than at 20&deg;C).</li>
+        <li>Copper-clad aluminum cable is not covered here. Its resistance is higher, and this tool assumes solid copper.</li>
+        <li>This is the drop in the cable. The device's own minimum input voltage still applies; the 802.3af range at the device is 37 to 57 V and the 802.3at range is 42.5 to 57 V.</li>
+        <li>For non-PoE low voltage runs such as 24 V circuits, use the <a href="/voltage-drop.html">voltage drop calculator</a>. For fire alarm notification circuits see <a href="/guides/nac-voltage-drop.html">NAC voltage drop</a>.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://ethernetalliance.org/wp-content/uploads/2019/12/WP_EA_Overview8023bt_V2p1_FINAL.pdf">Ethernet Alliance: Overview of 802.3bt (December 2019)</a>: class power levels, 12.5 &Omega; and 6.25 &Omega; loop resistance, pairset definitions, four-pair requirement above Class 4.</li>
+        <li><a href="https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/196/slva498.pdf">Texas Instruments application note SLVA498</a>: Type 2 switch output of 50 to 57 V, 12.5 &Omega; loop resistance on two pairs of Cat5, and at least 42.5 V at the device.</li>
+        <li><a href="https://www.ampcom.com/blogs/industry-information/poe-standards-802-3af-802-3at-802-3bt-complete-glossary">Ampcom PoE standards glossary</a>: 37 to 57 V at the device for 802.3af (seen in search results; the page itself was not opened).</li>
+      </ul>
+      <p>Copper resistance is computed from the AWG diameter definition and 1.724 &times; 10<sup>-8</sup> &Omega;&middot;m, not read from a cable maker's datasheet; real cable is often a little higher. The IEEE 802.3 text itself was not read, so check the standard before certifying a design. Last checked: November 2026</p>
+    </section>
