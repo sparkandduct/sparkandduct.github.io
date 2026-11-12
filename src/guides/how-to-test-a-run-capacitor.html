@@ -1,0 +1,95 @@
+<!--
+title: How to test a run capacitor and when to replace it
+description: Test an AC run capacitor with a capacitance meter, read the HERM, FAN and C terminals, check the reading against the printed tolerance, and size the replacement. Includes the live amp method with a worked example.
+section: guides
+group: how-to
+order: 5
+summary: Bench test, tolerance window, live amp method and replacement rules for single and dual run capacitors.
+-->
+    <article class="prose">
+      <h1>How to test a run capacitor and when to replace it</h1>
+      <p class="lede">Power off, discharge, pull the wires, and read microfarads from C to each terminal. Replace it if the reading is outside the tolerance printed on the can, the top is bulged, or the meter reads open.</p>
+
+      <div class="callout"><p>Short answer: a run capacitor is good when the reading is within its printed tolerance, usually &plusmn;6%. A 45 &micro;F capacitor reads 42.3 to 47.7 &micro;F. Anything lower, a bulged top, oil leaks or an open reading means replace it.</p></div>
+
+      <div class="callout"><p>A capacitor can hold a lethal charge after the power is off. Open the disconnect, confirm zero volts with a meter, then discharge the capacitor before you touch the terminals.</p></div>
+
+      <h2>Bench test with a capacitance meter</h2>
+      <ol>
+        <li>Turn off the disconnect and the thermostat. Verify 0 V at the contactor and at the capacitor.</li>
+        <li>Discharge the capacitor. A resistor of about 10,000 to 20,000 ohms across the terminals does it without a spark or a capacitor discharge tool. Many techs use an insulated screwdriver, which is common but controversial.</li>
+        <li>Photograph the wiring, then pull the wires off the capacitor.</li>
+        <li>Read the printed rating and tolerance on the can, for example <code>45/5 &micro;F 370 V &plusmn;6%</code>.</li>
+        <li>Set the meter to capacitance. On a dual capacitor, put one lead on C and the other on HERM, and write down the reading. Move the second lead to FAN and read again. Never measure between HERM and FAN.</li>
+        <li>Compare each reading with its tolerance window (table below).</li>
+      </ol>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 360 150" role="img" aria-label="Top view of a dual run capacitor with three terminals, C in the middle and HERM and FAN on either side. The meter reads between C and HERM for the compressor, and between C and FAN for the condenser fan motor.">
+          <rect class="d-box" x="110" y="40" width="140" height="90" rx="4"/>
+          <circle class="d-accent" cx="150" cy="65" r="8"/>
+          <circle class="d-accent" cx="210" cy="65" r="8"/>
+          <circle class="d-accent" cx="180" cy="105" r="8"/>
+          <text class="d-text d-strong" x="150" y="92" text-anchor="middle">HERM</text>
+          <text class="d-text d-strong" x="210" y="92" text-anchor="middle">FAN</text>
+          <text class="d-text d-strong" x="180" y="125" text-anchor="middle">C</text>
+          <text class="d-small" x="10" y="60">Compressor:</text>
+          <text class="d-small" x="10" y="76">C to HERM</text>
+          <text class="d-small" x="262" y="60">Fan side:</text>
+          <text class="d-small" x="262" y="76">C to FAN</text>
+          <text class="d-small" x="180" y="26" text-anchor="middle">Dual run capacitor, wires off</text>
+        </svg>
+        <figcaption>Always measure from C. HERM is the compressor side and normally the larger rating.</figcaption>
+      </figure>
+
+      <h2>Tolerance window</h2>
+      <p><code>low limit = rated &micro;F &times; (1 &minus; tolerance)</code></p>
+      <table class="data">
+        <thead><tr><th>Rated</th><th>&minus;6%</th><th>&plusmn;6% window</th><th>&minus;10%</th></tr></thead>
+        <tbody>
+          <tr><td>5 &micro;F</td><td>4.7</td><td>4.7 to 5.3</td><td>4.5</td></tr>
+          <tr><td>7.5 &micro;F</td><td>7.05</td><td>7.05 to 7.95</td><td>6.75</td></tr>
+          <tr><td>35 &micro;F</td><td>32.9</td><td>32.9 to 37.1</td><td>31.5</td></tr>
+          <tr><td>40 &micro;F</td><td>37.6</td><td>37.6 to 42.4</td><td>36.0</td></tr>
+          <tr><td>45 &micro;F</td><td>42.3</td><td>42.3 to 47.7</td><td>40.5</td></tr>
+          <tr><td>55 &micro;F</td><td>51.7</td><td>51.7 to 58.3</td><td>49.5</td></tr>
+        </tbody>
+      </table>
+      <p>Use the tolerance printed on the can. At least one maker lists &plusmn;6% as its standard; other sources quote &plusmn;5% or allow up to 10% low as a field rule, and the 10% column is there for that case. A reading right at the low edge is a judgment call; capacitance only drifts down with age.</p>
+
+      <h2>What counts as a failed capacitor</h2>
+      <ul>
+        <li>Reading below the low limit on either section of a dual capacitor.</li>
+        <li>Meter reads open or zero.</li>
+        <li>Bulged top, oil on the case or terminals. Surface rust alone is not a reason.</li>
+        <li>A reading well above the rating is usually a bad connection or meter error. Reconnect the leads and read again.</li>
+      </ul>
+
+      <h2>Live test with the amp method</h2>
+      <p>Done with the unit running, this gives microfarads from a clamp reading and a volt reading. It is live work. Do it only on the outdoor unit, never on an indoor blower with a spinning wheel next to the leads.</p>
+      <p><code>&micro;F = start winding amps &times; 2,652 &divide; volts across the capacitor</code></p>
+      <p>Clamp the wire on the HERM terminal (the start winding wire), with the wire centered in the jaw. Read volts from HERM to C at the same time. The constant 2,652 is 1,000,000 &divide; (2 &times; &pi; &times; 60), so it assumes 60 Hz.</p>
+      <p>Worked example: 7.8 A and 292.9 V gives 7.8 &times; 2,652 = 20,685.6, and 20,685.6 &divide; 292.9 = 70.6 &micro;F. On a 70 &micro;F capacitor that is within &plusmn;6% (65.8 to 74.2). If the live number comes out low, confirm with the bench test before you replace the part.</p>
+
+      <h2>Choosing the replacement</h2>
+      <ul>
+        <li>Match the &micro;F rating of each section. Do not round a 40 up to a 45; the motor and the capacitor are matched.</li>
+        <li>Equal or higher voltage rating. A 440 V part can replace a 370 V part. A 370 V part cannot replace a 440 V part. The marked voltage is a peak rating, not the voltage the circuit runs at.</li>
+        <li>Same shape and terminals; mount it upright with the terminals up.</li>
+        <li>Reconnect each wire to the terminal it came off, then check compressor and fan amps against the nameplate.</li>
+        <li>If capacitors keep failing, check for high line voltage, a weak contactor with pitted contacts, and a motor drawing high amps.</li>
+      </ul>
+
+      <p>Related: if you arrived here from a no-cooling call, go back to the <a href="/guides/ac-running-but-not-cooling.html">AC running but not cooling guide</a>. For a no-heat call with a dead blower, see the <a href="/guides/furnace-will-not-ignite.html">furnace will not ignite guide</a>.</p>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://www.hvacrschool.com/capacitor-testing-and-replacement-procedure">HVAC School: capacitor testing and replacement procedure</a>: discharge, terminals, replacement thresholds, voltage substitution, amp method.</li>
+          <li><a href="https://www.achrnews.com/articles/135163-testing-the-run-capacitor-while-the-system-is-running">ACHR News: testing the run capacitor while the system is running</a>: the 2,652 constant and the &plusmn;6% window.</li>
+          <li><a href="https://s3.amazonaws.com/s3.supplyhouse.com/product_files/Bluefin_CPDRR1-555_Specification-Sheet_rev2026.pdf">Bluefin dual motor run capacitor specification sheet (2026)</a>: &plusmn;6% tolerance, C, FAN and HERM terminals, 370 to 440 VAC.</li>
+          <li><a href="https://temcoindustrial.com/product-guides/capacitors/run-capacitors">TEMCo run capacitor selection guide</a>: terminal labels, equal or higher voltage rating, 5 to 10% tolerance range.</li>
+        </ul>
+        <p>The 10,000 to 20,000 ohm discharge resistor range comes from search summaries of a trade supplier and an air conditioner maker's service manual, and the exact value for your unit should come from the maker's instructions. Last checked: November 2026</p>
+      </section>
+    </article>
