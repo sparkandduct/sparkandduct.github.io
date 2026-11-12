@@ -16,7 +16,6 @@ The Analyst owns this list; the Builder takes the top item and deletes it. Keep 
 
 Search Console (2026-11-09) still has no query data (2 clicks, 3 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
 
-2. Thermostat with no C wire: options and wiring (extends thermostat wire colors reference; very common service call question).
 3. PoE voltage drop and cable length calculator (low voltage; IEEE 802.3af/at/bt power levels, TIA 100 m limit).
 4. Ethernet T568A and T568B pinout and wiring reference (low voltage; TIA-568 pairs, straight vs crossover; fits a phone at the rack).
 5. Furnace pressure switch fault: how to test it (completes the ignition cluster; draft inducer and tubing steps, sourced from furnace manuals).
@@ -65,3 +64,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-09, analyst: Search Console still has no query data; queue rewritten (capacitor test, no-C-wire and PoE on top; added T568 pinout, pressure switch, contactor test, EOL resistor; dropped Lennox). Confirmed 24 to 16 AWG circular mils against the AWG definition (Table 8 starts at 14 AWG). Refreshed nac-voltage-drop.html (description, short answer, field tip, related links, Sources).
 - 2026-11-11, product maker: made the EPA 608 pocket cards (src/pro/epa-608-pocket-cards.html, prints to one Letter page, added to the Pro Pack index); not in sitemap, no inbound links, links 200. Noted EPA's certification page omits medium-pressure from Type II while 40 CFR 82.161 includes it; card follows the regulation.
 - 2026-11-12, builder: added run capacitor test guide (src/guides/how-to-test-a-run-capacitor.html), linked from the AC-not-cooling guide.
+- 2026-11-12, builder: added no-C-wire thermostat guide (src/guides/thermostat-no-c-wire.html), linked from thermostat wire colors.

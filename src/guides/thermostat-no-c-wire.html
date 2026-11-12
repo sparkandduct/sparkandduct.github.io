@@ -1,0 +1,96 @@
+<!--
+title: Thermostat with no C wire: options and wiring
+description: What to do when a new thermostat needs a C (common) wire and the cable does not have one: find a spare wire, repurpose a wire, fit the maker's power adapter at the equipment, or pull new cable.
+section: guides
+group: how-to
+order: 6
+summary: Five ways to get 24 V common to a thermostat, with the wiring changes and what each one costs you.
+-->
+    <article class="prose">
+      <h1>Thermostat with no C wire: options and wiring</h1>
+      <p class="lede">Check for an unused wire first. If every wire is in use, free one up with the thermostat maker's adapter at the equipment, or pull new cable.</p>
+
+      <div class="callout"><p>Short answer: the C wire is the other side of the 24 V transformer, from the C terminal on the equipment board to the C terminal on the thermostat. Order of effort: (1) spare wire in the cable, (2) repurpose a wire, (3) maker's power adapter at the furnace or air handler, (4) new cable.</p></div>
+
+      <div class="callout"><p>Turn the power off at the equipment before touching any low-voltage wire. A wire touching R and C shorts the transformer and blows the board fuse.</p></div>
+
+      <h2>Why a thermostat wants C</h2>
+      <p>A Wi-Fi thermostat has a screen and a radio that run all the time. Without a common wire it has to draw its power through the heating, cooling or fan wires, and some systems cannot give it enough. Google's Nest support page says heat-only, cool-only, zone and heat pump systems need a C wire or the Nest Power Connector, and that low power readings in the thermostat point to a wiring problem. Look at the maker's installation manual for your model; some models run without C on some system types.</p>
+
+      <h2>Which option to use</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>What you find</th><th>Do this</th><th>What it costs you</th></tr></thead>
+        <tbody>
+          <tr><td>Spare wire in the cable (a fifth or sixth conductor, often folded back in the wall)</td><td>Land it on C at the thermostat and on C at the equipment board.</td><td>Nothing.</td></tr>
+          <tr><td>The board already has a wire on C that goes elsewhere</td><td>Google's page says that wire can be moved to the thermostat's C connector to test it.</td><td>Nothing if the other end is the one you wanted.</td></tr>
+          <tr><td>Four wires, all used (R, W, Y, G)</td><td>Fit the maker's wire-sharing or power-extender kit at the equipment. It combines two functions on one wire and frees another for C.</td><td>The kit, and some thermostat features (see below).</td></tr>
+          <tr><td>Two or three wires only (heat only, or an old millivolt system)</td><td>Pull new cable. A kit needs more wires than this. Millivolt systems have no 24 V transformer, so C does not exist.</td><td>Labor.</td></tr>
+          <tr><td>Two transformers (separate heating and cooling feeds, Rh and Rc not jumpered)</td><td>Follow the thermostat manual for dual transformer systems. Some adapter makers list them as unsupported, so check the adapter's compatibility list first.</td><td>Varies.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>Step 1: Look for a spare wire</h2>
+      <ol>
+        <li>Pull the old thermostat off the wall and count the conductors in the cable. Thermostat cable usually comes as 18 AWG with two to eight conductors.</li>
+        <li>Fold any unused wires out. They are often cut short and tucked behind the plate.</li>
+        <li>At the furnace or air handler, find the same cable at the board. Trace the color, since colors are a convention (see <a href="/reference/thermostat-wire-colors.html">thermostat wire colors</a>).</li>
+        <li>Land the spare on C at both ends. Label both ends. Check that no conductor is touching another one.</li>
+      </ol>
+
+      <h2>Step 2: Share one wire between two functions</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 150" role="img" aria-label="A wire-sharing module at the equipment. Two wires run to the thermostat: one carries the combined fan and cooling signal and one carries common. At the module the combined signal is split back into the Y and G terminals on the equipment board.">
+          <rect class="d-box" x="8" y="20" width="82" height="110" rx="4"/>
+          <rect class="d-box" x="138" y="40" width="84" height="70" rx="4"/>
+          <rect class="d-box" x="270" y="20" width="82" height="110" rx="4"/>
+          <text class="d-text d-strong" x="49" y="40" text-anchor="middle">Thermostat</text>
+          <text class="d-text d-strong" x="180" y="62" text-anchor="middle">Module</text>
+          <text class="d-small" x="180" y="80" text-anchor="middle">splits the</text>
+          <text class="d-small" x="180" y="98" text-anchor="middle">signal</text>
+          <text class="d-text d-strong" x="311" y="40" text-anchor="middle">Equipment</text>
+          <path class="d-line" d="M90 60H138"/>
+          <path class="d-line" d="M90 120H270"/>
+          <path class="d-line" d="M222 60H270"/>
+          <path class="d-line" d="M222 90H270"/>
+          <text class="d-small" x="114" y="54" text-anchor="middle">one wire</text>
+          <text class="d-small" x="246" y="54" text-anchor="middle">Y</text>
+          <text class="d-small" x="246" y="84" text-anchor="middle">G</text>
+          <text class="d-small" x="180" y="142" text-anchor="middle">C: the freed wire</text>
+        </svg>
+        <figcaption>One wire carries cooling and fan. The module splits them at the equipment. The wire that used to carry one of them is now C.</figcaption>
+      </figure>
+      <p>Two makers' manuals show how this is done:</p>
+      <ul>
+        <li><strong>Honeywell THP9045 wiring module.</strong> It is meant for thermostats that need a 24 V common when there are not enough wires. The thermostat's K terminal runs both the fan and the compressor on one wire; the module receives that signal, splits it, and sends it to the equipment's Y (cooling) and G (fan) terminals. The manual lists the thermostat models it works with, so check that yours is on the list.</li>
+        <li><strong>ecobee Power Extender Kit.</strong> For a four-wire setup with no C. The wiring harness mounts within 24 inches of the equipment, a diode goes behind the thermostat on its W/OB and Y terminals, the old W wire is reused as C, and Y and G are combined. It has an ESD warning: touch grounded metal before handling the board.</li>
+      </ul>
+      <p>The exact terminals differ by maker and thermostat, so follow the wiring diagram in the kit's manual for your system type. Do not wire a kit from memory.</p>
+      <p>What you can lose: ecobee lists accessory control as lost with the kit on its Smart Thermostat Enhanced. With the fan and cooling signals sharing a wire, check the kit's manual for any change to fan-only operation. Run heat, cool and fan from the thermostat before you leave, as the ecobee manual says.</p>
+
+      <h2>Step 3: Power adapter at the equipment</h2>
+      <p>Some makers sell a small adapter that mounts at the furnace or air handler and supplies power without new wiring to the wall. Google's Nest Power Connector is one: it attaches at the equipment and is sold for Nest thermostats. Compatibility is brand and model specific, so use the maker's compatibility checker.</p>
+
+      <h2>Step 4: Pull new cable</h2>
+      <p>If the cable is two or three conductors, or the wall allows it, pulling new thermostat cable with enough conductors is the clean fix. Use a cable with at least the conductors you need plus one spare.</p>
+
+      <h2>After the change</h2>
+      <ul>
+        <li>Check that the R and C terminals at the thermostat have about 24 V between them (AC volts) and that C is on the equipment board's C terminal, which is the transformer's common.</li>
+        <li>If the board blew a fuse, there was a short between R and C. Find the touching wire before replacing the fuse.</li>
+        <li>If the thermostat still reports low power, look at the transformer. See <a href="/guides/how-to-size-a-control-transformer.html">how to size a control transformer</a>; a transformer loaded near its VA rating may not have room for the thermostat.</li>
+        <li>If the system now does not cool, check the wiring against the <a href="/guides/ac-running-but-not-cooling.html">AC running but not cooling</a> steps.</li>
+      </ul>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://support.google.com/googlenest/answer/9233319">Google Nest Help: power and C wire guidance</a>: which systems need a C wire or Power Connector, moving an existing C wire.</li>
+          <li><a href="https://digitalassets.resideo.com/damroot/Original/10014/69-2065EFS.pdf">Honeywell THP9045 wiring module installation instructions (69-2065EFS)</a>: K terminal, splitting Y and G, listed thermostats.</li>
+          <li><a href="https://industrialstores.com/media/industrialstores/product/attachments/Ecobee-EB-PEK-01-Power-Extender-Kit-Installation-Sheet.pdf">ecobee Power Extender Kit user manual</a>: four-wire setup, 24 inch distance, diode, ESD warning.</li>
+          <li><a href="https://www.ecobee.com/en-ca/contractors/thermostat-installation/">ecobee thermostat installation page</a>: Power Extender Kit use, accessory control loss on one model.</li>
+        </ul>
+        <p>Sensi (Emerson) common wire kit details could not be reached from this site's build environment and are not covered. The wire count, 18 AWG cable and 24 V check come from general practice, not these documents. Last checked: November 2026</p>
+      </section>
+    </article>
