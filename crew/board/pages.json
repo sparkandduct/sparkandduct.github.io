@@ -1,5 +1,23 @@
 [
  {
+  "added": "2026-11-12",
+  "title": "PoE voltage drop and cable length calculator",
+  "kind": "Calculator",
+  "url": "https://sparkandduct.github.io/poe-voltage-drop.html"
+ },
+ {
+  "added": "2026-11-12",
+  "title": "Thermostat with no C wire: options and wiring",
+  "kind": "Guide",
+  "url": "https://sparkandduct.github.io/guides/thermostat-no-c-wire.html"
+ },
+ {
+  "added": "2026-11-12",
+  "title": "How to test a run capacitor",
+  "kind": "Guide",
+  "url": "https://sparkandduct.github.io/guides/how-to-test-a-run-capacitor.html"
+ },
+ {
   "added": "2026-11-05",
   "title": "Three-phase power calculator",
   "kind": "Calculator",

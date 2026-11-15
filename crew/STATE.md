@@ -65,3 +65,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-12, builder: added run capacitor test guide (src/guides/how-to-test-a-run-capacitor.html), linked from the AC-not-cooling guide.
 - 2026-11-12, builder: added no-C-wire thermostat guide (src/guides/thermostat-no-c-wire.html), linked from thermostat wire colors.
 - 2026-11-12, builder: added PoE voltage drop and cable length calculator (src/poe-voltage-drop.html, js/poe.js), linked from voltage drop calculator.
+- 2026-11-15, manager: weekly report written; 3 pages and 1 product checked for Sources and links; Search Console 0 clicks/0 impressions; build clean.
