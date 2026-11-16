@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Conduit fill explained | Spark &amp; Duct</title>
-  <meta name="description" content="How conduit fill works: the 53, 31 and 40 percent limits, how to work it out by hand, and how to handle low voltage cables.">
+  <meta name="description" content="Conduit fill limits (53, 31 and 40 percent) with worked examples for THHN wire and low voltage cable, and how to check your own run.">
   <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
   <link rel="canonical" href="https://sparkandduct.github.io/guides/conduit-fill-explained.html">
   <meta property="og:title" content="Conduit fill explained | Spark &amp; Duct">
-  <meta property="og:description" content="How conduit fill works: the 53, 31 and 40 percent limits, how to work it out by hand, and how to handle low voltage cables.">
+  <meta property="og:description" content="Conduit fill limits (53, 31 and 40 percent) with worked examples for THHN wire and low voltage cable, and how to check your own run.">
   <meta property="og:url" content="https://sparkandduct.github.io/guides/conduit-fill-explained.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Spark &amp; Duct">
   <meta name="theme-color" content="#26303a">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sparkandduct.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "Conduit fill explained", "item": "https://sparkandduct.github.io/guides/conduit-fill-explained.html"}]}, {"@type": "Article", "headline": "Conduit fill explained", "description": "How conduit fill works: the 53, 31 and 40 percent limits, how to work it out by hand, and how to handle low voltage cables.", "mainEntityOfPage": "https://sparkandduct.github.io/guides/conduit-fill-explained.html", "publisher": {"@type": "Organization", "name": "Spark & Duct", "url": "https://sparkandduct.github.io/"}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sparkandduct.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "Conduit fill explained", "item": "https://sparkandduct.github.io/guides/conduit-fill-explained.html"}]}, {"@type": "Article", "headline": "Conduit fill explained", "description": "Conduit fill limits (53, 31 and 40 percent) with worked examples for THHN wire and low voltage cable, and how to check your own run.", "mainEntityOfPage": "https://sparkandduct.github.io/guides/conduit-fill-explained.html", "publisher": {"@type": "Organization", "name": "Spark & Duct", "url": "https://sparkandduct.github.io/"}}]}</script>
   <link rel="stylesheet" href="/style.css?v=a86dca38">
 </head>
 <body>
@@ -39,6 +39,8 @@
       <p class="lede">How many wires fit, and why the limit changes with the count.</p>
 
       <div class="callout"><p>The <a href="/conduit-fill.html">conduit fill calculator</a> does this for EMT with THHN conductors and cables.</p></div>
+
+      <p><strong>Short answer:</strong> fill is 53% for one wire, 31% for two and 40% for three or more. Add up the wire areas, divide by the conduit area, and compare.</p>
 
       <h2>The rule</h2>
       <p>The NEC limits how much of a conduit's cross-section the conductors may occupy, so wire can be pulled without damage and heat can escape. The limits are in Chapter 9, Table 1:</p>
@@ -101,12 +103,28 @@
       </ul>
       <p>A multiconductor cable counts as one conductor for the percentage. For a flat or oval cable, use the larger dimension as the diameter.</p>
 
+      <p><strong>Field tip:</strong> before a pull, count the bends. Sizing by fill alone assumes straight runs; with two or three 90 degree bends, many installers go up one trade size.</p>
+
       <h2>Things fill does not cover</h2>
       <ul>
         <li><strong>Ampacity adjustment.</strong> More than three current-carrying conductors in a raceway means derating their ampacity. That is a separate rule and often the tighter one.</li>
         <li><strong>Pulling difficulty.</strong> A legal fill can still be a miserable pull on a long run with several bends. Going up a size is cheap.</li>
         <li><strong>Short nipples.</strong> Nipples 24 inches or shorter are allowed 60% fill.</li>
       </ul>
+
+      <h2>Related</h2>
+      <ul>
+        <li><a href="/conduit-fill.html">Conduit fill calculator</a></li>
+        <li><a href="/conduit-offset.html">Conduit offset calculator</a></li>
+        <li><a href="/box-fill.html">Box fill calculator</a></li>
+        <li><a href="/guides/how-to-size-a-control-transformer.html">How to size a control transformer</a></li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70">NFPA 70, National Electrical Code</a>, Chapter 9, Tables 1, 4 and 5, and Note 4 to Table 1 (nipples). Area figures in the examples should be checked against your edition; see the calculator page for the values used.</li>
+      </ul>
+      <p>Last checked: November 2026</p>
     </article>
     <h2 class="section">More guides</h2>
     <ul class="tools">

@@ -14,15 +14,18 @@ One lever at a time, four weeks apart (see the rules). Newest last.
 
 The Analyst owns this list; the Builder takes the top item and deletes it. Keep about ten items, most valuable first. Alternate calculators with content pages where the value is close.
 
-Search Console (2026-11-09) still has no query data (2 clicks, 3 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
+Search Console (2026-11-16, same) still has no query data (2 clicks, 3 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
 
-4. Ethernet T568A and T568B pinout and wiring reference (low voltage; TIA-568 pairs, straight vs crossover; fits a phone at the rack).
-5. Furnace pressure switch fault: how to test it (completes the ignition cluster; draft inducer and tubing steps, sourced from furnace manuals).
-6. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct).
-7. Motor full-load current reference (NEC Table 430.250 values, checked; needs a second source; link from three-phase calculator).
-8. How to test a contactor and a relay with a meter (HVAC and control cluster; links to capacitor and transformer pages).
-9. Fire alarm end-of-line resistor and open circuit troubleshooting (extends the ground fault and NAC guides; use panel manuals as sources).
-10. EPA 608 Type II practice quiz (copy the structure of src/quizzes/epa-608-core-practice.html).
+1. Ethernet T568A and T568B pinout and wiring reference (low voltage; TIA-568 pairs, straight vs crossover; phone lookup at the rack, completes the PoE cluster).
+2. How to measure total external static pressure (airflow hub gap; manometer port locations, worked example with real numbers, links to temperature rise and airflow pages).
+3. Furnace pressure switch fault: how to test it (completes the ignition cluster; draft inducer and tubing steps, sourced from furnace manuals).
+4. How to test a contactor and a relay with a meter (HVAC control cluster; links to capacitor and transformer pages).
+5. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct).
+6. How to read a ladder wiring diagram (HVAC and motor control; symbols and a worked trace; links to contactor and transformer pages).
+7. Fire alarm end-of-line resistor and open circuit troubleshooting (extends the ground fault and NAC guides; use panel manuals as sources).
+8. Motor full-load current reference (NEC Table 430.250 values, checked; needs a second source; link from three-phase calculator).
+9. EPA 608 Type II practice quiz (copy the structure of src/quizzes/epa-608-core-practice.html).
+10. Furnace limit switch and rollout switch: why it trips and how to test (ignition cluster; manuals as sources).
 
 Dropped: Lennox furnace fault codes (no Lennox manual reachable in four runs; re-add only with a primary source).
 
@@ -66,3 +69,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-12, builder: added no-C-wire thermostat guide (src/guides/thermostat-no-c-wire.html), linked from thermostat wire colors.
 - 2026-11-12, builder: added PoE voltage drop and cable length calculator (src/poe-voltage-drop.html, js/poe.js), linked from voltage drop calculator.
 - 2026-11-15, manager: weekly report written; 3 pages and 1 product checked for Sources and links; Search Console 0 clicks/0 impressions; build clean.
+- 2026-11-16, analyst: Search Console still has no query data (2 clicks, 3 impressions, home page); queue rewritten (T568, static pressure, pressure switch on top; added ladder diagram and limit switch). THHN 3 AWG to 4/0 areas could not be confirmed (primary hosts blocked); noted in UNVERIFIED.md. Refreshed conduit-fill-explained.html (short answer, field tip, related links, Sources).
