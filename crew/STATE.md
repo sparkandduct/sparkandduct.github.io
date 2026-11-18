@@ -35,12 +35,14 @@ The Product maker owns this list.
 
 Ideas, in order:
 3. Pocket reference card set: thermostat wire colors, electrical wire colors, Ohm's law and common formulas.
-4. Fire alarm battery calculation worksheet: fill-in-by-hand version of the calculator.
 5. Conduit bending field card: multipliers, shrink and offset steps.
 6. Motor starting troubleshooting worksheet: fill-in meg and amp readings log (no limits, fill from nameplate).
 8. Wire and cable pocket card: NEC 310.16 ampacity rows for 14 to 1/0 AWG copper at 60/75/90 C (needs a primary NEC source before it is made).
 
+9. Panel schedule and circuit directory fill-in sheets (blank, with a worked example; needs only NEC 408.4 wording, check it first).
+
 Made:
+- Fire alarm battery calculation worksheet: src/pro/fire-alarm-battery-worksheet.html (2026-11-18). Two blank worksheets and one filled example with checklist, 3 Letter pages. Chosen over idea 3 (wire and thermostat colors have no primary source) and idea 5 (conduit shrink, saddle multipliers and the NEC 358.26 text could not be confirmed from a primary source). Used only 24 h standby plus 5 min alarm (Fire-Lite manual, a second article citing NFPA 72). Left out: derating factor (sources disagree, 1.2 vs 1.25; blank line to fill), voice, remote station and generator times.
 - EPA 608 pocket cards: src/pro/epa-608-pocket-cards.html (2026-11-11). Four cut-out cards on one Letter page (evacuation levels, small appliances, pressure classes and certification, major repair/oil/leak repair), checked against 40 CFR 82.152/156/157/161 and EPA pages. Chosen over idea 3 because wire and thermostat colors are conventions with no primary source, which the product bar does not allow. Left out: HFC leak rules (part 84), penalties, dates.
 - HVAC service call checklists: src/pro/service-call-checklists.html (2026-10-28). Cooling and heating sheets, one Letter page each, blank Target columns so no unverified numbers.
 - EPA 608 practice exams: src/pro/epa-608-practice-exams.html (2026-11-04). Core, Type I, II and III, 25 original questions each with answer key; prints to 11 Letter pages (8 exam, 3 key). Facts from 40 CFR 82 subpart F and EPA pages; CFC/R-22 phaseout dates, penalty amounts, pass marks and HFC leak rules (40 CFR 84) left out as unverified.
@@ -70,3 +72,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-12, builder: added PoE voltage drop and cable length calculator (src/poe-voltage-drop.html, js/poe.js), linked from voltage drop calculator.
 - 2026-11-15, manager: weekly report written; 3 pages and 1 product checked for Sources and links; Search Console 0 clicks/0 impressions; build clean.
 - 2026-11-16, analyst: Search Console still has no query data (2 clicks, 3 impressions, home page); queue rewritten (T568, static pressure, pressure switch on top; added ladder diagram and limit switch). THHN 3 AWG to 4/0 areas could not be confirmed (primary hosts blocked); noted in UNVERIFIED.md. Refreshed conduit-fill-explained.html (short answer, field tip, related links, Sources).
+- 2026-11-18, product maker: made the fire alarm battery calculation worksheet (src/pro/fire-alarm-battery-worksheet.html, 3 Letter pages, added to the Pro Pack index); not in sitemap, no inbound links, links 200. Left the derating factor blank because sources disagree.
