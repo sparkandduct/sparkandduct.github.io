@@ -1,0 +1,103 @@
+<!--
+title: Ethernet T568A and T568B pinout, pair colors and crossover wiring
+description: Pin-by-pin color order for T568A and T568B on an RJ45 plug, which pairs carry 10/100 and gigabit, how to wire a straight-through or crossover cable, and what to check when a link will not come up.
+section: reference
+order: 5
+summary: T568A and T568B pin and color tables, straight-through and crossover wiring, and wire map faults.
+-->
+    <article class="prose">
+      <h1>Ethernet T568A and T568B pinout</h1>
+      <p class="lede">Hold the plug with the contacts up, the clip down and the plug end pointing away from you: pin 1 is on the left. T568A and T568B differ only in that the orange and green pairs trade places.</p>
+
+      <div class="callout"><p>Short answer: use the same scheme at both ends of every cable run. Same scheme at both ends gives a straight-through cable. T568A on one end and T568B on the other gives a crossover. At a jack, follow the color code printed on the jack, not the plug table below.</p></div>
+
+      <h2>Pin and color order</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Pin</th><th>T568A</th><th>T568B</th><th>Pair</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>White/green</td><td>White/orange</td><td>A: 3, B: 2</td></tr>
+          <tr><td>2</td><td>Green</td><td>Orange</td><td>A: 3, B: 2</td></tr>
+          <tr><td>3</td><td>White/orange</td><td>White/green</td><td>A: 2, B: 3</td></tr>
+          <tr><td>4</td><td>Blue</td><td>Blue</td><td>1</td></tr>
+          <tr><td>5</td><td>White/blue</td><td>White/blue</td><td>1</td></tr>
+          <tr><td>6</td><td>Orange</td><td>Green</td><td>A: 2, B: 3</td></tr>
+          <tr><td>7</td><td>White/brown</td><td>White/brown</td><td>4</td></tr>
+          <tr><td>8</td><td>Brown</td><td>Brown</td><td>4</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Pair numbers follow the cabling standard: pair 1 is blue, pair 2 is orange, pair 3 is green, pair 4 is brown. Each pair is a solid wire and a white wire with a stripe of the same color. Blue and brown sit on pins 4 and 5, and 7 and 8, in both schemes.</p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 360 150" role="img" aria-label="Eight pin positions in a row, numbered 1 to 8 from the left, with the pair for each pin. Pins 1 and 2 are one pair, pins 3 and 6 are a split pair, pins 4 and 5 are a pair, pins 7 and 8 are a pair.">
+          <rect class="d-box" x="20" y="30" width="320" height="50" rx="2"/>
+          <path class="d-thin" d="M60 30V80M100 30V80M140 30V80M180 30V80M220 30V80M260 30V80M300 30V80"/>
+          <text class="d-text d-strong" x="40" y="60" text-anchor="middle">1</text>
+          <text class="d-text d-strong" x="80" y="60" text-anchor="middle">2</text>
+          <text class="d-text d-strong" x="120" y="60" text-anchor="middle">3</text>
+          <text class="d-text d-strong" x="160" y="60" text-anchor="middle">4</text>
+          <text class="d-text d-strong" x="200" y="60" text-anchor="middle">5</text>
+          <text class="d-text d-strong" x="240" y="60" text-anchor="middle">6</text>
+          <text class="d-text d-strong" x="280" y="60" text-anchor="middle">7</text>
+          <text class="d-text d-strong" x="320" y="60" text-anchor="middle">8</text>
+          <path class="d-accent" d="M40 90V100H80V90"/>
+          <path class="d-accent" d="M160 90V100H200V90"/>
+          <path class="d-accent" d="M280 90V100H320V90"/>
+          <path class="d-dash" d="M120 90V106H240V90"/>
+          <text class="d-small" x="60" y="124" text-anchor="middle">pins 1, 2</text>
+          <text class="d-small" x="180" y="124" text-anchor="middle">pins 4, 5</text>
+          <text class="d-small" x="300" y="124" text-anchor="middle">pins 7, 8</text>
+          <text class="d-small" x="180" y="144" text-anchor="middle">pins 3, 6: one pair split around 4, 5</text>
+        </svg>
+        <figcaption>Pin 1 on the left, contacts up. The pair on 3 and 6 straddles the blue pair, which is why a split pair is easy to make by mistake.</figcaption>
+      </figure>
+
+      <h2>Which scheme to use</h2>
+      <p>Both work equally well electrically. The rule that matters is not to mix them in one run. Match what is already in the building. For new work, the TIA-568 standard recommends T568A for horizontal cabling, as summarized on Wikipedia, and T568B is allowed where it is needed to match existing T568B cabling. T568B is common in US commercial installs. Check the job spec.</p>
+
+      <h2>Straight-through and crossover</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Cable</th><th>One end</th><th>Other end</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>Straight-through</td><td>T568B</td><td>T568B (or A and A)</td><td>Computer to switch, jack to switch, camera to PoE switch.</td></tr>
+          <tr><td>Crossover (10/100)</td><td>T568A</td><td>T568B</td><td>Two like devices (switch to switch) when neither side has Auto-MDIX.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The A to B crossover swaps pairs 2 and 3: pin 1 goes to pin 3 and pin 2 goes to pin 6. It carries 10BASE-T and 100BASE-TX, which use only pins 1, 2, 3 and 6. Gigabit (1000BASE-T) uses all four pairs in both directions, so a fully crossed cable also swaps pairs 1 and 4 (pin 4 to 7, pin 5 to 8). Auto-MDIX, which swaps transmit and receive inside the port, was optional in the gigabit standard but is built into nearly all current switches and network cards, so a patch cable does the job. A crossover is rarely needed today.</p>
+      <p>Half the pairs are enough for 10/100, so a plug with only pins 1, 2, 3 and 6 good will link at 100 Mbps and fail at gigabit. Gigabit needs all four pairs. That is a classic cause of a link that drops to 100 Mbps.</p>
+
+      <h2>Terminating tips</h2>
+      <ul>
+        <li>The Fiber Optic Association gives a limit of 0.5 inch (13 mm) of untwist for Cat 5, 5e, 6 and 6A. Strip only what you need and keep each pair twisted right up to the contacts or jack.</li>
+        <li>Jacks are wired to the code printed on the back of the jack. Cat 5, 5e and 6 jack internals can differ from the plug order, so follow that code and not memory.</li>
+        <li>Channel limits: 90 meters of installed horizontal cable and 100 meters total including patch cords, with no patch cord over 5 meters, per the TIA-568 summary. Longer runs are a different problem; see the <a href="/poe-voltage-drop.html">PoE voltage drop and cable length calculator</a> for the power side.</li>
+      </ul>
+
+      <h2>When the link will not come up</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Symptom</th><th>Likely wiring fault</th></tr></thead>
+        <tbody>
+          <tr><td>No link light, tester shows an open pin</td><td>Conductor not seated or cut by the contact. Reterminate that end.</td></tr>
+          <tr><td>Links at 100 Mbps, not at 1 Gbps</td><td>Pair 1 or pair 4 open (pins 4, 5, 7 or 8).</td></tr>
+          <tr><td>No link, tester shows pins 1 and 3, 2 and 6 swapped</td><td>A crossed cable (T568A on one end, B on the other) between two ports that cannot auto-correct.</td></tr>
+          <tr><td>Links but slow, with errors, and a continuity tester passes</td><td>Split pair (pins 3 and 6 wired as separate pairs, for example from wiring by color without pair order). A basic continuity tester does not catch it; a wire map tester that checks pairs does.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The last row is general practice, not taken from the sources below. If every wire tests good and the link still fails, check the cable length and the port.</p>
+      <p>Related: <a href="/poe-voltage-drop.html">PoE voltage drop calculator</a>, <a href="/reference/thermostat-wire-colors.html">thermostat wire colors</a>, <a href="/reference/electrical-wire-colors.html">electrical wire colors</a>.</p>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/TIA/EIA-568">Wikipedia, TIA/EIA-568</a>: pin and color table, pair numbers, T568A recommendation, 90 m and 100 m limits, 5 m patch cord.</li>
+          <li><a href="https://www.foa.org/tech/ref/premises/term.html">Fiber Optic Association, premises cabling termination</a>: do not mix schemes, crossover is A to B, 0.5 inch untwist, follow the jack's printed code.</li>
+          <li><a href="https://en.wikipedia.org/wiki/Ethernet_crossover_cable">Wikipedia, Ethernet crossover cable</a>: pins 1 to 3 and 2 to 6, 10/100 use two pairs, gigabit uses four, Auto-MDIX.</li>
+        </ul>
+        <p>The TIA-568 document itself is paid and was not read. Last checked: November 2026</p>
+      </section>
+    </article>

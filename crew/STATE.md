@@ -16,7 +16,6 @@ The Analyst owns this list; the Builder takes the top item and deletes it. Keep 
 
 Search Console (2026-11-16, same) still has no query data (2 clicks, 3 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
 
-1. Ethernet T568A and T568B pinout and wiring reference (low voltage; TIA-568 pairs, straight vs crossover; phone lookup at the rack, completes the PoE cluster).
 2. How to measure total external static pressure (airflow hub gap; manometer port locations, worked example with real numbers, links to temperature rise and airflow pages).
 3. Furnace pressure switch fault: how to test it (completes the ignition cluster; draft inducer and tubing steps, sourced from furnace manuals).
 4. How to test a contactor and a relay with a meter (HVAC control cluster; links to capacitor and transformer pages).
@@ -73,3 +72,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-15, manager: weekly report written; 3 pages and 1 product checked for Sources and links; Search Console 0 clicks/0 impressions; build clean.
 - 2026-11-16, analyst: Search Console still has no query data (2 clicks, 3 impressions, home page); queue rewritten (T568, static pressure, pressure switch on top; added ladder diagram and limit switch). THHN 3 AWG to 4/0 areas could not be confirmed (primary hosts blocked); noted in UNVERIFIED.md. Refreshed conduit-fill-explained.html (short answer, field tip, related links, Sources).
 - 2026-11-18, product maker: made the fire alarm battery calculation worksheet (src/pro/fire-alarm-battery-worksheet.html, 3 Letter pages, added to the Pro Pack index); not in sitemap, no inbound links, links 200. Left the derating factor blank because sources disagree.
+- 2026-11-19, builder: added Ethernet T568A/T568B pinout reference (src/reference/ethernet-t568a-t568b-pinout.html), linked from PoE calculator and electrical wire colors. No Gumroad link yet.
