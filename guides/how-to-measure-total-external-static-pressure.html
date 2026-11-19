@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to measure total external static pressure (TESP) with a manometer | Spark &amp; Duct</title>
+  <meta name="description" content="Where to put the manometer probes, how to add the supply and return readings, what to compare the answer with, and how to read a high result, with a worked example in inches of water column.">
+  <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
+  <link rel="canonical" href="https://sparkandduct.github.io/guides/how-to-measure-total-external-static-pressure.html">
+  <meta property="og:title" content="How to measure total external static pressure (TESP) with a manometer | Spark &amp; Duct">
+  <meta property="og:description" content="Where to put the manometer probes, how to add the supply and return readings, what to compare the answer with, and how to read a high result, with a worked example in inches of water column.">
+  <meta property="og:url" content="https://sparkandduct.github.io/guides/how-to-measure-total-external-static-pressure.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#26303a">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sparkandduct.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to measure total external static pressure (TESP) with a manometer", "item": "https://sparkandduct.github.io/guides/how-to-measure-total-external-static-pressure.html"}]}, {"@type": "Article", "headline": "How to measure total external static pressure (TESP) with a manometer", "description": "Where to put the manometer probes, how to add the supply and return readings, what to compare the answer with, and how to read a high result, with a worked example in inches of water column.", "mainEntityOfPage": "https://sparkandduct.github.io/guides/how-to-measure-total-external-static-pressure.html", "publisher": {"@type": "Organization", "name": "Spark & Duct", "url": "https://sparkandduct.github.io/"}}]}</script>
+  <link rel="stylesheet" href="/style.css?v=a86dca38">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#f0b400"/><path d="M18.5 4 8 18h6.5L13 28l11-15h-7z" fill="#26303a"/></svg><span>Spark <span class="amp">&amp;</span> Duct</span></a>
+      <nav>
+        <a href="/">Tools</a>
+        <a href="/guides/" aria-current="page">Guides</a>
+        <a href="/fault-codes/">Codes</a>
+        <a href="/reference/">Reference</a>
+        <a href="/quizzes/">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <p class="crumbs"><a href="/">Home</a> / <a href="/guides/">Guides</a></p>
+    <article class="prose">
+      <h1>How to measure total external static pressure</h1>
+      <p class="lede">Read the pressure on the return side after the filter, read the supply side after the coil, add the two without signs, and compare the total with the maximum on the unit's rating plate.</p>
+
+      <div class="callout"><p>Short answer: total external static pressure (TESP) = |return reading| + |supply reading|, in inches of water column (in. w.c.). Example: return &minus;0.30 and supply +0.45 gives 0.75 in. w.c. If the rating plate says 0.50 maximum, the ducts, filter or coil are restricting the blower.</p></div>
+
+      <h2>What you need</h2>
+      <ul>
+        <li>A digital manometer or a magnetic-gauge type that reads in inches of water column, with two hose ports.</li>
+        <li>Static pressure probes, or a drill and a plug for each test hole. Fieldpiece advises drilling outside the manufactured box so you do not puncture the coil, blower or heat exchanger.</li>
+        <li>The rating plate or installation manual, for the maximum external static pressure and the blower speed it applies to.</li>
+      </ul>
+
+      <h2>Step 1: Set the system up</h2>
+      <ol>
+        <li>Put a clean filter in. Goodman's manual takes readings with clean filters, and a dirty or missing filter changes the answer.</li>
+        <li>If an evaporator coil or electronic air cleaner is part of the system, leave it in place. Goodman's manual says the readings must include those components.</li>
+        <li>Open all the registers and dampers you normally run with.</li>
+        <li>Set the blower to the speed you are testing. Fieldpiece suggests the highest airflow speed and about three minutes to settle before you read.</li>
+        <li>Zero the manometer in free air before the probes go in. Fieldpiece says to re-zero before each use because field manometers drift.</li>
+      </ol>
+
+      <div class="ad-slot" data-slot="in content"></div>
+
+      <h2>Step 2: Take the two readings</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 170" role="img" aria-label="Side view of an upflow furnace with an A-coil on top. The return duct enters the bottom with a filter and a probe marked return, reading negative. The supply plenum above the coil has a probe marked supply, reading positive.">
+          <rect class="d-box" x="130" y="90" width="100" height="70" rx="2"/>
+          <rect class="d-box" x="130" y="46" width="100" height="40" rx="2"/>
+          <path class="d-line" d="M150 14H210L230 46H130Z"/>
+          <path class="d-dash" d="M60 140H130"/>
+          <path class="d-thin" d="M150 150V96"/>
+          <text class="d-small" x="180" y="115" text-anchor="middle">Furnace</text>
+          <text class="d-small" x="180" y="70" text-anchor="middle">Coil</text>
+          <text class="d-small" x="180" y="34" text-anchor="middle">Plenum</text>
+          <path class="d-accent" d="M258 30H210"/>
+          <text class="d-text d-strong" x="262" y="34">Supply +</text>
+          <path class="d-accent" d="M100 140V130"/>
+          <text class="d-text d-strong" x="20" y="120">Return &minus;</text>
+          <text class="d-small" x="20" y="158">after filter</text>
+          <text class="d-small" x="262" y="52">after the coil</text>
+        </svg>
+        <figcaption>Return probe just after the filter, supply probe in the plenum after the coil. Return reads below room pressure (negative) and supply above it (positive).</figcaption>
+      </figure>
+      <ol>
+        <li><strong>Return.</strong> Drill a test hole in the return duct or the unit's return side, after the filter and before the blower. Fieldpiece puts the return reading "typically after the filter". Goodman's manual says "at the inlet of the furnace".</li>
+        <li><strong>Supply.</strong> Drill in the supply plenum, after the coil and clear of the coil's frame. On an upflow furnace that is above the coil; on a downflow, below it.</li>
+        <li>Face the probe opening so it is perpendicular to the airflow, as Fieldpiece says, or use a probe with an arrow that points into the airflow. Hold it still. Do not poke it into a duct fitting or elbow.</li>
+        <li>Read both. Return is negative and supply is positive. Many digital manometers read both ports against the room at once and show the sum.</li>
+        <li>Plug the holes with plugs or foil tape when you finish.</li>
+      </ol>
+
+      <h2>Step 3: Add and compare</h2>
+      <p>Drop the signs and add. Goodman's manual shows the same total as a difference of the two signed numbers: &minus;0.1 return and +0.3 supply is 0.4 in. w.c.</p>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Reading</th><th>Return</th><th>Supply</th><th>TESP</th></tr></thead>
+        <tbody>
+          <tr><td>Example, clean filter, high speed</td><td>&minus;0.30</td><td>+0.45</td><td>0.75 in. w.c.</td></tr>
+          <tr><td>Same unit, rating plate maximum</td><td colspan="2">Plate value, such as 0.50</td><td>0.50 in. w.c.</td></tr>
+          <tr><td>Result</td><td colspan="2">0.25 over the plate maximum</td><td>High</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The plate value varies with the equipment. Fieldpiece says a system runs most efficiently at or below 0.5 in. w.c., but also that the best value depends on the manufacturer. Use your unit's plate. Goodman's manual says that if TESP exceeds the plate maximum, check for closed dampers or registers and ductwork that is undersized, oversized or poorly laid out.</p>
+
+      <h2>Reading the result</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>What you see</th><th>What it points to</th></tr></thead>
+        <tbody>
+          <tr><td>Return reading much more negative than the supply is positive</td><td>Return side: dirty or too-small filter, undersized return duct or grille, closed return damper. (General practice.)</td></tr>
+          <tr><td>Supply reading much higher than the return</td><td>Supply side: closed registers or dampers, undersized or kinked duct, a blocked coil. (General practice.)</td></tr>
+          <tr><td>TESP low and the system is not moving air</td><td>Leaks, separated duct, a missing filter or low blower speed, per Fieldpiece. Check the blower speed tap too.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Pressure and airflow are linked. A blower delivers less air as static rises, and the manufacturer's blower table shows how many CFM at each static for each speed. Once you have TESP and the blower speed, the table gives the airflow, which you can check against the furnace with the <a href="/guides/furnace-temperature-rise.html">temperature rise method</a> and the <a href="/airflow.html">airflow calculator</a>. High static plus a high temperature rise confirms the air is being choked. Check the filter first: it is the cheapest fix. Then see the <a href="/guides/ac-running-but-not-cooling.html">AC running but not cooling</a> guide if a frozen coil is part of the problem.</p>
+      <p>See also <a href="/reference/glossary.html#static-pressure">static pressure in the glossary</a>.</p>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://www.fieldpiece.com/?p=118130">Fieldpiece, Measuring HVAC total external static pressure with a digital manometer</a>: drilling test ports, probe position, zeroing, probe orientation, high speed and three minutes, absolute values, 0.5 in. w.c. figure, high and low causes.</li>
+          <li><a href="https://www.manualslib.com/manual/1188865/Goodman-Gmvm.html?page=45">Goodman GMVM furnace manual (via ManualsLib), external static pressure page</a>: return at the inlet, supply, clean filters, include the coil, the &minus;0.1 and +0.3 example, plate maximum.</li>
+        </ul>
+        <p>The sign convention and the table of causes by side are general practice, not from either source. The 0.75 in. w.c. example is made up for illustration. Last checked: November 2026</p>
+      </section>
+    </article>
+    <h2 class="section">More guides</h2>
+    <ul class="tools">
+  <li><a href="/guides/how-to-size-a-fire-alarm-battery.html"><strong>How to size a fire alarm battery</strong><span>The standby and alarm calculation, step by step, with a worked example.</span></a></li>
+  <li><a href="/guides/nac-voltage-drop.html"><strong>How to calculate voltage drop on a NAC circuit</strong><span>Why NAC circuits start at 20.4 V, the lump-sum method and a worked example.</span></a></li>
+  <li><a href="/guides/conduit-fill-explained.html"><strong>Conduit fill explained</strong><span>The 53, 31 and 40 percent rules, hand calculation and how cables are counted.</span></a></li>
+  <li><a href="/guides/furnace-temperature-rise.html"><strong>How to measure furnace temperature rise</strong><span>Measuring rise, reading the nameplate range and turning it into CFM.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
+  </main>
+
+  <footer class="site">
+    <div class="inner">
+      <div class="about">
+        <h2>Spark &amp; Duct</h2>
+        <p>Calculators and reference for low voltage, electrical and HVAC work. Every tool shows its formula; every fact is checked against the manufacturer, the code or the state board.</p>
+        <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="/">Tools</a></li>
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/fault-codes/">Codes</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/quizzes/">Quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact and corrections</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <p class="legal"><span>&copy; 2026 Spark &amp; Duct</span><span>No accounts, no tracking. Calculations run in your browser.</span></p>
+    </div>
+  </footer>
+  <script src="/js/site.js?v=615090e5"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!--
+title: How to measure total external static pressure (TESP) with a manometer
+description: Where to put the manometer probes, how to add the supply and return readings, what to compare the answer with, and how to read a high result, with a worked example in inches of water column.
+section: guides
+group: how-to
+order: 7
+summary: Measuring supply and return static, adding them to get TESP, and what a high reading points to.
+-->
+    <article class="prose">
+      <h1>How to measure total external static pressure</h1>
+      <p class="lede">Read the pressure on the return side after the filter, read the supply side after the coil, add the two without signs, and compare the total with the maximum on the unit's rating plate.</p>
+
+      <div class="callout"><p>Short answer: total external static pressure (TESP) = |return reading| + |supply reading|, in inches of water column (in. w.c.). Example: return &minus;0.30 and supply +0.45 gives 0.75 in. w.c. If the rating plate says 0.50 maximum, the ducts, filter or coil are restricting the blower.</p></div>
+
+      <h2>What you need</h2>
+      <ul>
+        <li>A digital manometer or a magnetic-gauge type that reads in inches of water column, with two hose ports.</li>
+        <li>Static pressure probes, or a drill and a plug for each test hole. Fieldpiece advises drilling outside the manufactured box so you do not puncture the coil, blower or heat exchanger.</li>
+        <li>The rating plate or installation manual, for the maximum external static pressure and the blower speed it applies to.</li>
+      </ul>
+
+      <h2>Step 1: Set the system up</h2>
+      <ol>
+        <li>Put a clean filter in. Goodman's manual takes readings with clean filters, and a dirty or missing filter changes the answer.</li>
+        <li>If an evaporator coil or electronic air cleaner is part of the system, leave it in place. Goodman's manual says the readings must include those components.</li>
+        <li>Open all the registers and dampers you normally run with.</li>
+        <li>Set the blower to the speed you are testing. Fieldpiece suggests the highest airflow speed and about three minutes to settle before you read.</li>
+        <li>Zero the manometer in free air before the probes go in. Fieldpiece says to re-zero before each use because field manometers drift.</li>
+      </ol>
+
+      <h2>Step 2: Take the two readings</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 170" role="img" aria-label="Side view of an upflow furnace with an A-coil on top. The return duct enters the bottom with a filter and a probe marked return, reading negative. The supply plenum above the coil has a probe marked supply, reading positive.">
+          <rect class="d-box" x="130" y="90" width="100" height="70" rx="2"/>
+          <rect class="d-box" x="130" y="46" width="100" height="40" rx="2"/>
+          <path class="d-line" d="M150 14H210L230 46H130Z"/>
+          <path class="d-dash" d="M60 140H130"/>
+          <path class="d-thin" d="M150 150V96"/>
+          <text class="d-small" x="180" y="115" text-anchor="middle">Furnace</text>
+          <text class="d-small" x="180" y="70" text-anchor="middle">Coil</text>
+          <text class="d-small" x="180" y="34" text-anchor="middle">Plenum</text>
+          <path class="d-accent" d="M258 30H210"/>
+          <text class="d-text d-strong" x="262" y="34">Supply +</text>
+          <path class="d-accent" d="M100 140V130"/>
+          <text class="d-text d-strong" x="20" y="120">Return &minus;</text>
+          <text class="d-small" x="20" y="158">after filter</text>
+          <text class="d-small" x="262" y="52">after the coil</text>
+        </svg>
+        <figcaption>Return probe just after the filter, supply probe in the plenum after the coil. Return reads below room pressure (negative) and supply above it (positive).</figcaption>
+      </figure>
+      <ol>
+        <li><strong>Return.</strong> Drill a test hole in the return duct or the unit's return side, after the filter and before the blower. Fieldpiece puts the return reading "typically after the filter". Goodman's manual says "at the inlet of the furnace".</li>
+        <li><strong>Supply.</strong> Drill in the supply plenum, after the coil and clear of the coil's frame. On an upflow furnace that is above the coil; on a downflow, below it.</li>
+        <li>Face the probe opening so it is perpendicular to the airflow, as Fieldpiece says, or use a probe with an arrow that points into the airflow. Hold it still. Do not poke it into a duct fitting or elbow.</li>
+        <li>Read both. Return is negative and supply is positive. Many digital manometers read both ports against the room at once and show the sum.</li>
+        <li>Plug the holes with plugs or foil tape when you finish.</li>
+      </ol>
+
+      <h2>Step 3: Add and compare</h2>
+      <p>Drop the signs and add. Goodman's manual shows the same total as a difference of the two signed numbers: &minus;0.1 return and +0.3 supply is 0.4 in. w.c.</p>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Reading</th><th>Return</th><th>Supply</th><th>TESP</th></tr></thead>
+        <tbody>
+          <tr><td>Example, clean filter, high speed</td><td>&minus;0.30</td><td>+0.45</td><td>0.75 in. w.c.</td></tr>
+          <tr><td>Same unit, rating plate maximum</td><td colspan="2">Plate value, such as 0.50</td><td>0.50 in. w.c.</td></tr>
+          <tr><td>Result</td><td colspan="2">0.25 over the plate maximum</td><td>High</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The plate value varies with the equipment. Fieldpiece says a system runs most efficiently at or below 0.5 in. w.c., but also that the best value depends on the manufacturer. Use your unit's plate. Goodman's manual says that if TESP exceeds the plate maximum, check for closed dampers or registers and ductwork that is undersized, oversized or poorly laid out.</p>
+
+      <h2>Reading the result</h2>
+      <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>What you see</th><th>What it points to</th></tr></thead>
+        <tbody>
+          <tr><td>Return reading much more negative than the supply is positive</td><td>Return side: dirty or too-small filter, undersized return duct or grille, closed return damper. (General practice.)</td></tr>
+          <tr><td>Supply reading much higher than the return</td><td>Supply side: closed registers or dampers, undersized or kinked duct, a blocked coil. (General practice.)</td></tr>
+          <tr><td>TESP low and the system is not moving air</td><td>Leaks, separated duct, a missing filter or low blower speed, per Fieldpiece. Check the blower speed tap too.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Pressure and airflow are linked. A blower delivers less air as static rises, and the manufacturer's blower table shows how many CFM at each static for each speed. Once you have TESP and the blower speed, the table gives the airflow, which you can check against the furnace with the <a href="/guides/furnace-temperature-rise.html">temperature rise method</a> and the <a href="/airflow.html">airflow calculator</a>. High static plus a high temperature rise confirms the air is being choked. Check the filter first: it is the cheapest fix. Then see the <a href="/guides/ac-running-but-not-cooling.html">AC running but not cooling</a> guide if a frozen coil is part of the problem.</p>
+      <p>See also <a href="/reference/glossary.html#static-pressure">static pressure in the glossary</a>.</p>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://www.fieldpiece.com/?p=118130">Fieldpiece, Measuring HVAC total external static pressure with a digital manometer</a>: drilling test ports, probe position, zeroing, probe orientation, high speed and three minutes, absolute values, 0.5 in. w.c. figure, high and low causes.</li>
+          <li><a href="https://www.manualslib.com/manual/1188865/Goodman-Gmvm.html?page=45">Goodman GMVM furnace manual (via ManualsLib), external static pressure page</a>: return at the inlet, supply, clean filters, include the coil, the &minus;0.1 and +0.3 example, plate maximum.</li>
+        </ul>
+        <p>The sign convention and the table of causes by side are general practice, not from either source. The 0.75 in. w.c. example is made up for illustration. Last checked: November 2026</p>
+      </section>
+    </article>
