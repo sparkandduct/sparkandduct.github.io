@@ -16,8 +16,6 @@ The Analyst owns this list; the Builder takes the top item and deletes it. Keep 
 
 Search Console (2026-11-16, same) still has no query data (2 clicks, 3 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
 
-2. How to measure total external static pressure (airflow hub gap; manometer port locations, worked example with real numbers, links to temperature rise and airflow pages).
-3. Furnace pressure switch fault: how to test it (completes the ignition cluster; draft inducer and tubing steps, sourced from furnace manuals).
 4. How to test a contactor and a relay with a meter (HVAC control cluster; links to capacitor and transformer pages).
 5. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct).
 6. How to read a ladder wiring diagram (HVAC and motor control; symbols and a worked trace; links to contactor and transformer pages).
@@ -74,3 +72,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-18, product maker: made the fire alarm battery calculation worksheet (src/pro/fire-alarm-battery-worksheet.html, 3 Letter pages, added to the Pro Pack index); not in sitemap, no inbound links, links 200. Left the derating factor blank because sources disagree.
 - 2026-11-19, builder: added Ethernet T568A/T568B pinout reference (src/reference/ethernet-t568a-t568b-pinout.html), linked from PoE calculator and electrical wire colors. No Gumroad link yet.
 - 2026-11-19, builder: added static pressure (TESP) how-to guide, linked from temperature rise guide. No Gumroad link yet.
+- 2026-11-19, builder: added furnace pressure switch test guide, linked from furnace-will-not-ignite. No Gumroad link yet.
