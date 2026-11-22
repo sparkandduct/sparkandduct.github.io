@@ -1,5 +1,23 @@
 [
  {
+  "added": "2026-11-19",
+  "title": "How to test a furnace pressure switch",
+  "kind": "Guide",
+  "url": "https://sparkandduct.github.io/guides/how-to-test-a-furnace-pressure-switch.html"
+ },
+ {
+  "added": "2026-11-19",
+  "title": "How to measure total external static pressure",
+  "kind": "Guide",
+  "url": "https://sparkandduct.github.io/guides/how-to-measure-total-external-static-pressure.html"
+ },
+ {
+  "added": "2026-11-19",
+  "title": "Ethernet T568A and T568B pinout reference",
+  "kind": "Reference",
+  "url": "https://sparkandduct.github.io/reference/ethernet-t568a-t568b-pinout.html"
+ },
+ {
   "added": "2026-11-12",
   "title": "PoE voltage drop and cable length calculator",
   "kind": "Calculator",
@@ -52,17 +70,5 @@
   "title": "Superheat and subcooling calculator",
   "kind": "Calculator",
   "url": "https://sparkandduct.github.io/superheat-subcooling.html"
- },
- {
-  "added": "2026-10-07",
-  "title": "Conduit offset bending calculator",
-  "kind": "Calculator",
-  "url": "https://sparkandduct.github.io/conduit-offset.html"
- },
- {
-  "added": "2026-10-05",
-  "title": "How to size a 24 V control transformer",
-  "kind": "Guide",
-  "url": "https://sparkandduct.github.io/guides/how-to-size-a-control-transformer.html"
  }
 ]

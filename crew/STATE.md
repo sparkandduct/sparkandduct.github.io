@@ -73,3 +73,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-19, builder: added Ethernet T568A/T568B pinout reference (src/reference/ethernet-t568a-t568b-pinout.html), linked from PoE calculator and electrical wire colors. No Gumroad link yet.
 - 2026-11-19, builder: added static pressure (TESP) how-to guide, linked from temperature rise guide. No Gumroad link yet.
 - 2026-11-19, builder: added furnace pressure switch test guide, linked from furnace-will-not-ignite. No Gumroad link yet.
+- 2026-11-22, manager: weekly report written; 3 pages and 1 product checked for Sources and links; Search Console 0 clicks/1 impression; build clean.
