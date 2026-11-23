@@ -1,6 +1,6 @@
 <!--
 title: How to find a ground fault on a fire alarm panel
-description: A method for tracking down a ground fault on a fire alarm system: confirming it at the panel, isolating the circuit, then halving the run until the fault is found.
+description: Find a fire alarm ground fault fast: lift circuits at the panel to find the bad one, then split the run in half and meter each half to ground until you reach the fault.
 section: guides
 group: troubleshooting
 order: 2
@@ -8,7 +8,7 @@ summary: Isolate the circuit, then halve the run until you find it.
 -->
     <article class="prose">
       <h1>How to find a ground fault on a fire alarm panel</h1>
-      <p class="lede">A patient, divide-and-conquer job. Here is the order that wastes the least time.</p>
+      <p class="lede">Lift field circuits at the panel one at a time until the trouble clears, then split that circuit in half and meter each half to ground. Repeat on the bad half until you reach the device or cable section at fault.</p>
 
       <div class="callout"><p>Before you start, tell the monitoring company and the building contact, and put the system on test. Disconnecting circuits can cause signals and will leave areas unprotected until you restore them.</p></div>
 
@@ -57,6 +57,8 @@ summary: Isolate the circuit, then halve the run until you find it.
       </figure>
 
       <p>Each split halves what is left, so a 40-device circuit takes about five or six stops.</p>
+      <p><strong>Worked example.</strong> A loop of 40 devices has a ground fault. Split at device 20: the panel side reads open, the far side reads low. The fault is in devices 21 to 40. Split at 30: the near half (21 to 30) reads open, so it is in 31 to 40. Split at 35, then 32 or 33, and you are down to one or two devices after five or six stops. Lifting and testing 40 devices one by one would take far longer.</p>
+      <p><strong>Field tip.</strong> Do the first split where the cable is easiest to reach, not at the exact middle. A split you can reach in two minutes beats a perfect one above a ceiling you must move equipment to get at.</p>
 
       <h2>Where faults usually are</h2>
       <ul>
@@ -70,4 +72,20 @@ summary: Isolate the circuit, then halve the run until you find it.
 
       <h2>Finish properly</h2>
       <p>Repair the damage instead of just moving the wire, reconnect every circuit, confirm the panel is clear of troubles, test the devices on the circuit you opened, and take the system off test.</p>
+
+      <h2>Related pages</h2>
+      <ul>
+        <li><a href="/guides/nac-voltage-drop.html">Notification circuit voltage drop</a>, for when the circuit is also long or heavily loaded.</li>
+        <li><a href="/guides/how-to-size-a-fire-alarm-battery.html">How to size a fire alarm battery</a>, since a lifted circuit or weak battery can also set troubles.</li>
+        <li><a href="/battery.html">Fire alarm battery calculator</a></li>
+        <li><a href="/reference/glossary.html">Glossary</a></li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul>
+        <li>Fire-Lite MS-9200UDLS series manual (document 52750), trouble operation: a ground fault lights the panel's ground trouble indication. <a href="https://buildings.honeywell.com/us/en/brands/our-brands/firelite/resources/discontinued-products">Honeywell Fire-Lite discontinued products page</a>. Your own panel's manual governs how it detects and reports ground faults.</li>
+        <li>NFPA 72, National Fire Alarm and Signaling Code, which requires panels to report ground faults; read the edition your jurisdiction has adopted. <a href="https://www.nfpa.org/codes-and-standards/nfpa-72-standard-development/72">NFPA 72</a>.</li>
+        <li>The halving method and the list of usual fault locations are general service practice, not taken from a manual.</li>
+      </ul>
+      <p>Last checked: November 2026</p>
     </article>

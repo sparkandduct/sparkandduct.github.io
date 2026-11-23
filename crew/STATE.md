@@ -14,15 +14,18 @@ One lever at a time, four weeks apart (see the rules). Newest last.
 
 The Analyst owns this list; the Builder takes the top item and deletes it. Keep about ten items, most valuable first. Alternate calculators with content pages where the value is close.
 
-Search Console (2026-11-16, same) still has no query data (2 clicks, 3 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
+Search Console (2026-11-23, 28 days) still has no query data (2 clicks, 4 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
 
-4. How to test a contactor and a relay with a meter (HVAC control cluster; links to capacitor and transformer pages).
-5. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct).
-6. How to read a ladder wiring diagram (HVAC and motor control; symbols and a worked trace; links to contactor and transformer pages).
-7. Fire alarm end-of-line resistor and open circuit troubleshooting (extends the ground fault and NAC guides; use panel manuals as sources).
-8. Motor full-load current reference (NEC Table 430.250 values, checked; needs a second source; link from three-phase calculator).
-9. EPA 608 Type II practice quiz (copy the structure of src/quizzes/epa-608-core-practice.html).
-10. Furnace limit switch and rollout switch: why it trips and how to test (ignition cluster; manuals as sources).
+1. How to test a contactor and a relay with a meter (HVAC control cluster; links to capacitor and transformer pages).
+2. How to read a ladder wiring diagram (HVAC and motor control; symbols and a worked trace; links to contactor and transformer pages).
+3. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct; pairs with static pressure and airflow pages).
+4. AC condensate drain clog and float switch trips: how to clear and test (cooling cluster; very common call, manuals as sources).
+5. Fire alarm end-of-line resistor and open circuit troubleshooting (extends the ground fault and NAC guides; use panel manuals as sources).
+6. Furnace limit switch and rollout switch: why it trips and how to test (ignition cluster; manuals as sources).
+7. Motor full-load current reference (NEC Table 430.250 values, checked; needs a second source; link from three-phase calculator).
+8. EPA 608 Type II practice quiz (copy the structure of src/quizzes/epa-608-core-practice.html).
+9. 90-degree conduit bend take-up and stub-up calculator (completes the offset calculator cluster; use bender maker take-up values as source).
+10. How to test a blower motor: PSC vs ECM (airflow cluster; links to capacitor and static pressure pages; maker manuals as sources).
 
 Dropped: Lennox furnace fault codes (no Lennox manual reachable in four runs; re-add only with a primary source).
 
@@ -74,3 +77,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-19, builder: added static pressure (TESP) how-to guide, linked from temperature rise guide. No Gumroad link yet.
 - 2026-11-19, builder: added furnace pressure switch test guide, linked from furnace-will-not-ignite. No Gumroad link yet.
 - 2026-11-22, manager: weekly report written; 3 pages and 1 product checked for Sources and links; Search Console 0 clicks/1 impression; build clean.
+- 2026-11-23, analyst: Search Console still has no query data (2 clicks, 4 impressions, home page); queue rewritten (contactor test, ladder diagram, duct sizing on top; added condensate drain, 90-degree take-up, blower motor test). NC heating group definitions could not be confirmed from a primary source (ncleg.gov unreachable); noted in UNVERIFIED.md. Refreshed fire-alarm-ground-fault.html (new description, short answer, worked example, field tip, related links, Sources).
