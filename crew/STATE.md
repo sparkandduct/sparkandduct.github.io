@@ -36,12 +36,13 @@ The Product maker owns this list.
 Ideas, in order:
 3. Pocket reference card set: thermostat wire colors, electrical wire colors, Ohm's law and common formulas.
 5. Conduit bending field card: multipliers, shrink and offset steps.
-6. Motor starting troubleshooting worksheet: fill-in meg and amp readings log (no limits, fill from nameplate).
 8. Wire and cable pocket card: NEC 310.16 ampacity rows for 14 to 1/0 AWG copper at 60/75/90 C (needs a primary NEC source before it is made).
 
 9. Panel schedule and circuit directory fill-in sheets (blank, with a worked example; needs only NEC 408.4 wording, check it first).
+10. Refrigerant recovery and charge log (fill-in: unit, refrigerant, nameplate charge, pounds recovered, cylinder tare and gross weights; no limits, only 40 CFR 82 recordkeeping wording if confirmed).
 
 Made:
+- Motor starting and insulation test log: src/pro/motor-test-log.html (2026-11-25). Two blank logs and one filled example with checklist, 3 Letter pages. Chosen because it needs no unverified limits (ideas 3, 5 and 8 still lack a primary source). Facts: NEMA percent voltage unbalance and the 1 percent recommendation (DOE Motor Systems Tip Sheet #7, plus one second source), polarization index as 10 min over 1 min (two sources). Left out: PI and megohm acceptance limits, temperature correction, single-phase compressor winding resistance rules (only trade sources found).
 - Fire alarm battery calculation worksheet: src/pro/fire-alarm-battery-worksheet.html (2026-11-18). Two blank worksheets and one filled example with checklist, 3 Letter pages. Chosen over idea 3 (wire and thermostat colors have no primary source) and idea 5 (conduit shrink, saddle multipliers and the NEC 358.26 text could not be confirmed from a primary source). Used only 24 h standby plus 5 min alarm (Fire-Lite manual, a second article citing NFPA 72). Left out: derating factor (sources disagree, 1.2 vs 1.25; blank line to fill), voice, remote station and generator times.
 - EPA 608 pocket cards: src/pro/epa-608-pocket-cards.html (2026-11-11). Four cut-out cards on one Letter page (evacuation levels, small appliances, pressure classes and certification, major repair/oil/leak repair), checked against 40 CFR 82.152/156/157/161 and EPA pages. Chosen over idea 3 because wire and thermostat colors are conventions with no primary source, which the product bar does not allow. Left out: HFC leak rules (part 84), penalties, dates.
 - HVAC service call checklists: src/pro/service-call-checklists.html (2026-10-28). Cooling and heating sheets, one Letter page each, blank Target columns so no unverified numbers.
@@ -78,3 +79,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-19, builder: added furnace pressure switch test guide, linked from furnace-will-not-ignite. No Gumroad link yet.
 - 2026-11-22, manager: weekly report written; 3 pages and 1 product checked for Sources and links; Search Console 0 clicks/1 impression; build clean.
 - 2026-11-23, analyst: Search Console still has no query data (2 clicks, 4 impressions, home page); queue rewritten (contactor test, ladder diagram, duct sizing on top; added condensate drain, 90-degree take-up, blower motor test). NC heating group definitions could not be confirmed from a primary source (ncleg.gov unreachable); noted in UNVERIFIED.md. Refreshed fire-alarm-ground-fault.html (new description, short answer, worked example, field tip, related links, Sources).
+- 2026-11-25, product maker: made the motor starting and insulation test log (src/pro/motor-test-log.html, 3 Letter pages, added to the Pro Pack index); not in sitemap, no inbound links, links 200. Left out all megohm and PI limits (no primary source).
