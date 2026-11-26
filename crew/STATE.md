@@ -16,7 +16,6 @@ The Analyst owns this list; the Builder takes the top item and deletes it. Keep 
 
 Search Console (2026-11-23, 28 days) still has no query data (2 clicks, 4 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
 
-1. How to test a contactor and a relay with a meter (HVAC control cluster; links to capacitor and transformer pages).
 2. How to read a ladder wiring diagram (HVAC and motor control; symbols and a worked trace; links to contactor and transformer pages).
 3. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct; pairs with static pressure and airflow pages).
 4. AC condensate drain clog and float switch trips: how to clear and test (cooling cluster; very common call, manuals as sources).
@@ -80,3 +79,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-22, manager: weekly report written; 3 pages and 1 product checked for Sources and links; Search Console 0 clicks/1 impression; build clean.
 - 2026-11-23, analyst: Search Console still has no query data (2 clicks, 4 impressions, home page); queue rewritten (contactor test, ladder diagram, duct sizing on top; added condensate drain, 90-degree take-up, blower motor test). NC heating group definitions could not be confirmed from a primary source (ncleg.gov unreachable); noted in UNVERIFIED.md. Refreshed fire-alarm-ground-fault.html (new description, short answer, worked example, field tip, related links, Sources).
 - 2026-11-25, product maker: made the motor starting and insulation test log (src/pro/motor-test-log.html, 3 Letter pages, added to the Pro Pack index); not in sitemap, no inbound links, links 200. Left out all megohm and PI limits (no primary source).
+- 2026-11-26, builder: added contactor and relay test guide (src/guides/how-to-test-a-contactor-and-relay.html), linked from AC-not-cooling guide. No Gumroad link yet.

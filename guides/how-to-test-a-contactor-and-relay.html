@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to test a contactor and a relay with a meter | Spark &amp; Duct</title>
+  <meta name="description" content="Test an AC contactor or control relay with a multimeter: check 24 V at the coil, see if it pulls in, read line voltage in and out, and measure the voltage across closed contacts. Coil resistance and a decision table included.">
+  <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
+  <link rel="canonical" href="https://sparkandduct.github.io/guides/how-to-test-a-contactor-and-relay.html">
+  <meta property="og:title" content="How to test a contactor and a relay with a meter | Spark &amp; Duct">
+  <meta property="og:description" content="Test an AC contactor or control relay with a multimeter: check 24 V at the coil, see if it pulls in, read line voltage in and out, and measure the voltage across closed contacts. Coil resistance and a decision table included.">
+  <meta property="og:url" content="https://sparkandduct.github.io/guides/how-to-test-a-contactor-and-relay.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#26303a">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sparkandduct.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to test a contactor and a relay with a meter", "item": "https://sparkandduct.github.io/guides/how-to-test-a-contactor-and-relay.html"}]}, {"@type": "Article", "headline": "How to test a contactor and a relay with a meter", "description": "Test an AC contactor or control relay with a multimeter: check 24 V at the coil, see if it pulls in, read line voltage in and out, and measure the voltage across closed contacts. Coil resistance and a decision table included.", "mainEntityOfPage": "https://sparkandduct.github.io/guides/how-to-test-a-contactor-and-relay.html", "publisher": {"@type": "Organization", "name": "Spark & Duct", "url": "https://sparkandduct.github.io/"}}]}</script>
+  <link rel="stylesheet" href="/style.css?v=a86dca38">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#f0b400"/><path d="M18.5 4 8 18h6.5L13 28l11-15h-7z" fill="#26303a"/></svg><span>Spark <span class="amp">&amp;</span> Duct</span></a>
+      <nav>
+        <a href="/">Tools</a>
+        <a href="/guides/" aria-current="page">Guides</a>
+        <a href="/fault-codes/">Codes</a>
+        <a href="/reference/">Reference</a>
+        <a href="/quizzes/">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <p class="crumbs"><a href="/">Home</a> / <a href="/guides/">Guides</a></p>
+    <article class="prose">
+      <h1>How to test a contactor and a relay with a meter</h1>
+      <p class="lede">Check 24 V at the coil first. If the coil has 24 V and does not pull in, the coil is bad. If it pulls in and the load side has no line voltage, the contacts are bad. If it has no 24 V, the problem is upstream of the contactor.</p>
+
+      <div class="callout"><p>Short answer: three live readings tell you which part to replace. Coil volts (about 24 to 29 V on a 24 V coil), line volts on the L side and line volts on the T side with the contactor closed. Then read the resistance of the coil with the power off.</p></div>
+
+      <div class="callout"><p>The line side of a contactor stays live with the contactor open. Open the disconnect before you touch anything. Take live readings only with a meter rated for the voltage, with the probes held by their insulated grips, and keep your other hand away from the cabinet.</p></div>
+
+      <h2>Step 1: Check the coil voltage</h2>
+      <ol>
+        <li>Set the thermostat to call for cooling and wait for the indoor blower to start.</li>
+        <li>Set the meter to AC volts. Put the probes across the two coil terminals (the small spade terminals on the side, often marked A1 and A2).</li>
+        <li>Read the voltage. A good 24 V coil circuit reads about 24 to 29.5 V.</li>
+      </ol>
+      <ul>
+        <li><strong>0 V:</strong> the call is not reaching the coil. Look for an open safety switch (condensate float, high or low pressure switch), a blown low-voltage fuse, a bad thermostat wire or a dead transformer. See <a href="/guides/how-to-size-a-control-transformer.html">how to size a control transformer</a> for a weak transformer.</li>
+        <li><strong>Well below 24 V:</strong> a loose or corroded terminal, a long thin thermostat wire or an overloaded transformer. Low voltage keeps the contacts from closing fully and can burn the coil.</li>
+        <li><strong>24 V or higher, contactor does not pull in:</strong> the coil is open, or the plunger is stuck. Continue to step 3.</li>
+        <li><strong>24 V and it pulls in:</strong> the coil is fine. Go to step 2.</li>
+      </ul>
+
+      <h2>Step 2: Check line voltage across the contacts</h2>
+      <p>With the contactor pulled in, measure on the high voltage side. Read each pair against the same reference, such as L1 to L2 on the line side, then T1 to T2 on the load side.</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 170" role="img" aria-label="Contactor with two poles. Line terminals L1 and L2 on top, load terminals T1 and T2 on the bottom, coil terminals A1 and A2 on the right. Meter points show line volts on top, load volts on the bottom and 24 volts at the coil.">
+          <rect class="d-box" x="60" y="40" width="140" height="90" rx="4"/>
+          <line class="d-line" x1="100" y1="40" x2="100" y2="60"/>
+          <line class="d-line" x1="100" y1="110" x2="100" y2="130"/>
+          <line class="d-line" x1="160" y1="40" x2="160" y2="60"/>
+          <line class="d-line" x1="160" y1="110" x2="160" y2="130"/>
+          <line class="d-thin" x1="100" y1="60" x2="100" y2="110"/>
+          <line class="d-thin" x1="160" y1="60" x2="160" y2="110"/>
+          <circle class="d-accent" cx="100" cy="36" r="6"/>
+          <circle class="d-accent" cx="160" cy="36" r="6"/>
+          <circle class="d-accent" cx="100" cy="134" r="6"/>
+          <circle class="d-accent" cx="160" cy="134" r="6"/>
+          <text class="d-text d-strong" x="100" y="22" text-anchor="middle">L1</text>
+          <text class="d-text d-strong" x="160" y="22" text-anchor="middle">L2</text>
+          <text class="d-text d-strong" x="100" y="156" text-anchor="middle">T1</text>
+          <text class="d-text d-strong" x="160" y="156" text-anchor="middle">T2</text>
+          <rect class="d-box" x="250" y="60" width="50" height="50" rx="4"/>
+          <text class="d-small" x="275" y="90" text-anchor="middle">Coil</text>
+          <text class="d-small" x="275" y="52" text-anchor="middle">A1 A2</text>
+          <text class="d-small" x="275" y="128" text-anchor="middle">24 V</text>
+          <text class="d-small" x="8" y="90">Line</text>
+        </svg>
+        <figcaption>Line volts go in at L1 and L2 and come out at T1 and T2 when the coil pulls the contacts closed.</figcaption>
+      </figure>
+      <ul>
+        <li><strong>Volts at L1 to L2, none at T1 to T2, coil pulled in:</strong> the contacts are not conducting. Replace the contactor.</li>
+        <li><strong>Volts at both, but the compressor or fan does not run:</strong> the contactor is passing power. Look at the capacitor, the motor and the wiring downstream (see <a href="/guides/how-to-test-a-run-capacitor.html">how to test a run capacitor</a>).</li>
+        <li><strong>No volts at L1 to L2:</strong> the problem is upstream: breaker, disconnect or fuse.</li>
+        <li><strong>T1 and T2 live with the coil at 0 V:</strong> the contacts are welded closed. Replace the contactor.</li>
+      </ul>
+      <p>To find a worn pole, set the meter to AC millivolts or low volts and measure straight across one closed pole, from L to T. A pole in good shape reads close to 0. Check each pole and compare: a pole that reads noticeably higher than the others has high resistance and is overheating. One trade article says this comparison does not set an exact limit; field rules of about 0.5 V and about 1 V across a closed pole show up in trade guides but are not from a maker, so confirm before you condemn a pole on the number alone. Measure on a running unit, with the compressor drawing current.</p>
+
+      <div class="ad-slot" data-slot="in content"></div>
+
+      <h2>Step 3: Check the coil with the power off</h2>
+      <ol>
+        <li>Open the disconnect and confirm 0 V on the coil terminals.</li>
+        <li>Pull one wire off the coil so the transformer circuit is not in the reading.</li>
+        <li>Set the meter to ohms and read across the coil terminals.</li>
+      </ol>
+      <table class="data">
+        <thead><tr><th>Reading</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>OL (open)</td><td>Open coil. Replace. DC or electronic coils can read oddly; check the datasheet.</td></tr>
+          <tr><td>Near 0 &ohm;</td><td>Shorted coil. Replace.</td></tr>
+          <tr><td>A steady reading</td><td>Compare to the rating for that model, or to a new contactor of the same part number. There is no one number for every contactor.</td></tr>
+        </tbody>
+      </table>
+      <p>Coil resistance varies a lot by model. One Schneider definite-purpose contactor with a 24 V coil lists 0.654 &ohm; &plusmn;10% at 20&deg;C; one trade article calls 10 to 100 &ohm; typical, and these do not agree. Use the maker's figure for your part number, or a known-good contactor, not a generic range.</p>
+
+      <h2>Step 4: Check the contacts with the power off</h2>
+      <ol>
+        <li>Open the disconnect, confirm 0 V and take the line and load wires off the contactor (note which went where).</li>
+        <li>Set the meter to ohms. With the coil not energized, read across each pole, L to T. It should read OL. A low reading means the contacts are welded closed.</li>
+        <li>Apply 24 V to the coil terminals from a transformer, or push in the plunger by hand with the power off. The poles should now read close to 0 &ohm;.</li>
+      </ol>
+      <p>Look at the contact faces. Heavy pitting, blackening, melting, a cobweb or an insect between the contacts are all causes for replacement.</p>
+
+      <h2>Testing a control relay</h2>
+      <p>A control relay (a fan relay or a start relay on a board, for example) tests the same way. The coil is the energized part. The contacts are a common terminal (COM), a normally open terminal (NO) and a normally closed terminal (NC). Readings below are in ohms except the first.</p>
+      <table class="data">
+        <thead><tr><th>Check</th><th>Normal reading</th></tr></thead>
+        <tbody>
+          <tr><td>Coil volts, energized</td><td>Rated, such as 24 V</td></tr>
+          <tr><td>Coil off, COM to NO</td><td>OL</td></tr>
+          <tr><td>Coil off, COM to NC</td><td>Near 0 &ohm;</td></tr>
+          <tr><td>Coil on, COM to NO</td><td>Near 0 &ohm;</td></tr>
+          <tr><td>Coil on, COM to NC</td><td>OL</td></tr>
+        </tbody>
+      </table>
+      <p>Test with the wires off the relay, or the meter will read through other parts of the circuit. A relay that clicks but fails the contact readings has worn contacts; one that does not click with rated voltage on the coil has a bad coil.</p>
+
+      <h2>Worked example</h2>
+      <p>An outdoor unit is dead. The indoor blower runs. At the contactor coil the meter reads 0 V, so the call is not getting out. At the thermostat Y terminal the meter reads 24 V, so the wire between them is the next suspect. A broken Y wire is found at a splice. After the repair the coil reads 26 V and the contactor pulls in. Line volts at L1 to L2 is 238 V and at T1 to T2 is 238 V, so the contactor is good and passes power. The numbers are an example, not a measurement from a job.</p>
+      <p>If a coil with 26 V does not pull in, switch the power off and read the coil ohms. An OL reading confirms the coil is open and the contactor is replaced.</p>
+
+      <h2>Replacing a contactor</h2>
+      <ul>
+        <li>Match the coil voltage (24 V for most residential units) and the pole count.</li>
+        <li>Match or exceed the amp rating of the old part (shown on the label, for example 30 A or 40 A).</li>
+        <li>Photograph the wiring before you pull any wire and move wires one at a time.</li>
+        <li>If contactors keep failing, check for low coil voltage, a hard-starting compressor and a capacitor that is out of tolerance.</li>
+      </ul>
+
+      <p>Related: <a href="/guides/ac-running-but-not-cooling.html">AC running but not cooling</a>, <a href="/guides/how-to-test-a-run-capacitor.html">how to test a run capacitor</a>, <a href="/guides/how-to-size-a-control-transformer.html">how to size a control transformer</a> and the <a href="/reference/glossary.html#contactor">glossary entry for contactor</a>.</p>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://www.acservicetech.com/post/top-5-hvac-contactor-troubleshooting-problems">AC Service Tech: top 5 HVAC contactor troubleshooting problems</a>: coil 24 to 29.5 V, contacts open and closed readings, failure causes.</li>
+          <li><a href="https://electricityforum.com/iep/electrical-test-equipment/how-to-test-a-contactor">Electricity Forum: how to test a contactor</a>: power-off coil and contact tests, replacement criteria.</li>
+          <li><a href="https://www.ecmweb.com/content/testing-contact-quality-live-motor-starters">EC&amp;M: testing contact quality on live motor starters</a>: comparing millivolt drop across poles.</li>
+          <li><a href="https://www.se.com/us/en/faqs/FA108184">Schneider Electric FAQ FA108184</a>: 24 V coil resistance of one definite-purpose contactor.</li>
+        </ul>
+        <p>Last checked: November 2026</p>
+      </section>
+    </article>
+    <h2 class="section">More guides</h2>
+    <ul class="tools">
+  <li><a href="/guides/how-to-size-a-fire-alarm-battery.html"><strong>How to size a fire alarm battery</strong><span>The standby and alarm calculation, step by step, with a worked example.</span></a></li>
+  <li><a href="/guides/nac-voltage-drop.html"><strong>How to calculate voltage drop on a NAC circuit</strong><span>Why NAC circuits start at 20.4 V, the lump-sum method and a worked example.</span></a></li>
+  <li><a href="/guides/conduit-fill-explained.html"><strong>Conduit fill explained</strong><span>The 53, 31 and 40 percent rules, hand calculation and how cables are counted.</span></a></li>
+  <li><a href="/guides/furnace-temperature-rise.html"><strong>How to measure furnace temperature rise</strong><span>Measuring rise, reading the nameplate range and turning it into CFM.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
+  </main>
+
+  <footer class="site">
+    <div class="inner">
+      <div class="about">
+        <h2>Spark &amp; Duct</h2>
+        <p>Calculators and reference for low voltage, electrical and HVAC work. Every tool shows its formula; every fact is checked against the manufacturer, the code or the state board.</p>
+        <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="/">Tools</a></li>
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/fault-codes/">Codes</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/quizzes/">Quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact and corrections</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <p class="legal"><span>&copy; 2026 Spark &amp; Duct</span><span>No accounts, no tracking. Calculations run in your browser.</span></p>
+    </div>
+  </footer>
+  <script src="/js/site.js?v=615090e5"></script>
+</body>
+</html>
