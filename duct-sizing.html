@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duct sizing calculator by friction rate (round duct) | Spark &amp; Duct</title>
+  <meta name="description" content="Round duct sizing calculator. Enter airflow in CFM and a friction rate in inches of water per 100 feet to get the duct diameter, the next standard size, its actual friction rate and air speed. Includes the Manual D friction rate formula.">
+  <meta name="google-site-verification" content="9Jjph1wGWZvhDMevVGi-2LlEz4cs-YyuPY2qOKk0BQs">
+  <link rel="canonical" href="https://sparkandduct.github.io/duct-sizing.html">
+  <meta property="og:title" content="Duct sizing calculator by friction rate (round duct) | Spark &amp; Duct">
+  <meta property="og:description" content="Round duct sizing calculator. Enter airflow in CFM and a friction rate in inches of water per 100 feet to get the duct diameter, the next standard size, its actual friction rate and air speed. Includes the Manual D friction rate formula.">
+  <meta property="og:url" content="https://sparkandduct.github.io/duct-sizing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spark &amp; Duct">
+  <meta name="theme-color" content="#26303a">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparkandduct.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Duct sizing calculator by friction rate (round duct)", "item": "https://sparkandduct.github.io/duct-sizing.html"}]}]}</script>
+  <link rel="stylesheet" href="/style.css?v=a86dca38">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#f0b400"/><path d="M18.5 4 8 18h6.5L13 28l11-15h-7z" fill="#26303a"/></svg><span>Spark <span class="amp">&amp;</span> Duct</span></a>
+      <nav>
+        <a href="/" aria-current="page">Tools</a>
+        <a href="/guides/">Guides</a>
+        <a href="/fault-codes/">Codes</a>
+        <a href="/reference/">Reference</a>
+        <a href="/quizzes/">Quizzes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <p class="crumbs"><a href="/">All tools</a></p>
+    <h1>Duct sizing calculator by friction rate (round duct)</h1>
+    <p class="lede">Enter the airflow and the friction rate. The result is the round duct diameter, the next whole-inch size up and what friction rate and air speed that size gives. If you do not have a friction rate yet, work it out from the available static pressure and the total effective length first.</p>
+
+    <section class="card" id="calc">
+      <div class="grid">
+        <label>Airflow for this duct (CFM)
+          <input id="cfm" type="number" min="0" step="any" value="800" inputmode="decimal">
+        </label>
+        <label>Friction rate (in. w.c. per 100 ft)
+          <input id="fr" type="number" min="0" step="any" value="0.073" inputmode="decimal">
+        </label>
+        <label>Available static pressure (in. w.c., optional)
+          <input id="asp" type="number" min="0" step="any" value="0.31" inputmode="decimal">
+        </label>
+        <label>Total effective length (ft, optional)
+          <input id="tel" type="number" min="0" step="any" value="424" inputmode="decimal">
+        </label>
+      </div>
+      <p><strong>Friction rate from those two:</strong> <span id="outFr"></span> <button type="button" id="useFr">Use this friction rate</button></p>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <dl class="results">
+        <div><dt>Exact round diameter</dt><dd id="outDia"></dd></div>
+        <div><dt>Next size up</dt><dd id="outUp"></dd></div>
+        <div><dt>Friction rate at that size</dt><dd id="outUpFr"></dd></div>
+        <div><dt>Air speed at that size</dt><dd id="outUpV"></dd></div>
+        <div><dt>One size smaller</dt><dd id="outDown"></dd></div>
+        <div><dt>Friction rate at that size</dt><dd id="outDownFr"></dd></div>
+        <div><dt>Air speed at that size</dt><dd id="outDownV"></dd></div>
+      </dl>
+      <p id="status" class="status"></p>
+    </section>
+
+    <div class="ad-slot" data-slot="in content"></div>
+
+    <section class="card note">
+      <h2>How it is worked out</h2>
+      <p>Friction rate is the pressure you can spend per 100 feet of duct. It comes from the static pressure left over after the equipment and components take their share, spread over the longest run:</p>
+      <p><code>friction rate = available static pressure &times; 100 &divide; total effective length</code></p>
+      <p>Total effective length is the straight length plus the equivalent length of every fitting on the longest supply or return run. Fittings are often most of it. Available static pressure is the blower's rated external static pressure minus the pressure drop of the filter, coil, grilles and any other components.</p>
+      <p>Round duct friction for galvanized steel at standard air follows:</p>
+      <p><code>friction rate = 0.109136 &times; CFM<sup>1.9</sup> &divide; diameter<sup>5.02</sup></code></p>
+      <p>Solved for the diameter: <code>diameter = (0.109136 &times; CFM<sup>1.9</sup> &divide; friction rate)<sup>1 &divide; 5.02</sup></code> inches. Air speed is <code>CFM &divide; duct area in square feet</code>.</p>
+      <p>Worked example: a blower rated for 0.50 in. w.c. leaves 0.31 in. w.c. after the filter, coil and registers, and the longest run has a total effective length of 424 ft. Friction rate = 0.31 &times; 100 &divide; 424 = 0.073 in. w.c. per 100 ft. For an 800 CFM trunk, 800<sup>1.9</sup> = 328,000 (rounded), 0.109136 &times; 328,000 = 35,800, and 35,800 &divide; 0.073 = 490,000. The 5.02nd root of 490,000 is 13.6 in. The next size up, 14 in., gives 0.063 in. w.c. per 100 ft at about 748 ft/min. A 13 in. duct would run at 0.092 and about 868 ft/min, which is over the 0.073 you have to spend. The 0.31 in. w.c. and 424 ft come from a worked example in an Energy Vanguard article and the other numbers are calculated here.</p>
+    </section>
+
+    <section class="card">
+      <h2>Round duct diameter by airflow and friction rate</h2>
+      <p>Diameters in inches from the same equation. Size up is the next whole inch.</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th rowspan="2">CFM</th><th colspan="2">0.06 in. w.c./100 ft</th><th colspan="2">0.08 in. w.c./100 ft</th><th colspan="2">0.10 in. w.c./100 ft</th></tr>
+          <tr><th>Exact</th><th>Size up</th><th>Exact</th><th>Size up</th><th>Exact</th><th>Size up</th></tr></thead>
+          <tbody>
+<tr><td>100</td><td>6.4</td><td>7</td><td>6.1</td><td>7</td><td>5.8</td><td>6</td></tr>
+<tr><td>150</td><td>7.5</td><td>8</td><td>7.1</td><td>8</td><td>6.8</td><td>7</td></tr>
+<tr><td>200</td><td>8.4</td><td>9</td><td>7.9</td><td>8</td><td>7.6</td><td>8</td></tr>
+<tr><td>300</td><td>9.8</td><td>10</td><td>9.2</td><td>10</td><td>8.8</td><td>9</td></tr>
+<tr><td>400</td><td>10.9</td><td>11</td><td>10.3</td><td>11</td><td>9.8</td><td>10</td></tr>
+<tr><td>600</td><td>12.7</td><td>13</td><td>12.0</td><td>12</td><td>11.5</td><td>12</td></tr>
+<tr><td>800</td><td>14.1</td><td>15</td><td>13.4</td><td>14</td><td>12.8</td><td>13</td></tr>
+<tr><td>1000</td><td>15.4</td><td>16</td><td>14.5</td><td>15</td><td>13.9</td><td>14</td></tr>
+<tr><td>1200</td><td>16.5</td><td>17</td><td>15.6</td><td>16</td><td>14.9</td><td>15</td></tr>
+<tr><td>1600</td><td>18.4</td><td>19</td><td>17.4</td><td>18</td><td>16.6</td><td>17</td></tr>
+<tr><td>2000</td><td>20.0</td><td>21</td><td>18.9</td><td>19</td><td>18.1</td><td>19</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Using it in the field</h2>
+      <ul>
+        <li>There is no one friction rate for every house. The right one comes from the blower's static pressure, the components and the length of the longest run. Do the available static pressure step each time.</li>
+        <li>Size every branch from the same friction rate, with its own CFM. The longest run sets the rate; shorter runs then have pressure to spare, which a balancing damper uses up.</li>
+        <li>This is round, smooth galvanized duct. Flex duct, duct board and rectangular duct have different friction, and rectangular duct needs an equivalent round diameter. Check the maker's chart for flex.</li>
+        <li>The calculator does not include fittings. Add their equivalent lengths to the total effective length before you work out the friction rate.</li>
+        <li>Check the air speed against the limits in Manual D or your local code. This tool does not set one, because the limit depends on the duct type, the room and the noise you can accept.</li>
+        <li>Measure the finished system. The <a href="/guides/how-to-measure-total-external-static-pressure.html">total external static pressure guide</a> shows how, and the <a href="/guides/furnace-temperature-rise.html">temperature rise guide</a> shows what a restricted duct does to heat output.</li>
+        <li>Airflow rules of thumb and the CFM from a temperature difference are on the <a href="/airflow.html">airflow calculator</a>.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.engineeringtoolbox.com/duct-friction-pressure-loss-d_444.html">Engineering ToolBox: air ducts, major friction head loss</a>: the imperial round duct friction equation and a friction table used to check results.</li>
+        <li><a href="https://www.energyvanguard.com/blog/duct-design-4-calculating-friction-rate/">Energy Vanguard: Duct design 4, calculating friction rate</a>: friction rate from available static pressure and total effective length, and the 0.31 in. w.c. and 424 ft example.</li>
+        <li><a href="https://www.achrnews.com/articles/151912-what-friction-rate-should-we-use-when-designing-a-residential-duct-system">ACHR News: what friction rate should we use when designing a residential duct system</a>: there is no single friction rate, how available static pressure is found, fittings as most of the effective length.</li>
+        <li><a href="https://handbook.ashrae.org/Handbooks/F17/IP/f17_ch21/f17_ch21_ip.aspx">ASHRAE Handbook Fundamentals, chapter 21: duct design</a>: the reference for duct friction (the chapter itself is behind a paywall and was not read).</li>
+      </ul>
+      <p>The constant 0.109136 and exponents come from Engineering ToolBox, not from the ASHRAE text. A separate check with the Darcy-Weisbach equation and the Colebrook friction factor, using 0.0003 ft roughness and standard air, gave values 5 to 10% lower than the equation at the sizes in the table. Treat the result as a design figure to within about 10%, and use the duct maker's or Manual D's chart for final sizing. Last checked: November 2026</p>
+    </section>
+    <h2 class="section">More calculators</h2>
+    <ul class="tools">
+  <li><a href="/voltage-drop.html"><strong>Voltage drop calculator</strong><span>Drop, voltage at the load and maximum run length, with a fire alarm NAC preset.</span></a></li>
+  <li><a href="/battery.html"><strong>Fire alarm battery calculator</strong><span>Standby and alarm load to amp-hours, with the safety margin and next battery size.</span></a></li>
+  <li><a href="/conduit-fill.html"><strong>Conduit fill calculator</strong><span>EMT fill for THHN conductors and low voltage cables by outside diameter.</span></a></li>
+  <li><a href="/airflow.html"><strong>HVAC airflow calculators</strong><span>CFM from heat output and temperature rise, cooling airflow and duct velocity.</span></a></li>
+</ul>
+    <div class="ad-slot" data-slot="end of page"></div>
+  </main>
+
+  <footer class="site">
+    <div class="inner">
+      <div class="about">
+        <h2>Spark &amp; Duct</h2>
+        <p>Calculators and reference for low voltage, electrical and HVAC work. Every tool shows its formula; every fact is checked against the manufacturer, the code or the state board.</p>
+        <p>For estimating and study only. Check everything against the current code, the manufacturer's data and the authority having jurisdiction before you build or repair.</p>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="/">Tools</a></li>
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/fault-codes/">Codes</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/quizzes/">Quizzes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact and corrections</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <p class="legal"><span>&copy; 2026 Spark &amp; Duct</span><span>No accounts, no tracking. Calculations run in your browser.</span></p>
+    </div>
+  </footer>
+  <script src="/js/site.js?v=615090e5"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/duct-friction.js"></script>
+</body>
+</html>
