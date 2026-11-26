@@ -16,7 +16,6 @@ The Analyst owns this list; the Builder takes the top item and deletes it. Keep 
 
 Search Console (2026-11-23, 28 days) still has no query data (2 clicks, 4 impressions, home page only), so ranking is from cluster gaps and web demand: phone lookups on a job site, with primary sources available.
 
-2. How to read a ladder wiring diagram (HVAC and motor control; symbols and a worked trace; links to contactor and transformer pages).
 3. Duct sizing by friction rate calculator (ASHRAE friction equation, round duct; pairs with static pressure and airflow pages).
 4. AC condensate drain clog and float switch trips: how to clear and test (cooling cluster; very common call, manuals as sources).
 5. Fire alarm end-of-line resistor and open circuit troubleshooting (extends the ground fault and NAC guides; use panel manuals as sources).
@@ -80,3 +79,4 @@ Newest last. One line each: date, worker, what was done.
 - 2026-11-23, analyst: Search Console still has no query data (2 clicks, 4 impressions, home page); queue rewritten (contactor test, ladder diagram, duct sizing on top; added condensate drain, 90-degree take-up, blower motor test). NC heating group definitions could not be confirmed from a primary source (ncleg.gov unreachable); noted in UNVERIFIED.md. Refreshed fire-alarm-ground-fault.html (new description, short answer, worked example, field tip, related links, Sources).
 - 2026-11-25, product maker: made the motor starting and insulation test log (src/pro/motor-test-log.html, 3 Letter pages, added to the Pro Pack index); not in sitemap, no inbound links, links 200. Left out all megohm and PI limits (no primary source).
 - 2026-11-26, builder: added contactor and relay test guide (src/guides/how-to-test-a-contactor-and-relay.html), linked from AC-not-cooling guide. No Gumroad link yet.
+- 2026-11-26, builder: added ladder wiring diagram guide (src/guides/how-to-read-a-ladder-wiring-diagram.html), linked from the contactor test guide. No Gumroad link yet.

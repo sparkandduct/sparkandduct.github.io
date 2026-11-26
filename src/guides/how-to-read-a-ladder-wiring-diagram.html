@@ -1,0 +1,103 @@
+<!--
+title: How to read a ladder wiring diagram (HVAC and motor control)
+description: Read an HVAC ladder diagram: find the power rails, follow each rung from switch to load, match coils to contacts, and trace a no-start fault. Includes a labeled sample diagram and a worked trace.
+section: guides
+group: how-to
+order: 10
+summary: Rails, rungs, coils and contacts, line numbers and a worked trace on a sample contactor circuit.
+-->
+    <article class="prose">
+      <h1>How to read a ladder wiring diagram</h1>
+      <p class="lede">Read the legend, find the two rails, then pick the one rung with the load that is not running. Switches sit on the left of the rung, the load sits on the right, and current only flows when every switch in the rung is closed.</p>
+
+      <div class="callout"><p>Short answer: to find why a load is dead, start at the load and trace left. The first open switch or missing voltage you find is the fault. Check each switch on that rung with a meter across it: 0 V across a closed switch is good, full rail voltage across an open one means that switch is what stopped the rung.</p></div>
+
+      <h2>Step 1: Read the legend and notes</h2>
+      <p>Before you look at the circuit, read the legend and the notes. They tell you which lines are factory wiring and which are field wiring. On HVAC schematics solid lines are normally factory wiring and dashed lines are field wiring, and power wiring is often drawn heavier than control wiring. An asterisk in the legend marks a part that may be factory installed or may have to be added in the field. If your diagram differs, the legend wins.</p>
+
+      <h2>Step 2: Find the rails</h2>
+      <p>A ladder diagram has two vertical lines, the rails, with horizontal rungs between them. Each rung is one branch of the circuit, and everything on a schematic is drawn between the two power legs, usually labeled L1 and L2. On a unit with a 24 V control section the control rungs sit between the 24 V side of the transformer and the common side, so you may see two ladders on one page. Read the labels on the diagram you have; sources differ on how the rails are named.</p>
+
+      <h2>Step 3: Read one rung</h2>
+      <ul>
+        <li>Switches and contacts sit to the left of the rung and the load (a coil, motor, heater or lamp) sits at the right end.</li>
+        <li>A normally open switch is drawn open and a normally closed switch is drawn closed. They are drawn in their shelf state, not the running state.</li>
+        <li>Switches in a row on one rung are in series: all must be closed for the load to run.</li>
+        <li>Switches on parallel branches of a rung are in parallel: any one closed branch is enough.</li>
+        <li>A load in a rung with a closed path from rail to rail runs. A load with an open switch in the path does not.</li>
+      </ul>
+
+      <h2>Step 4: Match each coil to its contacts</h2>
+      <p>A contactor or relay is drawn in pieces. The coil is on one rung and its contacts are on other rungs, often on a different part of the page, because the coil is on the 24 V control circuit and the contacts are on the line voltage circuit. The legend or a shared label (for example the same letters on the coil and on its contacts) ties them together. When the coil rung is complete, the coil pulls in and every contact that belongs to it changes state at once.</p>
+
+      <h2>A sample diagram</h2>
+      <p>This diagram is a simplified, generic outdoor unit control circuit, not a drawing of any manufacturer's unit.</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 360 215" role="img" aria-label="Two ladders. The top control ladder has 24 volt rails R and C, with a thermostat Y switch in series with the contactor coil on one rung. The bottom power ladder has rails L1 and L2 with two rungs: contactor contacts in series with the compressor, and contactor contacts in series with the condenser fan motor.">
+          <text class="d-small" x="180" y="16" text-anchor="middle">Control circuit, 24 V</text>
+          <text class="d-small" x="30" y="34" text-anchor="middle">R</text>
+          <text class="d-small" x="330" y="34" text-anchor="middle">C</text>
+          <line class="d-line" x1="30" y1="40" x2="30" y2="84"/>
+          <line class="d-line" x1="330" y1="40" x2="330" y2="84"/>
+          <line class="d-line" x1="30" y1="62" x2="80" y2="62"/>
+          <line class="d-line" x1="80" y1="62" x2="104" y2="48"/>
+          <circle class="d-accent" cx="120" cy="62" r="3"/>
+          <line class="d-line" x1="123" y1="62" x2="210" y2="62"/>
+          <rect class="d-box" x="210" y="48" width="70" height="28"/>
+          <text class="d-text" x="245" y="66" text-anchor="middle">CC coil</text>
+          <line class="d-line" x1="280" y1="62" x2="330" y2="62"/>
+          <text class="d-small" x="100" y="84" text-anchor="middle">Y switch</text>
+          <text class="d-small" x="180" y="108" text-anchor="middle">Line voltage circuit</text>
+          <text class="d-small" x="30" y="126" text-anchor="middle">L1</text>
+          <text class="d-small" x="330" y="126" text-anchor="middle">L2</text>
+          <line class="d-line" x1="30" y1="132" x2="30" y2="206"/>
+          <line class="d-line" x1="330" y1="132" x2="330" y2="206"/>
+          <line class="d-line" x1="30" y1="150" x2="80" y2="150"/>
+          <line class="d-line" x1="80" y1="150" x2="104" y2="136"/>
+          <circle class="d-accent" cx="120" cy="150" r="3"/>
+          <line class="d-line" x1="123" y1="150" x2="200" y2="150"/>
+          <rect class="d-box" x="200" y="136" width="90" height="28"/>
+          <text class="d-text" x="245" y="154" text-anchor="middle">Compressor</text>
+          <line class="d-line" x1="290" y1="150" x2="330" y2="150"/>
+          <line class="d-line" x1="30" y1="190" x2="80" y2="190"/>
+          <line class="d-line" x1="80" y1="190" x2="104" y2="176"/>
+          <circle class="d-accent" cx="120" cy="190" r="3"/>
+          <line class="d-line" x1="123" y1="190" x2="200" y2="190"/>
+          <rect class="d-box" x="200" y="176" width="90" height="28"/>
+          <text class="d-text" x="245" y="194" text-anchor="middle">Fan motor</text>
+          <line class="d-line" x1="290" y1="190" x2="330" y2="190"/>
+          <text class="d-small" x="105" y="168" text-anchor="middle">CC contacts</text>
+        </svg>
+        <figcaption>Switches are drawn open, in their shelf state. The CC coil on the top rung closes both CC contacts below it.</figcaption>
+      </figure>
+
+      <h2>Worked trace: the compressor does not run</h2>
+      <ol>
+        <li>Find the compressor rung. Between L1 and L2 sit the CC contacts, then the compressor.</li>
+        <li>Measure L1 to L2 on the line side of the contacts. Line voltage here means the supply is good. No voltage means look at the breaker and disconnect.</li>
+        <li>The contacts are open in the drawing. The only way to close them is the CC coil. Go to the coil rung.</li>
+        <li>Measure across the CC coil. About 24 V means the Y switch is closed, so the control circuit is complete and the contactor should have pulled in. If it did not, the coil is bad (see <a href="/guides/how-to-test-a-contactor-and-relay.html">how to test a contactor and a relay</a>).</li>
+        <li>If the coil reads 0 V, go left to the Y switch. Measure across it: 24 V across the switch means it is open (no cooling call or a failed thermostat); 0 V across it means it is closed and the loss is farther left, in the wiring or the transformer.</li>
+        <li>A contactor that pulls in with line voltage on both sides but a compressor that does not run puts the fault in the compressor rung beyond the contacts. On a real unit that is the run capacitor, overload or the compressor. See <a href="/guides/how-to-test-a-run-capacitor.html">how to test a run capacitor</a>.</li>
+      </ol>
+      <p>The same method works on a safety switch in series with the Y line (a float switch, a high pressure switch): a switch that is drawn closed but measures full control voltage across it is open.</p>
+
+      <h2>Numbers and labels on real diagrams</h2>
+      <p>Many diagrams print a number at the left of every rung. Numbers at the right of a load rung list the rungs where that load's contacts appear: an underlined number is a normally closed contact and a plain number is a normally open one. Small numbers by a component match the terminal numbers stamped on the part, and circled numbers are wire numbers, which should match the numbers on the wire itself. Not every diagram has all of these. The more it has, the faster you find the physical wire.</p>
+      <p>The letter C is a common point whose meaning depends on the part. On a compressor it is the common point between the start and run windings, and on a dual run capacitor it is the common terminal for the compressor and fan sections. It is not the same as the C wire on a thermostat.</p>
+
+      <h2>Schematic versus connection diagram</h2>
+      <p>A schematic (the ladder) shows how the circuit works, with parts split apart. A connection or wiring diagram shows where wires physically go, with a contactor drawn as one box. Part names and terminal numbers match between the two, so use the ladder to decide what to test and the connection diagram to find it.</p>
+
+      <p>Related: <a href="/guides/how-to-test-a-contactor-and-relay.html">how to test a contactor and a relay</a>, <a href="/guides/how-to-size-a-control-transformer.html">how to size a control transformer</a>, <a href="/guides/ac-running-but-not-cooling.html">AC running but not cooling</a> and the <a href="/reference/thermostat-wire-colors.html">thermostat wire colors</a> reference.</p>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://hvacrschool.com/how-to-read-ac-schematics-and-diagrams-basics">HVAC School: how to read AC schematics and diagrams</a>: legend, line types, rails, switch and load symbols, the meaning of C, schematic versus connection diagram.</li>
+          <li><a href="https://www.achrnews.com/articles/110635-ice-breaker-reading-ladder-diagrams">ACHR News: reading ladder diagrams</a>: line numbers, contact cross-references, terminal and wire numbers.</li>
+          <li><a href="https://www.allaboutcircuits.com/textbook/digital/chpt-6/ladder-diagrams/">All About Circuits: ladder diagrams</a>: rails, rungs, loads at the right-hand end of a rung.</li>
+        </ul>
+        <p>The sample diagram is a generic example made for this page. Last checked: November 2026</p>
+      </section>
+    </article>
